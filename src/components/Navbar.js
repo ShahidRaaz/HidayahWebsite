@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import HLogo from "../assets/hlogo.png";
-import MenuIcon from "../assets/micon.png";
 import MenuOverlay from "./MenuOverlay";
 
 const links = [
@@ -17,11 +16,11 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex items-center justify-between relative z-30">
+      <nav className="fixed top-0 left-0 z-50 flex items-center justify-between w-full px-[5vw] flex items-center py-4">
         {/* Logo */}
-        <button className="bg-br-color w-[50px] h-[50px] flex items-center justify-center rounded-full" >
+        <div className="bg-br-color w-[50px] h-[50px] flex items-center justify-center rounded-full" >
           <img src={HLogo} alt="Logo" className="h-8" />
-        </button>
+        </div>
 
         {/* Desktop links (visible on md+) */}
         <ul className="hidden md:flex gap-2 py-4 bg-custom-teal items-center rounded-[50px] backdrop-blur-md h-[50px]">
@@ -42,12 +41,10 @@ const Navbar = () => {
         </ul>
         {/* Menu button (always visible) */}
         <button onClick={() => setMenuOpen(true)}
-        className="group w-12 h-12 flex items-center justify-center border-2 border-br-color rounded-full bg-white hover:bg-br-color transition duration-300">
+        className="group w-[50px] h-[50px] flex items-center justify-center border-2 border-br-color backdrop-blur-md rounded-full bg-custom-teal hover:bg-br-color transition duration-300">
         <svg width="24" height="24" viewBox="0 0 36 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="stroke-current text-br-color group-hover:text-white transition duration-300">
-        <path d="M8 2H28M2 14H34H8M8 26H28" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-       </svg>
-
-</button>
+        <path d="M8 2H28M2 14H34H8M8 26H28" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+       </button>
 
       </nav>
 

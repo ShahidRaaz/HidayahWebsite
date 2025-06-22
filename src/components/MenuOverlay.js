@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import HLogo from "../assets/hlogo.png";
 
-const links = [
-  { name: "Home", to: "/" },
-  { name: "About Us", to: "/about" },
-  { name: "Our Products", to: "/products" },
-  { name: "Contact Us", to: "/contact" },
-  { name: "Blogs", to: "/blogs" },
-];
+// const links = [
+//   { name: "Home", to: "/" },
+//   { name: "About Us", to: "/about" },
+//   { name: "Our Products", to: "/products" },
+//   { name: "Contact Us", to: "/contact" },
+//   { name: "Blogs", to: "/blogs" },
+// ];
 
 const MenuOverlay = ({ onClose }) => {
   const [visible, setVisible] = useState(false);
@@ -25,36 +26,24 @@ const MenuOverlay = ({ onClose }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 bg-white transform transition-transform duration-500 ${
+      className={`fixed inset-0 z-50 bg-white transform transition-transform duration-500 px-[4vw] py-3 ${
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="flex justify-end p-4">
-        <button
-          onClick={handleClose}
-          className="w-10 h-10 rounded-full border-2 border-teal-600 flex items-center justify-center hover:bg-teal-100 transition duration-300"
-        >
-          &times;
+      <div className="flex items-center justify-between content-center w-full">
+        {/* Logo */}
+        <button className="bg-br-color w-[50px] h-[50px] flex items-center justify-center rounded-full" >
+          <img src={HLogo} alt="Logo" className="h-8" />
         </button>
-      </div>
 
-      <ul className="flex flex-col items-center justify-center gap-6 text-lg font-semibold mt-12">
-        {links.map((link) => (
-          <li key={link.to}>
-            <NavLink
-              to={link.to}
-              onClick={handleClose}
-              className={({ isActive }) =>
-                `px-4 py-2 rounded-full transition ${
-                  isActive ? "bg-teal-600 text-white" : "text-gray-800 hover:text-teal-600"
-                }`
-              }
-            >
-              {link.name}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
+        <h1 className="text-[50px]">Hidayah</h1>
+
+        <button onClick={handleClose} className="group w-[50px] h-[50px] flex items-center justify-center border-2 border-br-color rounded-full bg-custom-teal hover:bg-br-color transition duration-300">
+        <svg width="20" height="20" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg" className="stroke-current text-br-color group-hover:text-white transition duration-300">
+        <path d="M13 13.5L25 25.5M13 13.5L1 1.5M13 13.5L1 25.5M13 13.5L25 1.5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+       </button>
+
+      </div>
     </div>
   );
 };
