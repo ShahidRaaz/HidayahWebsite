@@ -5,22 +5,22 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Product Sans', 'sans-serif'], // 👈 Set as default font
+        sans: ['Product Sans', 'sans-serif'],
       },
       colors: {
         'custom-teal': 'rgba(0, 128, 128, 0.1)',
-        'br-color':'#008080'
+        'br-color': '#008080',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
-      marquee: 'marquee 60s linear infinite',
-    },
-    keyframes: {
-      marquee: {
-        '0%': { transform: 'translateX(0%)' },
-        '100%': { transform: 'translateX(-50%)' },
+        marquee: 'marquee 45s linear infinite',
       },
     },
-  }
   },
   plugins: [],
 }

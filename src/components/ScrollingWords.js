@@ -11,17 +11,17 @@ const words = [
 ];
 
 export default function ScrollingWords() {
+  const wordElements = words.map((word, i) => (
+    <span key={i} className="text-3xl font-semibold mx-6 text-[#FFFFFF] whitespace-nowrap shrink-0">
+      /{word}
+    </span>
+  ));
+
   return (
-    <div className="w-full h-12 overflow-hidden relative flex items-center justify-center">
-      <div className="absolute w-max animate-marquee whitespace-nowrap flex">
-        {[...words, ...words].map((word, index) => (
-          <span
-            key={index}
-            className="text-3xl font-semibold mx-6 text-[#444444]"
-          >
-            /{word}
-          </span>
-        ))}
+    <div className="relative w-full overflow-hidden h-16 bg-br-color flex items-center">
+      <div className="flex w-max animate-marquee">
+        <div className="flex">{wordElements}</div>
+        <div className="flex">{wordElements}</div>
       </div>
     </div>
   );

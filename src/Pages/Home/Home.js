@@ -7,6 +7,7 @@ const Home = () =>
     <HeroS />
     <ScrollingWords />
     <AboutS/>
+    
 
 </div>;
 export default Home;
