@@ -12,7 +12,7 @@ const services = [
 ];
 
 const HeroS = () => (
-  <div className="flex flex-col lg:flex-row items-center justify-between px-[5vw] py-8 md:py-12 gap-6 w-full mx-auto">
+  <div className="flex flex-col lg:flex-row items-center justify-between px-[5vw] gap-6 w-full mx-auto">
 
     {/* Left Content */}
     <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-5 w-full lg:w-1/2">
@@ -51,7 +51,7 @@ const HeroS = () => (
       </section>
 
       {/* Buttons */}
-      <div className="flex flex-row gap-3 pt-4">
+      <div className="flex flex-row gap-3">
         <button className="bg-br-color text-white px-6 py-3 rounded-full font-medium text-base sm:text-lg hover:bg-teal-800 transition">
           Get in Touch
         </button>
@@ -66,7 +66,7 @@ const HeroS = () => (
       <img
         src={HIllust}
         alt="illustration"
-        className="h-[50vh] lg:h-[60vh] object-contain max-w-full"
+        className="md:w-[60vw] md:h-[25vh] lg:h-[80vh] object-contain max-w-full"
       />
     </div>
   </div>

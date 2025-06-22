@@ -9,7 +9,7 @@ import Blogs from "./Pages/Blogs/Blogs";
 function App() {
   return (
     <Router>
-      <div className="bg-[#F0F7F7] py-6">
+      <div className="bg-[#F0F7F7] py-12 sm:py-20 lg:py-12 min-h-screen">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

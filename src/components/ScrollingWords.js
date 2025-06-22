@@ -12,7 +12,7 @@ const words = [
 
 export default function ScrollingWords() {
   return (
-    <div className="w-full h-16 overflow-hidden relative">
+    <div className="w-full h-12 overflow-hidden relative flex items-center justify-center">
       <div className="absolute w-max animate-marquee whitespace-nowrap flex">
         {[...words, ...words].map((word, index) => (
           <span

@@ -16,7 +16,15 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 z-50 flex items-center justify-between w-full px-[5vw] flex items-center py-4">
+      <nav className="fixed z-50 flex items-center justify-between 
+                py-2 sm:py-2 lg:py-4 top-0
+                w-full px-[5vw]
+                max-sm:top-3 max-sm:left-1/2 max-sm:w-[95%] 
+                max-sm:-translate-x-1/2 max-sm:px-2 
+                max-sm:bg-white/50 max-sm:rounded-[50px] 
+                max-sm:backdrop-blur-md max-sm:shadow-md 
+                max-sm:transform">
+
         {/* Logo */}
         <div className="bg-br-color w-[50px] h-[50px] flex items-center justify-center rounded-full" >
           <img src={HLogo} alt="Logo" className="h-8" />

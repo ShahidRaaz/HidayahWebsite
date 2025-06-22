@@ -1,6 +1,6 @@
 export default function AboutSection() {
   return (
-    <div className="py-20 px-6 sm:px-4 lg:px-12">
+    <div className="px-6 sm:px-4 lg:px-12 lg:py-12">
       <div className="max-w-5xl mx-auto text-center flex flex-col items-center gap-1 md:gap-2 lg:gap-4">
         {/* Heading */}
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#444444]">
@@ -8,7 +8,7 @@ export default function AboutSection() {
         </h2>
 
         {/* Subheading */}
-        <p className="text-base sm:text-xl lg:text-2xl text-[#444444] font-medium">
+        <p className="text-base sm:text-2xl lg:text-3xl text-[#444444] font-medium">
           Crafting with Meaning & Faith for the Muslim Ummah.
         </p>
 
