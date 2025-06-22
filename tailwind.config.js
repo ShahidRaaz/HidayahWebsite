@@ -12,7 +12,7 @@ module.exports = {
         'br-color':'#008080'
       },
       animation: {
-      marquee: 'marquee 20s linear infinite',
+      marquee: 'marquee 60s linear infinite',
     },
     keyframes: {
       marquee: {
