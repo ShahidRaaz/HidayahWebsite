@@ -40,7 +40,7 @@ const products = [
 export default function ProductSection() {
   return (
     <div className="px-3 lg:px-12 lg:py-12">
-      <div className="max-full mx-auto flex flex-col gap-1 md:gap-2 lg:gap-4 mb-8">
+      <div className="max-full mx-2 md:mx-12 flex flex-col gap-1 md:gap-2 lg:gap-4">
         {/* Heading */}
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#444444]">
           Featured <span className="text-br-color">Products</span>

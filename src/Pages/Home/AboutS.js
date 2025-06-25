@@ -2,15 +2,12 @@ import { motion } from 'framer-motion';
 export default function AboutSection() {
   return (
     <motion.div initial={{ opacity: 0, scale: 0.85 }}
-  whileInView={{ opacity: 1, scale: 1 }}
-  transition={{
-    duration: 0.5,
-    delay: 0.1,
-    ease: [0.17, 0.67, 0.83, 0.67], // easeOutBack
-  }}
-  viewport={{ once: true, amount: 0.2 }} 
-    className="px-3 lg:px-12 lg:py-12">
-      <div className="max-w-5xl mx-auto text-center flex flex-col items-center gap-1 md:gap-2 lg:gap-4">
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, delay: 0.1, ease: [0.17, 0.67, 0.83, 0.67]}}
+      viewport={{ once: true, amount: 0.2 }} 
+      className="px-3 lg:px-12 lg:py-12">
+
+      <div className="max-full mx-2 md:mx-12 text-center flex flex-col items-center gap-1 md:gap-2 lg:gap-4">
         {/* Heading */}
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#444444]">
           About <span className="text-br-color">Hidayah</span>
