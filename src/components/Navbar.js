@@ -17,13 +17,8 @@ const Navbar = () => {
   return (
     <>
       <nav className="fixed z-50 flex items-center justify-between 
-                py-2 sm:py-2 lg:py-4 top-0
-                w-full px-[5vw]
-                max-sm:top-3 max-sm:left-1/2 max-sm:w-[95%] 
-                max-sm:-translate-x-1/2 max-sm:px-2 
-                max-sm:bg-white/50 max-sm:rounded-[50px] 
-                max-sm:backdrop-blur-md max-sm:shadow-md 
-                max-sm:transform">
+                py-4 xl:py-8 top-0
+                w-full px-[5vw] max-sm:bg-white/2 bg-opacity-90 backdrop-blur-md">
 
         {/* Logo */}
         <div className="bg-br-color w-[50px] h-[50px] flex items-center justify-center rounded-full" >

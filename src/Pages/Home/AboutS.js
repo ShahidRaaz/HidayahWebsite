@@ -1,6 +1,15 @@
+import { motion } from 'framer-motion';
 export default function AboutSection() {
   return (
-    <div className="px-6 sm:px-4 lg:px-12 lg:py-12">
+    <motion.div initial={{ opacity: 0, scale: 0.85 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  transition={{
+    duration: 0.5,
+    delay: 0.1,
+    ease: [0.17, 0.67, 0.83, 0.67], // easeOutBack
+  }}
+  viewport={{ once: true, amount: 0.2 }} 
+    className="px-3 lg:px-12 lg:py-12">
       <div className="max-w-5xl mx-auto text-center flex flex-col items-center gap-1 md:gap-2 lg:gap-4">
         {/* Heading */}
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#444444]">
@@ -24,7 +33,11 @@ export default function AboutSection() {
         <p className="text-base sm:text-xl lg:text-2xl text-[#444444] px-2 sm:px-10 lg:px-16">
           With Hidayah, you're not just using a product — you're experiencing faith through design.
         </p>
+
+        <button className="border-2 border-br-color text-br-color px-6 py-2 my-2 lg:my-1 rounded-full font-medium text-base sm:text-lg hover:bg-custom-teal transition">
+          Read More
+        </button>
       </div>
-    </div>
+    </motion.div>
   );
 }

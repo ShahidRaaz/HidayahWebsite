@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import plogo from "../../assets/plogo.png";
 import HIllust from "../../assets/hillust.png";
 
@@ -6,34 +7,31 @@ const services = [
   'Mobile Themes',
   'Widgets',
   'Graphics & Illustrations',
-  'Brand Logo',
   'Mobile Apps',
   'Websites',
 ];
-
 const HeroS = () => (
-  <div className="flex flex-col lg:flex-row items-center justify-between px-[5vw] gap-6 w-full mx-auto">
+  <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: 'easeInOut' }} viewport={{ once: true }}
+  className="flex flex-col xl:flex-row items-center justify-between px-[5vw] gap-6 w-full mx-auto">
 
     {/* Left Content */}
-    <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-5 w-full lg:w-1/2">
-      {/* Logo & Heading */}
-      <img src={plogo} alt="plogo" className="h-14 md:h-20 lg:h-[100px]" />
-
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-neutral-700 tracking-wide leading-snug">
-        Products That Guide
-      </h1>
-
+    <div className="flex flex-col items-center xl:items-start text-center xl:text-left gap-6 w-full xl:w-1/2 lg:my-10">
+      <div className="flex flex-col items-center xl:items-start text-center xl:text-left lg:gap-2 w-full">
+        <img src={plogo} alt="plogo" className="h-14 md:h-20 lg:h-[100px] mb-2" />
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-neutral-700 tracking-wide leading-snug">
+        Products That Guide</h1>
       <p className="text-2xl sm:text-2xl md:text-3xl text-neutral-700">
         Crafting Digital Products with Meaning & Faith
       </p>
+    </div>
 
       {/* Services */}
-      <section className="text-gray-800 w-full">
-        <h2 className="text-xl md:text-3xl font-light flex flex-wrap justify-center lg:justify-start gap-1">
+      <section className="text-[#444444] w-full flex flex-col items-center xl:items-start text-center xl:text-left gap-3">
+        <h2 className="text-xl md:text-3xl font-normal flex flex-wrap justify-center xl:justify-start gap-2">
           At <span className="text-br-color font-semibold">Hidayah</span> we craft
         </h2>
 
-        <div className="mt-4 flex flex-wrap justify-center lg:justify-start gap-3">
+        <div className="flex flex-wrap justify-center xl:justify-start gap-2">
           {services.map((service, idx) => (
             <a
               key={idx}
@@ -45,13 +43,13 @@ const HeroS = () => (
           ))}
         </div>
 
-        <p className="mt-3 text-xl md:text-3xl font-light">
+        <p className="text-xl md:text-3xl font-light">
           and more for global Muslim community.
         </p>
       </section>
 
       {/* Buttons */}
-      <div className="flex flex-row gap-3">
+      <div className="flex flex-row gap-3 max-sm:flex-col">
         <button className="bg-br-color text-white px-6 py-3 rounded-full font-medium text-base sm:text-lg hover:bg-teal-800 transition">
           Get in Touch
         </button>
@@ -62,14 +60,10 @@ const HeroS = () => (
     </div>
 
     {/* Right Illustration - Hidden on small */}
-    <div className="hidden md:flex w-full lg:w-1/2 justify-center">
-      <img
-        src={HIllust}
-        alt="illustration"
-        className="md:w-[60vw] md:h-[25vh] lg:h-[80vh] object-contain max-w-full"
-      />
+    <div className="hidden md:flex w-[700px] justify-center mt-6 md:mt-0">
+    <img src={HIllust} alt="illustration" className="max-w-full h-auto" />
     </div>
-  </div>
+  </motion.div>
 );
 
 export default HeroS;

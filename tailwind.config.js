@@ -20,6 +20,7 @@ module.exports = {
       animation: {
         marquee: 'marquee 45s linear infinite',
       },
+      
     },
   },
   plugins: [],

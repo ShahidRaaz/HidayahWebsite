@@ -1,2 +1,2 @@
-const Products = () => <div className="p-6 text-xl">Explore Our Products</div>;
+const Products = () => <div className="px-[5vw] py-8 text-xl">Explore Our Products</div>;
 export default Products;

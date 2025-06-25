@@ -26,7 +26,7 @@ const MenuOverlay = ({ onClose }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 bg-white transform transition-transform duration-500 px-[5vw] py-5 lg:py-3 ${
+      className={`fixed inset-0 z-50 bg-white transform transition-transform duration-500 px-[5vw] py-8 ${
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >

@@ -12,7 +12,7 @@ const words = [
 
 export default function ScrollingWords() {
   const wordElements = words.map((word, i) => (
-    <span key={i} className="text-3xl font-semibold mx-6 text-[#FFFFFF] whitespace-nowrap shrink-0">
+    <span key={i} className="text-2xl font-semibold mx-6 text-[#FFFFFF] whitespace-nowrap shrink-0">
       /{word}
     </span>
   ));
