@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { Analytics } from "@vercel/analytics/react"
 import SplashScreen from "./components/SplashScreen";
 import CircleCursor from "./components/cursor";
 import Navbar from "./components/Navbar";
@@ -51,6 +51,7 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
+      <Analytics />
     </>
   );
 }
