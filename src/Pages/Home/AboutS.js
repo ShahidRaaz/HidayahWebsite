@@ -5,7 +5,7 @@ export default function AboutSection() {
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay: 0.1, ease: [0.17, 0.67, 0.83, 0.67]}}
       viewport={{ once: true, amount: 0.2 }} 
-      className="px-3 lg:px-12 lg:py-12">
+      className="px-3 lg:px-12 h-auto">
 
       <div className="max-full mx-2 md:mx-12 text-center flex flex-col items-center gap-1 md:gap-2 lg:gap-4">
         {/* Heading */}
@@ -15,25 +15,18 @@ export default function AboutSection() {
 
         {/* Subheading */}
         <p className="text-base sm:text-2xl lg:text-3xl text-[#444444] font-medium">
-          Crafting with Meaning & Faith for the Muslim Ummah.
+          Crafting with Purpose & Faith for the Muslim Ummah.
         </p>
 
         {/* First paragraph */}
         <p className="text-base sm:text-xl lg:text-2xl text-[#444444] px-2 sm:px-10 lg:px-16">
-          At <span className="text-br-color font-semibold">Hidayah</span>, we create meaningful digital products designed to enrich the lives
-          of Muslims around the world. Every item in our collection is built with purpose — blending beautiful design
-          with Islamic values to inspire, guide, and connect. Whether it's a mobile app, a wallpaper, or a faith-focused
-          widget, our goal is simple: to make digital tools that serve both the heart and the soul.
+          <span className="text-br-color font-semibold">Hidayah</span> is India’s first Islamic design and technology company. Our mission is to create meaningful, faith-inspired digital experiences that empower Muslims worldwide to engage with technology in an authentic and spiritually enriching way.
         </p>
 
-        {/* Second paragraph */}
-        <p className="text-base sm:text-xl lg:text-2xl text-[#444444] px-2 sm:px-10 lg:px-16">
-          With Hidayah, you're not just using a product — you're experiencing faith through design.
-        </p>
-
-        <button className="border-2 border-br-color text-br-color px-6 py-2 my-2 lg:my-1 rounded-full font-medium text-base sm:text-lg hover:bg-custom-teal transition">
-          Read More
-        </button>
+        <button className="cursor-cta bg-br-color/10 text-base sm:text-lg relative overflow-hidden px-6 py-3 font-medium text-br-color rounded-full group border-2 border-br-color hover:text-white transition">
+            <span className="relative z-10 transition-colors duration-300 group-hover:text-white">Read More</span>
+            <span className="absolute left-0 bottom-0 w-full h-0 bg-br-color transition-all duration-300 group-hover:h-full" aria-hidden="true"></span>
+          </button>
       </div>
     </motion.div>
   );

@@ -1,67 +1,55 @@
 import { motion } from 'framer-motion';
 import plogo from "../../assets/plogo.png";
 import HIllust from "../../assets/hillust.png";
-
-const services = [
-  'Mobile & Desktop Wallpapers',
-  'Mobile Themes',
-  'Widgets',
-  'Graphics & Illustrations',
-  'Mobile Apps',
-  'Websites',
-];
 const HeroS = () => (
-  <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: 'easeInOut' }} viewport={{ once: true }}
-  className="flex flex-col xl:flex-row items-center justify-between px-[5vw] gap-6 w-full mx-auto">
-
+  <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 2, ease: 'easeInOut' }}
+    viewport={{ once: true }}
+    className="flex flex-col xl:flex-row items-center justify-between px-[5vw] py-[5vh] w-full mx-auto h-auto xl:h-[425px] xl:mt-20 gap-12 xl:gap-0"
+  >
     {/* Left Content */}
-    <div className="flex flex-col items-center xl:items-start text-center xl:text-left gap-6 w-full xl:w-1/2 lg:my-10">
-      <div className="flex flex-col items-center xl:items-start text-center xl:text-left lg:gap-2 w-full">
+    <div className="flex flex-col items-center xl:items-start text-center xl:text-left gap-2 w-full xl:w-1/2 ">
+      <div className="flex flex-col items-center xl:items-start text-center xl:text-left gap-1 w-full">
         <img src={plogo} alt="plogo" className="h-14 md:h-20 lg:h-[100px] mb-2" />
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-neutral-700 tracking-wide leading-snug">
-        Products That Guide</h1>
-      <p className="text-2xl sm:text-2xl md:text-3xl text-neutral-700">
-        Crafting Digital Products with Meaning & Faith
-      </p>
-    </div>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#444444] tracking-wide leading-snug">
+          Products That Guide
+        </h1>
+        <p className="text-2xl sm:text-2xl md:text-3xl text-[#444444]">
+          Crafting Digital Products with Purpose & Faith
+        </p>
+      </div>
 
-      {/* Services */}
-      <section className="text-[#444444] w-full flex flex-col items-center xl:items-start text-center xl:text-left gap-3">
-        <h2 className="text-xl md:text-3xl font-normal flex flex-wrap justify-center xl:justify-start gap-2">
-          At <span className="text-br-color font-semibold">Hidayah</span> we craft
-        </h2>
-
-        <div className="flex flex-wrap justify-center xl:justify-start gap-2">
-          {services.map((service, idx) => (
-            <a
-              key={idx}
-              href="#"
-              className="bg-custom-teal text-br-color px-4 py-2 rounded-full border border-br-color hover:bg-br-color hover:text-white transition-all duration-200 text-lg sm:text-xl"
-            >
-              {service}
-            </a>
-          ))}
+      <div className="w-full flex flex-col items-center xl:items-start text-center xl:text-left gap-8 mt-6">
+        <div className="flex flex-col items-center xl:items-start text-center xl:text-left gap-0 w-full">
+          <h2 className="text-xl md:text-3xl font-normal flex flex-wrap justify-center xl:justify-start gap-2">
+            At <span className="text-br-color font-semibold">Hidayah</span> we craft design & tech products
+          </h2>
+          <p className="text-xl md:text-3xl font-light">
+            for global Muslim community.
+          </p>
         </div>
 
-        <p className="text-xl md:text-3xl font-light">
-          and more for global Muslim community.
-        </p>
-      </section>
 
-      {/* Buttons */}
-      <div className="flex flex-row gap-3 max-sm:flex-col">
-        <button className="bg-br-color text-white px-6 py-3 rounded-full font-medium text-base sm:text-lg hover:bg-teal-800 transition">
-          Get in Touch
-        </button>
-        <button className="border-2 border-br-color text-br-color px-6 py-3 rounded-full font-medium text-base sm:text-lg hover:bg-custom-teal transition">
-          Explore Our Products
-        </button>
+        {/* Buttons */}
+        <div className="flex flex-row gap-3 max-sm:flex-col">
+          <button className="cursor-cta bg-br-color/10 text-base sm:text-lg relative overflow-hidden px-6 py-3 font-medium text-br-color rounded-full group border-2 border-br-color hover:text-white transition">
+            <span className="relative z-10 transition-colors duration-300 group-hover:text-white">Join the Waitlist</span>
+            <span className="absolute left-0 bottom-0 w-full h-0 bg-br-color transition-all duration-300 group-hover:h-full" aria-hidden="true"></span>
+          </button>
+
+{/* 
+          <button className="border-2 border-br-color/25 text-br-color px-6 py-3 rounded-full font-medium text-base sm:text-lg hover:bg-custom-teal transition">
+            Explore Our Products
+          </button> */}
+        </div>
       </div>
     </div>
 
-    {/* Right Illustration - Hidden on small */}
-    <div className="hidden md:flex w-[700px] justify-center mt-6 md:mt-0">
-    <img src={HIllust} alt="illustration" className="max-w-full h-auto" />
+    {/* Right Illustration - Hidden on small screens */}
+    <div className="hidden md:flex md:w-[75vw] xl:w-1/2 justify-center items-center">
+      <img src={HIllust} alt="illustration" className="max-w-full h-auto" />
     </div>
   </motion.div>
 );
