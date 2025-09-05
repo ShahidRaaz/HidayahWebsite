@@ -18,22 +18,22 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, x: 90, scale: 0.85 },
+  hidden: { opacity: 0, y: 40, scale: 0.85 },
   visible: { 
     opacity: 1, 
-    x: 0, 
+    y: 0, 
     scale: 1,
     transition: {
       type: "spring",
       stiffness: 70,
       damping: 25,
-      duration: 1.2,
+      duration: 1,
       ease: [0.6, 0.05, -0.01, 0.9]
     }
   },
   hover: {
     scale: 1.05,
-    y: -6,
+    y: 6,
     transition: {
       type: "spring",
       stiffness: 300,
@@ -61,8 +61,8 @@ export default function OurWorkSection() {
       <div className="max-w-screen-xl mx-auto px-6 mb-6">
         <motion.h2
           className="text-[#444444] text-4xl md:text-5xl font-extrabold mb-6 text-center"
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
         >
@@ -70,8 +70,8 @@ export default function OurWorkSection() {
         </motion.h2>
         <motion.p
           className="text-base sm:text-2xl lg:text-3xl text-[#444444] font-medium"
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.15, ease: "easeInOut" }}
         >
@@ -85,7 +85,7 @@ export default function OurWorkSection() {
           {works.map((work, i) => (
             <motion.div
               key={work.title}
-              className="bg-[#f9fcfd] rounded-2xl border-2 border-br-color max-w-[300px] w-full flex flex-col cursor-pointer overflow-hidden"
+              className="bg-[#f9fcfd] rounded-2xl border-2 border-br-color/25 max-w-[300px] w-full flex flex-col cursor-pointer overflow-hidden transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10"
               variants={cardVariants}
               whileHover="hover"
               initial="hidden"

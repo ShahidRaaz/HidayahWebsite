@@ -35,8 +35,8 @@ const HeroS = () => (
         {/* Buttons */}
         <div className="flex flex-row gap-3 max-sm:flex-col">
           <button className="cursor-cta bg-br-color/10 text-base sm:text-lg relative overflow-hidden px-6 py-3 font-medium text-br-color rounded-full group border-2 border-br-color hover:text-white transition">
-            <span className="relative z-10 transition-colors duration-300 group-hover:text-white">Join the Waitlist</span>
-            <span className="absolute left-0 bottom-0 w-full h-0 bg-br-color transition-all duration-300 group-hover:h-full" aria-hidden="true"></span>
+            <span className="relative z-10 transition-colors duration-500 group-hover:text-white">Join the Waitlist</span>
+            <span className="absolute left-0 bottom-0 w-full h-0 bg-br-color transition-all duration-500 group-hover:h-full" aria-hidden="true"></span>
           </button>
 
 {/* 

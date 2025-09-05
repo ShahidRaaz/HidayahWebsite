@@ -1,28 +1,47 @@
 import { motion } from "framer-motion";
 
-const fadeScaleIn = {
-  initial: { opacity: 0, scale: 0.85 },
-  whileInView: { opacity: 1, scale: 1 },
-  transition: { duration: 0.5, delay: 0.1, ease: [0.17, 0.67, 0.83, 0.67] },
-  viewport: { once: true, amount: 0.2 },
-};
+// const fadeScaleIn = {
+//   initial: { opacity: 0, scale: 0.85 },
+//   whileInView: { opacity: 1, scale: 1 },
+//   transition: { duration: 0.5, delay: 0.1, ease: [0.17, 0.67, 0.83, 0.67] },
+//   viewport: { once: true, amount: 0.2 },
+// };
 
 const containerVariants = {
-  hidden: { opacity: 0 },
+  hidden: {},
   visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 },
-  },
+    transition: {
+      staggerChildren: 0.24,
+      delayChildren: 0.35,
+    }
+  }
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 120, damping: 16, duration: 0.7 },
+  hidden: { opacity: 0, y: 40, scale: 0.85 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 70,
+      damping: 25,
+      duration: 1,
+      ease: [0.6, 0.05, -0.01, 0.9]
+    }
   },
+  hover: {
+    scale: 1.05,
+    y: 6,
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 20
+    }
+  }
 };
+
 
 export default function TargetAudience() {
   const audienceData = [
@@ -49,7 +68,11 @@ export default function TargetAudience() {
   ];
 
   return (
-    <motion.section {...fadeScaleIn} className="items-center px-[5vw]">
+    <motion.section
+    className="items-center px-[5vw]" initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={containerVariants} >
       <div className="max-w-screen-xl mx-auto text-center px-4 md:px-8">
         {/* Section Heading */}
         <motion.h2
@@ -91,17 +114,17 @@ export default function TargetAudience() {
         {/* Cards Grid */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8"
-          initial="hidden"
-          whileInView="visible"
           variants={containerVariants}
-          viewport={{ once: true, amount: 0.3 }}
         >
           {audienceData.map((item, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
-              className="relative border-2 border-gray-300 rounded-3xl p-8 bg-white transition-all duration-300 hover:border-br-color hover:scale-105"
-              viewport={{ once: true, amount: 0.5 }}
+              whileHover="hover"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.45 }}
+              className="relative border-2 border-br-color/25 rounded-3xl p-8 bg-white transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10 cursor-pointer"
             >
               <h3 className="text-2xl md:text-3xl font-bold mb-3 text-br-color">{item.title}</h3>
               <p className="text-lg md:text-xl text-[#444444]">{item.description}</p>
