@@ -18,10 +18,10 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.85 },
+  hidden: { opacity: 0, x: 40, scale: 0.85 },
   visible: { 
     opacity: 1, 
-    y: 0, 
+    x: 0, 
     scale: 1,
     transition: {
       type: "spring",
@@ -52,11 +52,11 @@ export default function OurWorkSection() {
 
   return (
     <motion.section
-      className=""
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={containerVariants}
+      className=""
     >
       <div className="max-w-screen-xl mx-auto px-6 mb-6">
         <motion.h2
@@ -69,7 +69,7 @@ export default function OurWorkSection() {
           Our <span className="text-br-color">Works</span>
         </motion.h2>
         <motion.p
-          className="text-base sm:text-2xl lg:text-3xl text-[#444444] font-medium"
+          className="text-base sm:text-2xl lg:text-3xl text-[#444444] font-medium text-center"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -78,14 +78,15 @@ export default function OurWorkSection() {
           Explore some of our design and digital innovation that brings faith and creativity together.
         </motion.p>
 
+        {/* Updated grid: 2 columns layout on small and up */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 justify-items-center mt-10"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-10"
           variants={containerVariants}
         >
           {works.map((work, i) => (
             <motion.div
               key={work.title}
-              className="bg-[#f9fcfd] rounded-2xl border-2 border-br-color/25 max-w-[300px] w-full flex flex-col cursor-pointer overflow-hidden transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10"
+              className="bg-[#f9fcfd] rounded-2xl border-2 border-br-color p-6 flex flex-row cursor-pointer overflow-hidden transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10"
               variants={cardVariants}
               whileHover="hover"
               initial="hidden"
@@ -94,16 +95,16 @@ export default function OurWorkSection() {
               tabIndex={0}
               custom={i}
             >
+              <div className="flex flex-col items-start mr-6 w-full">
+                <h3 className="text-br-color text-xl font-semibold mb-2">{work.title}</h3>
+                <p className="text-[#444444] text-base">{work.description}</p> 
+              </div>
               <img
                 src={work.imgUrl}
                 alt={work.title}
-                className="aspect-[4/3] w-full object-cover"
+                className="h-[150px] w-auto rounded-xl"
                 loading="lazy"
               />
-              <div className="p-5 flex flex-col flex-grow">
-                <h3 className="text-br-color text-xl font-semibold mb-2">{work.title}</h3>
-                <p className="text-[#444444] text-base">{work.description}</p>
-              </div>
             </motion.div>
           ))}
         </motion.div>
