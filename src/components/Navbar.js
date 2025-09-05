@@ -39,13 +39,10 @@ const Navbar = () => {
         </div>
 
         {/* Desktop links (visible on md+) */}
-        <ul className="hidden md:flex gap-2 py-4 bg-custom-teal items-center rounded-[50px] backdrop-blur-md h-[50px]">
+        <ul className="hidden md:flex gap-2 py-4 bg-custom-teal items-center rounded-[50px] backdrop-blur-md h-auto">
           {links.map((link) => (
             <li key={link.to}>
-              <NavLink
-              onClick={handleNavClick}
-          onMouseLeave={handleNavMouseLeave}
-                to={link.to}
+              <NavLink onClick={handleNavClick} onMouseLeave={handleNavMouseLeave} to={link.to}
                 className={({ isActive }) =>
                   `justify-start text-lg item-center font-normal px-6 py-4 rounded-[50px] h-[50px] ${
                     isActive? "bg-br-color text-white justify-center items-center" : "text-gray-500 hover:bg-custom-teal hover:text-gray-700 transition"
