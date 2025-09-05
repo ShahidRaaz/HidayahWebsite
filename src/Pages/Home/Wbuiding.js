@@ -83,7 +83,7 @@ export default function IslamicEcosystem() {
       {/* Top Section - Two Cards Slide In Left & Right */}
       <div className="w-[80vw] p-3 rounded-3xl outline outline-[3px] outline-offset-[-3px] outline-br-color flex flex-col lg:flex-row justify-start items-start gap-3 mt-6">
 
-        <motion.div {...slideInLeft} className="self-stretch p-6 bg-white rounded-3xl flex flex-col justify-start items-center">
+        <motion.div {...slideInLeft} className="self-stretch p-6 bg-white rounded-3xl flex flex-col justify-start items-center ">
           <h2 className="text-3xl font-semibold text-[#444444] mb-4 text-center">
             Creative <span className="text-br-color">Designs</span>
           </h2>
@@ -92,10 +92,10 @@ export default function IslamicEcosystem() {
             whileInView="visible"
             variants={containerVariants}
             viewport={{ once: true, amount: 0.4 }}
-            className="flex flex-wrap gap-3 items-center justify-center"
+            className="flex flex-wrap gap-3 items-center justify-center "
           >
             {creativeDesigns.map((item) => (
-              <motion.span key={item} variants={childVariants} className="px-3 py-1 text-br-color border border-br-color rounded-full bg-custom-teal text-lg font-medium text-center">
+              <motion.span key={item} variants={childVariants} className="px-3 py-1 text-br-color rounded-full bg-custom-teal text-lg font-medium text-center border-2 border-br-color/25 hover:border-br-color">
                 {item} 
               </motion.span>
             ))}
@@ -114,7 +114,7 @@ export default function IslamicEcosystem() {
             className="flex flex-wrap gap-3 items-center justify-center"
           >
             {innovativeSoftwares.map((item) => (
-              <motion.span key={item} variants={childVariants} className="px-3 py-1 text-br-color border border-br-color rounded-full bg-custom-teal lg:text-lg text-md font-medium text-center text-height-20">
+              <motion.span key={item} variants={childVariants} className="px-3 py-1 text-br-color rounded-full bg-custom-teal text-lg font-medium text-center border-2 border-br-color/25 hover:border-br-color">
                 {item}
               </motion.span>
             ))}
