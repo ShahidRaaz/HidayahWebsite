@@ -45,7 +45,7 @@ const cardVariants = {
 export default function OurWorkSection() {
   const works = [
     { title: "Wallpaper Designs", description: "Beautiful Islamic inspired wallpapers.", imgUrl: images.wallpaper },
-    { title: "Social Media Posts", description: "Creative posts for social engagement.", imgUrl: images.social },
+    { title: "Social Media Designs", description: "Creative designs for social engagement.", imgUrl: images.social },
     { title: "Logo Designs", description: "Unique logos tailored for Islamic brands.", imgUrl: images.logo },
     { title: "UI Design", description: "Visually appealing user interface design.", imgUrl: images.uidesign },
   ];
