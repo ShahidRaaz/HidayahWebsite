@@ -29,34 +29,40 @@ const Navbar = () => {
   return (
     <>
      <Cursor ref={cursorRef} />
-      <nav className="fixed z-50 flex items-center justify-between 
-                py-[3vh] top-0
-                w-full px-[5vw] max-sm:bg-white/2 bg-opacity-90 backdrop-blur-lg">
+      <nav className="fixed z-50 flex items-center justify-between py-[25px] top-0 w-full px-[5vw] max-sm:bg-white/2 bg-opacity-90 backdrop-blur-lg">
 
         {/* Logo */}
-        <div className="bg-br-color w-[50px] h-[50px] flex items-center justify-center rounded-full" >
+        <div className="bg-br-color w-[56px] h-[56px] flex items-center justify-center rounded-full" >
           <img src={HLogo} alt="Logo" className="h-8" />
         </div>
 
         {/* Desktop links (visible on md+) */}
-        <ul className="hidden md:flex gap-2 bg-custom-teal rounded-[50px] backdrop-blur-md py-4 px-2 items-center justify-center]">
-          {links.map((link) => (
-            <li key={link.to}>
-              <NavLink onClick={handleNavClick} onMouseLeave={handleNavMouseLeave} to={link.to}
-                className={({ isActive }) =>
-                  `justify-start text-lg item-center font-normal px-4 py-3 rounded-[50px] ${
-                    isActive? "bg-br-color text-white justify-center items-center" : "text-gray-500 hover:bg-custom-teal hover:text-gray-700 transition"
-                  }`
-                }
-              >
-                {link.name}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+<ul className="hidden md:flex gap-2 bg-custom-teal rounded-[50px] backdrop-blur-md py-0 px-1 h-[56px] items-center justify-center">
+  {links.map((link) => (
+    <li key={link.to} className="h-[50px] flex">
+      <NavLink
+        onClick={handleNavClick}
+        onMouseLeave={handleNavMouseLeave}
+        to={link.to}
+        className={({ isActive }) =>
+          `flex items-center justify-center text-lg font-normal px-4 rounded-[50px] h-full ${
+            isActive
+              ? "bg-br-color text-white"
+              : "text-gray-500 hover:bg-custom-teal hover:text-gray-700 transition"
+          }`
+        }
+      >
+        {link.name}
+      </NavLink>
+    </li>
+  ))}
+</ul>
+
+
+
         {/* Menu button (always visible) */}
         <button onClick={() => setMenuOpen(true)}
-        className="cursor-cta group w-[50px] h-[50px] flex items-center justify-center border-2 border-br-color backdrop-blur-md rounded-full bg-custom-teal hover:bg-br-color transition duration-300">
+        className="cursor-cta group w-[56px] h-[56px] flex items-center justify-center border-2 border-br-color backdrop-blur-md rounded-full bg-custom-teal hover:bg-br-color transition duration-300">
         <svg width="24" height="24" viewBox="0 0 36 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="stroke-current text-br-color group-hover:text-white transition duration-300">
         <path d="M8 2H28M2 14H34H8M8 26H28" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
        </button>

@@ -85,30 +85,37 @@ export default function OurWorkSection() {
         >
           {works.map((work, i) => (
             <motion.div
-              key={work.title}
-              className="bg-[#f9fcfd] rounded-2xl border-2 border-br-color/25 p-6 flex flex-row cursor-pointer overflow-hidden transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10 gap-4"
-              variants={cardVariants}
-              whileHover="hover"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.45 }}
-              tabIndex={0}
-              custom={i}
-            >
-              <div className="flex flex-col items-start w-full">
-                <h3 className="text-br-color text-2xl font-semibold mb-2 text-left">{work.title}</h3>
-                <p className="text-[#444444] text-xl text-left">{work.description}</p> 
-              </div>
-              <div className="h-[200px] w-[400px]">
-                <img
-                src={work.imgUrl}
-                alt={work.title}
-                className="rounded-xl fill object-cover h-full w-full"
-                loading="lazy"
-              />
-              </div>
-              
-            </motion.div>
+  key={work.title}
+  className="bg-[#f9fcfd] rounded-2xl border-2 border-br-color/25 p-4 sm:p-6 md:p-8 flex flex-col lg:flex-row cursor-pointer overflow-hidden transition-all duration-200 hover:border-br-color hover:shadow-md hover:shadow-br-color/10 gap-6 sm:gap-12"
+  variants={cardVariants}
+  whileHover="hover"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.45 }}
+  tabIndex={0}
+  custom={i}
+>
+
+  {/* Image first on mobile (order-1), second on large screens (order-2) */}
+  <div className="w-full lg:w-1/2 order-1 lg:order-2">
+    <img
+      src={work.imgUrl}
+      alt={work.title}
+      className="rounded-xl object-cover w-full aspect-[4/3]"
+      loading="lazy"
+    />
+  </div>
+
+  {/* Text second on mobile (order-2), first on large screens (order-1) */}
+  <div className="flex flex-col items-start w-full lg:w-1/2 order-2 lg:order-1 gap-2">
+    <h3 className="text-br-color text-xl sm:text-2xl font-semibold text-left">{work.title}</h3>
+    <p className="text-[#444444] text-base sm:text-lg md:text-xl leading-relaxed text-left">
+      {work.description}
+    </p>
+  </div>
+
+</motion.div>
+
           ))}
         </motion.div>
       </div>
