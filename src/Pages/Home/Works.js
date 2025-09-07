@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const images = {
-  wallpaper: "https://img.freepik.com/free-vector/ramadan-kareem-background_53876-66667.jpg",
-  social: "https://img.freepik.com/free-vector/ramadan-kareem-background_53876-66667.jpg",
-  logo: "https://img.freepik.com/free-vector/ramadan-kareem-background_53876-66667.jpg",
-  smartMosque: "https://img.freepik.com/free-vector/ramadan-kareem-background_53876-66667.jpg",
+  wallpaper: "https://w0.peakpx.com/wallpaper/860/701/HD-wallpaper-islamic-dhikr-of-allah-islam-thumbnail.jpg",
+  social: "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/5dcd87140369873.6240b0ba5d411.jpg",
+  logo: "https://img.freepik.com/free-vector/islamic-logo-two-colors_23-2148627419.jpg?semt=ais_hybrid&w=740&q=80",
+  uidesign: "https://media.licdn.com/dms/image/v2/D4D22AQE4kSsZQ-fTDg/feedshare-shrink_800/feedshare-shrink_800/0/1696502977434?e=2147483647&v=beta&t=T9eEzriMq04P2aLG2LDV1D-9PV6pMHhvqouRpilLht8",
 };
 
 const containerVariants = {
@@ -32,7 +32,7 @@ const cardVariants = {
     }
   },
   hover: {
-    scale: 1.05,
+    scale: 1.02,
     y: 6,
     transition: {
       type: "spring",
@@ -47,7 +47,7 @@ export default function OurWorkSection() {
     { title: "Wallpaper Designs", description: "Beautiful Islamic inspired wallpapers.", imgUrl: images.wallpaper },
     { title: "Social Media Posts", description: "Creative posts for social engagement.", imgUrl: images.social },
     { title: "Logo Designs", description: "Unique logos tailored for Islamic brands.", imgUrl: images.logo },
-    { title: "Smart Mosque UI", description: "Innovative digital signage for mosques.", imgUrl: images.smartMosque },
+    { title: "UI Design", description: "Visually appealing user interface design.", imgUrl: images.uidesign },
   ];
 
   return (
@@ -99,12 +99,15 @@ export default function OurWorkSection() {
                 <h3 className="text-br-color text-2xl font-semibold mb-2 text-left">{work.title}</h3>
                 <p className="text-[#444444] text-xl text-left">{work.description}</p> 
               </div>
-              <img
+              <div className="h-[200px] w-[400px]">
+                <img
                 src={work.imgUrl}
                 alt={work.title}
-                className="h-[100px] w-auto rounded-xl"
+                className="rounded-xl fill object-cover h-full w-full"
                 loading="lazy"
               />
+              </div>
+              
             </motion.div>
           ))}
         </motion.div>

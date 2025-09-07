@@ -1,5 +1,5 @@
 import HeroS from "./HeroS";
-import ScrollingWords from '../../components/ScrollingWords';
+import ScrollingWords from './ScrollingWords';
 import AboutS from "./AboutS";
 import BuildingS from "./Wbuiding";
 import OTA from "./OTA";

@@ -8,6 +8,31 @@ const fadeScaleIn = {
   viewport: { once: true, amount: 0.2 },
 };
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.85 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 70,
+      damping: 25,
+      duration: 1,
+      ease: [0.6, 0.05, -0.01, 0.9]
+    }
+  },
+  hover: {
+    scale: 1.05,
+    y: 6,
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 20
+    }
+  }
+};
+
 const slideInLeft = {
   initial: { opacity: 0, x: -100 },
   whileInView: { opacity: 1, x: 0 },
@@ -23,11 +48,13 @@ const slideInRight = {
 };
 
 const containerVariants = {
-  hidden: { opacity: 0 },
+  hidden: {},
   visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.3 },
-  },
+    transition: {
+      staggerChildren: 0.24,
+      delayChildren: 0.35,
+    }
+  }
 };
 
 const childVariants = {
@@ -81,8 +108,13 @@ export default function IslamicEcosystem() {
       </div>
 
       {/* Top Section - Two Cards Slide In Left & Right */}
-      <div className="w-[80vw] p-3 rounded-3xl outline outline-[3px] outline-offset-[-3px] outline-br-color flex flex-col lg:flex-row justify-start items-start gap-3 mt-3">
-
+       <motion.div variants={cardVariants}
+              whileHover="hover"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.45 }}
+    className="w-[80vw] p-3 border-2 border-br-color/25 rounded-3xl flex flex-col lg:flex-row justify-start items-start gap-3 mt-3 transition-all duration-100 hover:border-br-color">
+      
         <motion.div {...slideInLeft} className="w-full p-6 bg-white rounded-3xl flex flex-col justify-start items-center ">
           <h2 className="text-3xl font-semibold text-[#444444] mb-4 text-center">
             Creative <span className="text-br-color">Designs</span>
@@ -120,10 +152,15 @@ export default function IslamicEcosystem() {
             ))}
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Bottom Section - Parallax with animated paragraphs */}
-      <div className="w-[80vw] p-3 rounded-3xl outline outline-[3px] outline-offset-[-3px] outline-br-color flex flex-col lg:flex-row justify-start items-start gap-3">
+      <motion.div variants={cardVariants}
+              whileHover="hover"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.45 }}
+    className="w-[80vw] p-3 border-2 border-br-color/25 rounded-3xl flex flex-col lg:flex-row justify-start items-start gap-3 mt-3 transition-all duration-100 hover:border-br-color">
 
         <motion.div {...parallaxVariants} className="w-full p-6 bg-white rounded-3xl flex flex-col justify-start items-center">
           <h2 className="text-3xl font-semibold text-br-color text-center">
@@ -153,7 +190,7 @@ export default function IslamicEcosystem() {
           </motion.p>
         </motion.div>
 
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
