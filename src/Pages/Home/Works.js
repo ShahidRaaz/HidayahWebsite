@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const images = {
-  wallpaper: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+  wallpaper: "https://img.freepik.com/free-vector/ramadan-kareem-background_53876-66667.jpg",
   social: "https://img.freepik.com/free-vector/ramadan-kareem-background_53876-66667.jpg",
-  logo: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Islamic_Crescent.svg",
-  smartMosque: "https://cdn-icons-png.flaticon.com/512/484/484181.png",
+  logo: "https://img.freepik.com/free-vector/ramadan-kareem-background_53876-66667.jpg",
+  smartMosque: "https://img.freepik.com/free-vector/ramadan-kareem-background_53876-66667.jpg",
 };
 
 const containerVariants = {
@@ -56,11 +56,11 @@ export default function OurWorkSection() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={containerVariants}
-      className=""
+      className="px-[5vw]"
     >
-      <div className="max-w-screen-xl mx-auto px-6 mb-6">
+      <div className="max-w-screen-xl mx-auto text-center px-4 md:px-8">
         <motion.h2
-          className="text-[#444444] text-4xl md:text-5xl font-extrabold mb-6 text-center"
+          className="text-[#444444] text-4xl md:text-5xl font-extrabold mb-4 text-center"
           initial={{ opacity: 0, y: -40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -69,7 +69,7 @@ export default function OurWorkSection() {
           Our <span className="text-br-color">Works</span>
         </motion.h2>
         <motion.p
-          className="text-base sm:text-2xl lg:text-3xl text-[#444444] font-medium text-center"
+          className="text-xl md:text-2xl lg:text-3xl text-[#444444] font-medium text-center"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -80,13 +80,13 @@ export default function OurWorkSection() {
 
         {/* Updated grid: 2 columns layout on small and up */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-10"
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 mt-10"
           variants={containerVariants}
         >
           {works.map((work, i) => (
             <motion.div
               key={work.title}
-              className="bg-[#f9fcfd] rounded-2xl border-2 border-br-color p-6 flex flex-row cursor-pointer overflow-hidden transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10"
+              className="bg-[#f9fcfd] rounded-2xl border-2 border-br-color/25 p-6 flex flex-row cursor-pointer overflow-hidden transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10 gap-4"
               variants={cardVariants}
               whileHover="hover"
               initial="hidden"
@@ -95,14 +95,14 @@ export default function OurWorkSection() {
               tabIndex={0}
               custom={i}
             >
-              <div className="flex flex-col items-start mr-6 w-full">
-                <h3 className="text-br-color text-xl font-semibold mb-2">{work.title}</h3>
-                <p className="text-[#444444] text-base">{work.description}</p> 
+              <div className="flex flex-col items-start w-full">
+                <h3 className="text-br-color text-2xl font-semibold mb-2 text-left">{work.title}</h3>
+                <p className="text-[#444444] text-xl text-left">{work.description}</p> 
               </div>
               <img
                 src={work.imgUrl}
                 alt={work.title}
-                className="h-[150px] w-auto rounded-xl"
+                className="h-[100px] w-auto rounded-xl"
                 loading="lazy"
               />
             </motion.div>

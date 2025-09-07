@@ -105,7 +105,7 @@ export default function TargetAudience() {
             },
           }}
           viewport={{ once: true }}
-          className="text-base sm:text-2xl lg:text-3xl text-[#444444] font-medium mb-14 "
+          className="text-xl md:text-2xl lg:text-3xl text-[#444444] font-medium mb-10 "
         >
           We’re designing with purpose for a diverse Muslim community,
           empowering individuals and organizations with meaningful digital experiences.
@@ -113,7 +113,7 @@ export default function TargetAudience() {
 
         {/* Cards Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 mb-12"
           variants={containerVariants}
         >
           {audienceData.map((item, index) => (

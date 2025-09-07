@@ -5,21 +5,21 @@ export default function AboutSection() {
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay: 0.1, ease: [0.17, 0.67, 0.83, 0.67]}}
       viewport={{ once: true, amount: 0.2 }} 
-      className="px-3 lg:px-12 h-auto">
+      className="px-3 py-12 md:px lg:px-12 h-auto">
 
-      <div className="max-full mx-2 md:mx-12 text-center flex flex-col items-center gap-1 md:gap-2 lg:gap-4">
+      <div className="max-full mx-2 md:mx-12 text-center flex flex-col items-center gap-4 lg:gap-4">
         {/* Heading */}
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#444444]">
           About <span className="text-br-color">Hidayah</span>
         </h2>
 
         {/* Subheading */}
-        <p className="text-base sm:text-2xl lg:text-3xl text-[#444444] font-medium">
+        <p className="text-2xl lg:text-3xl text-[#444444] font-medium">
           Crafting with Purpose & Faith for the Muslim Ummah.
         </p>
 
         {/* First paragraph */}
-        <p className="text-base sm:text-xl lg:text-2xl text-[#444444] px-2 sm:px-10 lg:px-16">
+        <p className="text-xl lg:text-2xl text-[#444444] px-2 sm:px-10 lg:px-16">
           <span className="text-br-color font-semibold">Hidayah</span> is India’s first Islamic design and technology company. Our mission is to create meaningful, faith-inspired digital experiences that empower Muslims worldwide to engage with technology in an authentic and spiritually enriching way.
         </p>
 

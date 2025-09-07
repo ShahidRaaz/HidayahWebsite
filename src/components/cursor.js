@@ -4,17 +4,26 @@ const Cursor = forwardRef((props, ref) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [hoverActive, setHoverActive] = useState(false);
   const [navTapActive, setNavTapActive] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(true);
 
   useImperativeHandle(ref, () => ({
     setNavTapActive,
   }));
 
+  // Track screen size and set desktop state
   useEffect(() => {
-    const moveCursor = (e) => setPosition({ x: e.clientX, y: e.clientY });
+    const checkScreen = () => setIsDesktop(window.innerWidth > 1280);
+    checkScreen();
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
+  }, []);
 
-    const checkHover = (e) => {
-      setHoverActive(Boolean(e.target.closest('.cursor-cta')));
-    };
+  // Attach event listeners only on desktop screens
+  useEffect(() => {
+    if (!isDesktop) return;
+
+    const moveCursor = (e) => setPosition({ x: e.clientX, y: e.clientY });
+    const checkHover = (e) => setHoverActive(Boolean(e.target.closest('.cursor-cta')));
 
     window.addEventListener('mousemove', moveCursor);
     window.addEventListener('mouseover', checkHover);
@@ -25,9 +34,11 @@ const Cursor = forwardRef((props, ref) => {
       window.removeEventListener('mouseover', checkHover);
       window.removeEventListener('mouseout', checkHover);
     };
-  }, []);
+  }, [isDesktop]);
 
   const isActive = hoverActive || navTapActive;
+
+  if (!isDesktop) return null;
 
   return (
     <>

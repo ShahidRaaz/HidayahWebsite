@@ -39,12 +39,12 @@ const Navbar = () => {
         </div>
 
         {/* Desktop links (visible on md+) */}
-        <ul className="hidden md:flex gap-2 py-4 bg-custom-teal items-center rounded-[50px] backdrop-blur-md h-auto">
+        <ul className="hidden md:flex gap-2 bg-custom-teal rounded-[50px] backdrop-blur-md py-4 px-2 items-center justify-center]">
           {links.map((link) => (
             <li key={link.to}>
               <NavLink onClick={handleNavClick} onMouseLeave={handleNavMouseLeave} to={link.to}
                 className={({ isActive }) =>
-                  `justify-start text-lg item-center font-normal px-6 py-4 rounded-[50px] h-[50px] ${
+                  `justify-start text-lg item-center font-normal px-4 py-3 rounded-[50px] ${
                     isActive? "bg-br-color text-white justify-center items-center" : "text-gray-500 hover:bg-custom-teal hover:text-gray-700 transition"
                   }`
                 }

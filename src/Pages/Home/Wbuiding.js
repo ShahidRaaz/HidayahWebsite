@@ -68,22 +68,22 @@ export default function IslamicEcosystem() {
   ];
 
   return (
-    <motion.div {...fadeScaleIn} className="h-auto flex flex-col items-center px-4 gap-6">
+    <motion.div {...fadeScaleIn} className="h-auto flex flex-col items-center px-4 gap-6 pb-12">
 
       {/* Heading Section */}
       <div className="max-full mx-2 md:mx-12 text-center flex flex-col items-center gap-1 md:gap-2 lg:gap-4">
         <h1 className="text-4xl md:text-5xl font-bold text-[#444444] mb-2 text-center">
           What we are <span className="text-br-color">building</span>
         </h1>
-        <p className="text-base sm:text-2xl lg:text-3xl text-[#444444] font-medium">
+        <p className="text-xl lg:text-3xl text-[#444444] font-medium">
           We're creating a complete ecosystem of Islamic-inspired designs and softwares.
         </p>
       </div>
 
       {/* Top Section - Two Cards Slide In Left & Right */}
-      <div className="w-[80vw] p-3 rounded-3xl outline outline-[3px] outline-offset-[-3px] outline-br-color flex flex-col lg:flex-row justify-start items-start gap-3 mt-6">
+      <div className="w-[80vw] p-3 rounded-3xl outline outline-[3px] outline-offset-[-3px] outline-br-color flex flex-col lg:flex-row justify-start items-start gap-3 mt-3">
 
-        <motion.div {...slideInLeft} className="self-stretch p-6 bg-white rounded-3xl flex flex-col justify-start items-center ">
+        <motion.div {...slideInLeft} className="w-full p-6 bg-white rounded-3xl flex flex-col justify-start items-center ">
           <h2 className="text-3xl font-semibold text-[#444444] mb-4 text-center">
             Creative <span className="text-br-color">Designs</span>
           </h2>
@@ -102,7 +102,7 @@ export default function IslamicEcosystem() {
           </motion.div>
         </motion.div>
 
-        <motion.div {...slideInRight} className="self-stretch p-6 bg-white rounded-3xl flex flex-col justify-start items-center">
+        <motion.div {...slideInRight} className="w-full p-6 bg-white rounded-3xl flex flex-col justify-start items-center">
           <h2 className="text-3xl font-semibold text-gray-800 mb-4 text-center">
             Innovative <span className="text-br-color">Softwares</span>
           </h2>
@@ -125,21 +125,7 @@ export default function IslamicEcosystem() {
       {/* Bottom Section - Parallax with animated paragraphs */}
       <div className="w-[80vw] p-3 rounded-3xl outline outline-[3px] outline-offset-[-3px] outline-br-color flex flex-col lg:flex-row justify-start items-start gap-3">
 
-        <motion.div {...parallaxVariants} className="self-stretch p-6 bg-white rounded-3xl flex flex-col justify-start items-center">
-          <h2 className="text-3xl font-semibold text-br-color text-center">
-            AI <span className="text-[#444444]">Innovation</span>
-          </h2>
-
-          <motion.div variants={paragraphVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} className="font-normal text-[#444444] mb-2 text-xl text-center">
-            AI-powered Tools & Features
-          </motion.div>
-
-          <motion.p variants={paragraphVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} className="text-center text-[#444444] text-xl">
-            We're exploring how artificial intelligence can empower Muslims with smarter, purposeful digital products that enhance productivity, spiritual growth, and intuitive usage.
-          </motion.p>
-        </motion.div>
-
-        <motion.div {...parallaxVariants} className="self-stretch p-6 bg-white rounded-3xl flex flex-col justify-start items-center">
+        <motion.div {...parallaxVariants} className="w-full p-6 bg-white rounded-3xl flex flex-col justify-start items-center">
           <h2 className="text-3xl font-semibold text-br-color text-center">
             Creative <span className="text-[#444444]">Hub</span>
           </h2>
@@ -150,6 +136,20 @@ export default function IslamicEcosystem() {
 
           <motion.p variants={paragraphVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} className="text-center text-[#444444] text-xl">
             A global destination for Muslim-focused design resources — combining faith, creativity, and technology to empower meaningful design engagement.
+          </motion.p>
+        </motion.div>
+
+        <motion.div {...parallaxVariants} className="w-full p-6 bg-white rounded-3xl flex flex-col justify-start items-center">
+          <h2 className="text-3xl font-semibold text-br-color text-center">
+            AI <span className="text-[#444444]">Innovation</span>
+          </h2>
+
+          <motion.div variants={paragraphVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} className="font-normal text-[#444444] mb-2 text-xl text-center">
+            AI-powered Tools & Features
+          </motion.div>
+
+          <motion.p variants={paragraphVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} className="text-center text-[#444444] text-xl">
+            We're exploring how artificial intelligence can empower Muslims with smarter, purposeful digital products that enhance productivity, spiritual growth, and intuitive usage.
           </motion.p>
         </motion.div>
 
