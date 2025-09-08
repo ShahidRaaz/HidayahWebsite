@@ -18,10 +18,10 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, x: 40, scale: 0.85 },
+  hidden: { opacity: 0, y: 40, scale: 0.85 },
   visible: { 
     opacity: 1, 
-    x: 0, 
+    y: 0, 
     scale: 1,
     transition: {
       type: "spring",
@@ -83,40 +83,30 @@ export default function OurWorkSection() {
           className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 mt-10"
           variants={containerVariants}
         >
-          {works.map((work, i) => (
+          {works.map((work, index) => (
             <motion.div
-  key={work.title}
-  className="bg-[#f9fcfd] rounded-2xl border-2 border-br-color/25 p-4 sm:p-6 md:p-8 flex flex-col lg:flex-row cursor-pointer overflow-hidden transition-all duration-200 hover:border-br-color hover:shadow-md hover:shadow-br-color/10 gap-6 sm:gap-12"
-  variants={cardVariants}
-  whileHover="hover"
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true, amount: 0.45 }}
-  tabIndex={0}
-  custom={i}
->
+              className="p-4 sm:p-6 md:p-8 flex flex-col lg:flex-row relative border-2 border-br-color/25 rounded-3xl p-8 bg-white transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10 cursor-pointer gap-6 sm:gap-12"
+              key={index}
+              variants={cardVariants}
+              whileHover="hover"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.45 }}>
 
-  {/* Image first on mobile (order-1), second on large screens (order-2) */}
-  <div className="w-full lg:w-1/2 order-1 lg:order-2">
-    <img
-      src={work.imgUrl}
-      alt={work.title}
-      className="rounded-xl object-cover w-full aspect-[4/3]"
-      loading="lazy"
-    />
-  </div>
+              {/* Image first on mobile (order-1), second on large screens (order-2) */}
+              <div className="w-full lg:w-1/2 order-1 lg:order-2">
+                <img src={work.imgUrl} alt={work.title} className="rounded-xl object-cover w-full aspect-[4/3]" loading="lazy"/>
+              </div>
 
-  {/* Text second on mobile (order-2), first on large screens (order-1) */}
-  <div className="flex flex-col items-start w-full lg:w-1/2 order-2 lg:order-1 gap-2">
-    <h3 className="text-br-color text-xl sm:text-2xl font-semibold text-left">{work.title}</h3>
-    <p className="text-[#444444] text-base sm:text-lg md:text-xl leading-relaxed text-left">
-      {work.description}
-    </p>
-  </div>
+              {/* Text second on mobile (order-2), first on large screens (order-1) */}
+              <div className="flex flex-col items-start w-full lg:w-1/2 order-2 lg:order-1 gap-2">
+                <h3 className="text-br-color text-xl sm:text-2xl font-semibold text-left">{work.title}</h3>
+                <p className="text-[#444444] text-base sm:text-lg md:text-xl leading-relaxed text-left">{work.description}</p>
+              </div>
 
-</motion.div>
+            </motion.div>
+))}
 
-          ))}
         </motion.div>
       </div>
     </motion.section>

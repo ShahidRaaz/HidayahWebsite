@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 
-// const fadeScaleIn = {
-//   initial: { opacity: 0, scale: 0.85 },
-//   whileInView: { opacity: 1, scale: 1 },
-//   transition: { duration: 0.5, delay: 0.1, ease: [0.17, 0.67, 0.83, 0.67] },
-//   viewport: { once: true, amount: 0.2 },
-// };
+const fadeScaleIn = {
+  initial: { opacity: 0, scale: 0.85 },
+  whileInView: { opacity: 1, scale: 1 },
+  transition: { duration: 0.5, delay: 0.1, ease: [0.17, 0.67, 0.83, 0.67] },
+  viewport: { once: true, amount: 0.2 },
+};
 
 const containerVariants = {
   hidden: {},
@@ -78,14 +78,7 @@ export default function TargetAudience() {
         <motion.h2
           initial="hidden"
           whileInView="visible"
-          variants={{
-            hidden: { opacity: 0, y: -40 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { type: "spring", stiffness: 120, damping: 14, duration: 0.8 },
-            },
-          }}
+          variants={fadeScaleIn}
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-extrabold mb-6 text-[#444444]"
         >
@@ -96,14 +89,7 @@ export default function TargetAudience() {
         <motion.p
           initial="hidden"
           whileInView="visible"
-          variants={{
-            hidden: { opacity: 0, y: 10 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { delay: 0.1, type: "spring", stiffness: 110, damping: 18, duration: 1 },
-            },
-          }}
+          variants={fadeScaleIn}
           viewport={{ once: true }}
           className="text-xl md:text-2xl lg:text-3xl text-[#444444] font-medium mb-10 "
         >
