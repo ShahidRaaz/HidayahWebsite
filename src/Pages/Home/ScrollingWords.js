@@ -12,13 +12,13 @@ const words = [
 
 export default function ScrollingWords() {
   const wordElements = words.map((word, i) => (
-    <span key={i} className="text-2xl font-semibold mx-6 text-[#FFFFFF] whitespace-nowrap shrink-0">
+    <span key={i} className="text-2xl xl:text-4xl font-semibold mx-6 text-br-color whitespace-nowrap shrink-0">
       /{word}
     </span>
   ));
 
   return (
-    <div className="relative w-full overflow-hidden h-16 bg-br-color flex items-center">
+    <div className="relative w-full overflow-hidden h-16 flex items-center">
       <div className="flex w-max animate-marquee">
         <div className="flex">{wordElements}</div>
         <div className="flex">{wordElements}</div>

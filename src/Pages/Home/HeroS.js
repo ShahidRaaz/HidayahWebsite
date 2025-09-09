@@ -8,7 +8,7 @@ const AnimatedWords = ({ text, className }) => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.3,
       },
     },
   };
@@ -51,13 +51,13 @@ const HeroS = () => (
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 1, ease: "easeInOut" }}
     viewport={{ once: true }}
-    className="flex flex-col items-center h-auto my-4 md:my-8 lg:my-16 gap-6 md:gap-8 lg:gap-10 justify-center text-center w-full px-4"
+    className="flex flex-col items-center h-auto my-20 md:my-32 lg:my-24 xl:my-16 gap-6 md:gap-8 lg:gap-10 justify-center text-center w-full px-4"
   >
-    <h1 className="text-4xl md:text-6xl xl:text-8xl font-extrabold text-[#444444]">
+    <h1 className="text-6xl md:text-7xl xl:text-8xl font-extrabold text-[#444444]">
       <AnimatedWords text="Your trusted Islamic Hub" />
     </h1>
 
-    <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#444444] font-medium w-full">
+    <p className="text-2xl md:text-2xl lg:text-3xl xl:text-4xl text-[#444444] font-medium w-full">
       <AnimatedWords text="We craft designs & build tech products for global Muslim community." />
     </p>
 
