@@ -19,7 +19,7 @@ export default function SplashScreen() {
         }
         return prev + 1;
       });
-    }, 45); // speed of loading increment
+    }, 60); // speed of loading increment
 
     return () => clearInterval(interval);
   }, []);
@@ -34,7 +34,7 @@ export default function SplashScreen() {
       <h1 className="text-3xl font-medium text-br-color mb-4">Salaam 'Alaikum</h1>
 
       <img src={hidayahLogo} alt="Logo" className="h-48 w-auto mb-4" />
-      <p className="text-br-color text-xl mb-2"> Loading {loading} %</p>
+      <p className="text-br-color font-medium text-xl mb-2"> Loading {loading} %</p>
       {/* <p className="text-[#444444] text-xl">please wait...</p> */}
     </motion.div>
   );

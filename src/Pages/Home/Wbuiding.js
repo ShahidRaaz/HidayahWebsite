@@ -113,9 +113,9 @@ export default function IslamicEcosystem() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.45 }}
-    className="w-[80vw] p-3 border-2 border-br-color/25 rounded-3xl flex flex-col lg:flex-row justify-start items-start gap-3 mt-3 transition-all duration-100 hover:border-br-color">
+    className="w-[80vw] p-3 border-2 border-br-color/25 rounded-3xl items-stretch flex flex-col lg:flex-row justify-start items-start gap-3 mt-3 transition-all duration-100 hover:border-br-color">
       
-        <motion.div {...slideInLeft} className="w-full p-6 bg-white rounded-3xl flex flex-col justify-start items-center ">
+        <motion.div {...slideInLeft} className="w-full p-6 bg-white rounded-3xl flex-1 flex-col justify-start items-center ">
           <h2 className="text-3xl font-semibold text-[#444444] mb-4 text-center">
             Creative <span className="text-br-color">Designs</span>
           </h2>
@@ -134,7 +134,7 @@ export default function IslamicEcosystem() {
           </motion.div>
         </motion.div>
 
-        <motion.div {...slideInRight} className="w-full p-6 bg-white rounded-3xl flex flex-col justify-start items-center">
+        <motion.div {...slideInRight} className="w-full h-auto p-6 bg-white rounded-3xl flex-1 flex-col justify-start items-center">
           <h2 className="text-3xl font-semibold text-gray-800 mb-4 text-center">
             Innovative <span className="text-br-color">Softwares</span>
           </h2>
@@ -160,9 +160,9 @@ export default function IslamicEcosystem() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.45 }}
-    className="w-[80vw] p-3 border-2 border-br-color/25 rounded-3xl flex flex-col lg:flex-row justify-start items-start gap-3 mt-3 transition-all duration-100 hover:border-br-color">
+    className="w-[80vw] p-3 border-2 border-br-color/25 rounded-3xl items-stretch flex flex-col lg:flex-row justify-start items-start gap-3 mt-3 transition-all duration-100 hover:border-br-color">
 
-        <motion.div {...parallaxVariants} className="w-full p-6 bg-white rounded-3xl flex flex-col justify-start items-center">
+        <motion.div {...parallaxVariants} className="w-full p-6 bg-white rounded-3xl flex-1 flex-col justify-start items-center">
           <h2 className="text-3xl font-semibold text-br-color text-center">
             Creative <span className="text-[#444444]">Hub</span>
           </h2>
@@ -176,7 +176,7 @@ export default function IslamicEcosystem() {
           </motion.p>
         </motion.div>
 
-        <motion.div {...parallaxVariants} className="w-full p-6 bg-white rounded-3xl flex flex-col justify-start items-center">
+        <motion.div {...parallaxVariants} className="w-full p-6 bg-white rounded-3xl flex-1 flex-col justify-start items-center">
           <h2 className="text-3xl font-semibold text-br-color text-center">
             AI <span className="text-[#444444]">Innovation</span>
           </h2>
