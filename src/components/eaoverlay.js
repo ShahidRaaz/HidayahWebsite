@@ -86,13 +86,13 @@ const Overlay = ({ onClose }) => {
           Want exclusive early access to the first global marketplace for Muslim-focused digital products?
         </h2>
 
-        <p className="mb-6 text-center">
+        <p className="mb-6 text-center text-xl">
           Enter your email to be the first to get updates for Hidayah.
         </p>
 
         <form
           onSubmit={handleSubmit}
-          className={`w-[400px] rounded-full mb-2 focus-within:ring-2 focus-within:ring-br-color flex items-center p-1 ${
+          className={`w-auto rounded-full mb-2 focus-within:ring-2 focus-within:ring-br-color flex items-center p-1 ${
             email ? "border-2 border-br-color" : "border border-br-color/50"
           }`}
         >
@@ -109,7 +109,7 @@ const Overlay = ({ onClose }) => {
           <button
             type="submit"
             disabled={loading}
-            className="cursor-cta bg-br-color/10 text-lg relative overflow-hidden px-4 py-2 font-medium text-br-color rounded-full group border-2 border-br-color hover:text-white transition max-w-xs"
+            className="cursor-cta bg-br-color/10 text-lg relative overflow-hidden px-4 py-2 font-medium text-br-color rounded-full group border-2 border-br-color hover:text-white transition max-w-md"
           >
             <span className="relative z-10 transition-colors duration-500 group-hover:text-white">
               {loading ? "Submitting..." : "Submit"}{" "}
@@ -122,7 +122,7 @@ const Overlay = ({ onClose }) => {
         </form>
 
         {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-        {success && <p className="text-green-500 text-sm mt-2">{success}</p>}
+        {success && <p className="text-br-color text-sm mt-2">{success}</p>}
       </motion.div>
     </motion.div>
   );
