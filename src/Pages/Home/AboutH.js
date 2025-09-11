@@ -15,7 +15,7 @@ export default function AboutHidayah() {
       {/* Left: Visual/Logo */}
       <div className="flex flex-col items-center justify-center w-[70vw] lg:w-1/2 h-full">
         {/* You can use an animated SVG/gif or looping Lottie here */}
-        <img src={hidayahLogo} alt="Hidayah logo" className="h-100 w-auto mb-5 lg:mb-0" />
+        <img src={hidayahLogo} alt="Hidayah logo" loading="lazy" className="h-100 w-auto mb-5 lg:mb-0" />
       </div>
 
       {/* Right: Content */}
