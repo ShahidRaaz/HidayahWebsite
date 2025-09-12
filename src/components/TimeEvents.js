@@ -157,7 +157,7 @@ const TimeEvents = () => {
     return (
       <div className="flex flex-col text-center md:text-left md:items-left">
         <div className="text-lg font-semibold text-gray-700">
-          Give location permission to see info.
+          Give location permission to reveal.
         </div>
       </div>
     );
