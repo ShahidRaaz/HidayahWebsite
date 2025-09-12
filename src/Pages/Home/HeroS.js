@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Overlay from "../../components/eaoverlay";
-import DateDisplay from "../../components/DateDisplay";
+import DateDisplay from "../../components/Datedisplay";
 import TimeEvents from "../../components/TimeEvents";
-import useUserLocation from "../../components/location";
 import ScrollingWords from "./ScrollingWords";
 import UserLocation from "./UserLocation";
+import { useGeoSource } from "../../components/useGeoL";
 
 const AnimatedWords = ({ text, className }) => {
   const words = text.split(" ");
@@ -55,7 +55,7 @@ const HeroS = () => {
   const [isOverlayOpen, setOverlayOpen] = useState(false);
   const openOverlay = () => setOverlayOpen(true);
   const closeOverlay = () => setOverlayOpen(false);
-  const { lat, lng } = useUserLocation();
+  const { lat, lng } = useGeoSource();
 
   return (
     <>
