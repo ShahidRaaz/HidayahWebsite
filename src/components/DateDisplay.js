@@ -9,6 +9,8 @@ const DateDisplay = () => {
     year: "numeric",
   });
 
+  const isFriday = gDay === "Friday";
+
   // Hijri (force order: day month year)
   const hParts = new Intl.DateTimeFormat("en-u-ca-islamic", {
     day: "numeric",
@@ -23,13 +25,13 @@ const DateDisplay = () => {
   const hDate = `${hDay} ${hMonth} ${hYear}`;
 
   return (
-    <div className="flex flex-col items-end text-right min-w-[120px]">
+    <div className="flex flex-col text-center md:text-right md:items-right">
       <div className="font-bold text-[#444444] text-lg">
         {hDate}
       </div>
-      
-      <div className="font-medium text-br-color text-lg">
-        {gDay}
+
+      <div className="font-bold text-br-color text-lg w-full">
+        {isFriday ? "Friday • Jum'ah" : gDay}
       </div>
       
       <div className="font-medium text-[#444444] text-lg">

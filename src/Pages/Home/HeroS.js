@@ -5,6 +5,7 @@ import DateDisplay from "../../components/DateDisplay";
 import TimeEvents from "../../components/TimeEvents";
 import useUserLocation from "../../components/location";
 import ScrollingWords from "./ScrollingWords";
+import UserLocation from "./UserLocation";
 
 const AnimatedWords = ({ text, className }) => {
   const words = text.split(" ");
@@ -58,15 +59,16 @@ const HeroS = () => {
 
   return (
     <>
-      <div className="relative w-full">
+      <div className="w-full h-auto">
         {/* Hero Content */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeInOut" }}
           viewport={{ once: true }}
-          className="flex flex-col items-center h-auto my-20 md:my-32 lg:my-24 xl:my-16 gap-6 md:gap-8 justify-center text-center w-full px-4"
+          className="flex flex-col items-center h-auto py-12 md:py-4 gap-6 md:gap-8 text-center w-full px-4"
         >
+          <UserLocation/>
           {/* Headline */}
           <h1 className="text-6xl md:text-7xl xl:text-8xl font-extrabold text-[#444444]">
             <AnimatedWords text="Your trusted Islamic Hub" />
@@ -92,32 +94,31 @@ const HeroS = () => {
           </button>
         </motion.div>
 
-        {/* Floating Cards (bottom corners) */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="absolute left-0 bottom-24 ml-6 z-20"
-        >
-          <div className="bg-white/50 backdrop-blur-md rounded-2xl p-4 min-w-[200px] border border-white/30">
-            <TimeEvents lat={lat} lng={lng} />
-          </div>
-        </motion.div>
+          <div className="flex md:flex-row flex-col justify-between items-center gap-3 w-full mt-6 px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="w-[200px] bg-white rounded-2xl p-4 border border-white/30"
+            >
+              <TimeEvents lat={lat} lng={lng} />
+            </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.7 }}
-          className="absolute right-0 bottom-24 mr-6 z-20"
-        >
-          <div className="bg-white/50 backdrop-blur-md rounded-2xl p-4 min-w-[200px] border border-white/30">
-            <DateDisplay lat={lat} lng={lng} />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="w-[200px] bg-white rounded-2xl p-4 border border-white/30"
+            >
+              <DateDisplay lat={lat} lng={lng} />
+            </motion.div>
           </div>
-        </motion.div>
 
-        <div className="mt-[175px]">
-          <ScrollingWords/>
-        </div>
+          <div className="w-full mt-6">
+            <ScrollingWords/>
+          </div>
+          
+
       </div>
       
 

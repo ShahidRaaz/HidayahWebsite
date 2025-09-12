@@ -19,7 +19,7 @@ export default function SplashScreen() {
         }
         return prev + 1;
       });
-    }, 25); // speed of loading increment
+    }, 50); // speed of loading increment
 
     return () => clearInterval(interval);
   }, []);

@@ -77,7 +77,7 @@ const TimeEvents = ({ lat, lng }) => {
   }, [currentTime, prayerTimes]);
 
   return (
-    <div className="flex flex-col items-start min-w-[120px]">
+    <div className="flex flex-col text-center md:text-left md:items-left">
       {/* Current Time */}
       <div className="text-xl font-bold text-gray-800">
         {currentTime.toLocaleTimeString()}
@@ -86,16 +86,14 @@ const TimeEvents = ({ lat, lng }) => {
       {/* Current Event */}
       {currentEvent && (
         <div className="text-lg">
-          <span className="font-medium text-[#444444]">Now: </span>
-          <span className="text-br-color">{currentEvent.name}</span>
+          <span className="text-br-color font-bold">Now: {currentEvent.name}</span>
         </div>
       )}
 
       {/* Next Event */}
       {nextEvent && (
         <div className="text-lg">
-          <span className="font-medium text-[#444444] text-lg">Next: </span>
-          <span className="font-medium text-[#444444] text-lg">{nextEvent.name}</span>
+          <span className="font-medium text-[#444444] text-lg">Next: {nextEvent.name}</span>
         </div>
       )}
     </div>
