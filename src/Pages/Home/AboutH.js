@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import hidayahLogo from "../../assets/hidayahsa.gif"; // or your actual image import
+import VideoOnceOnView from "../../components/vanim";
 
 const fadeScaleIn = {
   initial: { opacity: 0, scale: 0.85 },
@@ -14,8 +14,7 @@ export default function AboutHidayah() {
         <section className="bg-white rounded-3xl px-4 lg:px-16 xl:px-16 max-full mx-2 md:mx-12 my-8 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 h-auto py-8 lg:py-16">
       {/* Left: Visual/Logo */}
       <div className="flex flex-col items-center justify-center w-[70vw] lg:w-1/2 h-full">
-        {/* You can use an animated SVG/gif or looping Lottie here */}
-        <img src={hidayahLogo} alt="Hidayah logo" loading="lazy" className="h-100 w-auto mb-5 lg:mb-0" />
+        <VideoOnceOnView src="/videos/hidayahsa.mp4" alt="Hidayah animated logo" className="h-100 w-auto mb-5 lg:mb-0"/>
       </div>
 
       {/* Right: Content */}
