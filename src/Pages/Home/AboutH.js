@@ -47,7 +47,7 @@ export default function AboutHidayah() {
           transition={{ duration: 0.9, delay: 0.3 }}
           className="w-full flex flex-col items-center lg:items-start"
         >
-          <button className="cursor-cta bg-br-color/10 text-base sm:text-lg relative overflow-hidden px-6 py-3 font-medium text-br-color rounded-full group border-2 border-br-color hover:text-white transition">
+          <button className="cursor-cta bg-br-color/10 text-base sm:text-lg relative overflow-hidden px-6 py-3 mt-4 font-medium text-br-color rounded-full group border-2 border-br-color hover:text-white transition">
             <span className="relative z-10 transition-colors duration-500 group-hover:text-white">Read About Us</span>
             <span className="absolute left-0 bottom-0 w-full h-0 bg-br-color transition-all duration-500 group-hover:h-full" aria-hidden="true"></span>
           </button>

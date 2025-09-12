@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Overlay = ({ onClose }) => {
   const [email, setEmail] = useState("");
@@ -59,7 +59,7 @@ const Overlay = ({ onClose }) => {
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
       >
         <button
-          className="cursor-cta group w-[36px] h-[36px] mb-6 absolute flex items-center justify-center border-2 border-br-color rounded-full bg-custom-teal hover:bg-br-color transition duration-300 top-3 right-3"
+          className="cursor-cta group w-[45px] h-[45px] mb-6 absolute flex items-center justify-center border-2 border-br-color rounded-full bg-white hover:bg-br-color transition duration-300 top-[-20px]"
           onClick={onClose}
           aria-label="Close overlay"
           disabled={loading}

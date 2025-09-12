@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Analytics} from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/react"
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import SplashScreen from "./components/SplashScreen";
 import CircleCursor from "./components/cursor";
 import Navbar from "./components/Navbar";
