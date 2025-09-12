@@ -45,7 +45,7 @@ const VideoOnceOnView = ({ src, alt, className }) => {
       className={className}
       preload="auto"
       aria-label={alt}
-      loop={false}
+      loop={true}
     />
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import VideoOnceOnView from "./vanim";
+import Hlogo from "../assets/plogo.png";
 
 const splashVariants = {
   initial: { y: 0, opacity: 1 },
@@ -33,7 +34,7 @@ export default function SplashScreen() {
     >
       <h1 className="text-3xl font-medium text-br-color mb-4">Salaam 'Alaikum</h1>
       
-      <VideoOnceOnView src="/videos/hidayahsa.mp4" alt="Hidayah animated logo" className="h-48 w-auto mb-4"/>
+      <VideoOnceOnView src="/videos/hidayahsa.mp4" alt="Hidayah animated logo" className="h-48 w-auto mb-4" poster={Hlogo}/>
 
       <p className="text-br-color font-medium text-xl mb-2"> Loading {loading} %</p>
       {/* <p className="text-[#444444] text-xl">please wait...</p> */}

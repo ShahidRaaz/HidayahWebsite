@@ -42,8 +42,11 @@ const MenuOverlay = ({ onClose }) => {
         <svg width="20" height="20" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg" className="stroke-current text-br-color group-hover:text-white transition duration-300">
         <path d="M13 13.5L25 25.5M13 13.5L1 1.5M13 13.5L1 25.5M13 13.5L25 1.5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
        </button>
-
       </div>
+
+      
+
+
     </div>
   );
 };
