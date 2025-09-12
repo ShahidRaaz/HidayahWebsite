@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Overlay from "../../components/eaoverlay";
-import DateDisplay from "../../components/Datedisplay";
+import DateDisplay from "../../components/DateDisplay";
 import TimeEvents from "../../components/TimeEvents";
 import ScrollingWords from "./ScrollingWords";
 import UserLocation from "./UserLocation";
