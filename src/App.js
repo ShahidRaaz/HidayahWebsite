@@ -5,13 +5,13 @@ import { Analytics} from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import SplashScreen from "./components/Website/SplashScreen";
 import CircleCursor from "./components/Website/cursor";
-import Navbar from "./components/Navbar";
-import Home from "./Pages/Home/Home";
-import About from "./Pages/About/About";
-import Works from "./Pages/Works/OWorks";
-import Products from "./Pages/Products/Products"; 
-import Contact from "./Pages/Contact/Contact";
-import Blogs from "./Pages/Blogs/Blogs";
+import Navbar from "./components/Website/Navbar";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Works from "./Pages/OWorks";
+import Products from "./Pages/Products"; 
+import Contact from "./Pages/Contact";
+import Blogs from "./Pages/Blogs";
 
 const mainPageVariants = {
   initial: { y: 5, opacity: 0 },
