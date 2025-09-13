@@ -70,7 +70,7 @@ const HeroS = () => {
         >
           <UserLocation/>
           {/* Headline */}
-          <h1 className="text-6xl md:text-7xl xl:text-8xl font-extrabold text-[#444444]">
+          <h1 className="text-6xl md:text-7xl lg:text-6xl xl:text-8xl font-bold xl:font-extrabold text-[#444444]">
             <AnimatedWords text="Your trusted Islamic Hub" />
           </h1>
 

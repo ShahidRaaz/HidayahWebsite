@@ -12,7 +12,7 @@ const Cursor = forwardRef((props, ref) => {
 
   // Track screen size and set desktop state
   useEffect(() => {
-    const checkScreen = () => setIsDesktop(window.innerWidth > 1280);
+    const checkScreen = () => setIsDesktop(window.innerWidth > 768);
     checkScreen();
     window.addEventListener('resize', checkScreen);
     return () => window.removeEventListener('resize', checkScreen);
