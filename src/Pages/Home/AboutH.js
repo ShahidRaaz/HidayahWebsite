@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import VideoOnceOnView from "../../components/vanim";
+import VideoOnceOnView from "../../components/Website/vanim";
 
 const fadeScaleIn = {
   initial: { opacity: 0, scale: 0.85 },

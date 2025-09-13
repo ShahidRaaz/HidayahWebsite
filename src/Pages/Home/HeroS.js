@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Overlay from "../../components/eaoverlay";
-import DateDisplay from "../../components/DateDisplay";
-import TimeEvents from "../../components/TimeEvents";
+import Overlay from "../../components/Home/eaoverlay";
+import DateDisplay from "../../components/Home/DateDisplay";
+import TimeEvents from "../../components/Home/TimeEvents";
 import ScrollingWords from "./ScrollingWords";
 import UserLocation from "./UserLocation";
-import { useGeoSource } from "../../components/useGeoL";
+import { useGeoSource } from "../../components/Home/useGeoL";
 
 const AnimatedWords = ({ text, className }) => {
   const words = text.split(" ");

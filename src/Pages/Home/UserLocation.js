@@ -1,7 +1,7 @@
 // Location.jsx
 import { useEffect, useMemo, useRef } from "react";
 import { motion } from "framer-motion";
-import { useGeoSource } from "../../components/useGeoL";
+import { useGeoSource } from "../../components/Home/useGeoL";
 
 // Session latch to avoid double-prompt within one app session (e.g., StrictMode re-mounts)
 let GEO_PROMPTED_ONCE = false;

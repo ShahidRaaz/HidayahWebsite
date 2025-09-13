@@ -1,9 +1,9 @@
-import HeroS from "./HeroS";
-import BuildingS from "./Wbuiding";
-import OTA from "./OTA";
-import Work from "./Works";
-import AH from "./AboutH";
-import WACard from "./WACard";
+import HeroS from "./Home/HeroS";
+import BuildingS from "./Home/Wbuiding";
+import OTA from "./Home/OTA";
+import Work from "./Home/Works";
+import AH from "./Home/AboutH";
+import WACard from "./Home/WACard";
 // import FBA from "../../components/Fba"
 
 const Home = () => 
