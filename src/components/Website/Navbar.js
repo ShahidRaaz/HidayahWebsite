@@ -54,7 +54,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `flex items-center justify-center text-lg font-normal px-4 rounded-[50px] h-full ${
                     isActive
-                      ? "bg-br-color text-white"
+                      ? "bg-br-color text-white "
                       : "text-[#444444] hover:bg-custom-teal hover:text-br-color transition"
                   }`
                 }
