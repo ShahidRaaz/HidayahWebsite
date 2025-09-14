@@ -95,10 +95,10 @@ export default function IslamicEcosystem() {
   ];
 
   return (
-    <motion.div {...fadeScaleIn} className="h-auto flex flex-col items-center px-4 gap-6 pb-12">
+    <motion.div {...fadeScaleIn} className="h-auto flex flex-col w-full items-center gap-6 pb-12 px-[6vw]">
 
       {/* Heading Section */}
-      <div className="max-full mx-2 md:mx-12 text-center flex flex-col items-center gap-1 md:gap-2 lg:gap-4">
+      <div className="w-full text-center flex flex-col items-center gap-1 md:gap-2 lg:gap-4">
         <h1 className="text-4xl md:text-5xl font-bold text-[#444444] mb-2 text-center">
           What we are <span className="text-br-color">building</span>
         </h1>
@@ -113,7 +113,7 @@ export default function IslamicEcosystem() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.45 }}
-    className="w-[80vw] p-3 border-2 border-br-color/25 rounded-3xl items-stretch flex flex-col lg:flex-row justify-start items-start gap-3 mt-3 transition-all duration-100 hover:border-br-color">
+    className="w-full p-3 border-2 border-br-color/25 rounded-3xl flex flex-col lg:flex-row justify-start items-start gap-3 mt-3 transition-all duration-100 hover:border-br-color">
       
         <motion.div {...slideInLeft} className="w-full p-6 bg-white rounded-3xl flex-1 flex-col justify-start items-center ">
           <h2 className="text-3xl font-semibold text-[#444444] mb-4 text-center">
@@ -160,7 +160,7 @@ export default function IslamicEcosystem() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.45 }}
-    className="w-[80vw] p-3 border-2 border-br-color/25 rounded-3xl items-stretch flex flex-col lg:flex-row justify-start items-start gap-3 mt-3 transition-all duration-100 hover:border-br-color">
+    className="w-full p-3 border-2 border-br-color/25 rounded-3xl flex flex-col lg:flex-row justify-start items-start gap-3 mt-3 transition-all duration-100 hover:border-br-color">
 
         <motion.div {...parallaxVariants} className="w-full p-6 bg-white rounded-3xl flex-1 flex-col justify-start items-center">
           <h2 className="text-3xl font-semibold text-br-color text-center">

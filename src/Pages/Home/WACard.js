@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Wlogo from "../../assets/Wlogo.png";
+import HLogo from "../../assets/hlogo.png";
 
 
 const fadeScaleIn = {
@@ -9,17 +10,62 @@ const fadeScaleIn = {
   viewport: { once: true, amount: 0.2 },
 };
 
+const container = {
+  hidden: { opacity: 1 }, // keep container visible; children handle fade/scale
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.28,     // second starts after first
+      delayChildren: 0.02        // tiny lead-in for the first
+    }
+  }
+};
+
+const item = {
+  hidden: { scale: 0.75, opacity: 0 },
+  show: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 1.15,
+      ease: "easeInOut"
+      // For spring alternative:
+      // type: "spring", stiffness: 60, damping: 18, mass: 1.1
+    }
+  }
+};
+
 export default function AboutHidayah() {
       const join = () => {
     window.open("https://chat.whatsapp.com/LROOO2AFWtN8qxPH5vb1do", "_blank", "noopener,noreferrer");
   };
   return (
-    <motion.div {...fadeScaleIn} className="h-auto w-full lex flex-col items-center px-4 gap-6 pb-12">
-        <section className="bg-white rounded-3xl px-4 lg:px-16 xl:px-16 mx-2 md:mx-12 my-8 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 h-auto py-8 lg:py-16">
+    <motion.div {...fadeScaleIn} className="h-auto w-full flex flex-col items-center px-[6vw] my-12">
+        <section className="bg-white rounded-3xl w-full px-4 lg:px-16 xl:px-16 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 h-auto py-8 lg:py-16">
+      
       {/* Left: Visual/Logo */}
-      <div className="flex flex-col items-center justify-center w-[70vw] lg:w-1/2 h-full">
-        <img src={Wlogo} alt="WhatsApp Logo" className="h-24 w-24 md:h-28 md:w-28" />
-      </div>
+      <motion.div
+      className="flex flex-row items-center justify-center w-[70vw] lg:w-1/2 h-full"
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.5 }}
+    >
+      <motion.div
+        variants={item}
+        className="bg-br-color w-[100px] h-[100px] flex items-center justify-center rounded-full"
+      >
+        <img src={HLogo} alt="Logo" className="h-14" />
+      </motion.div>
+
+      <motion.img
+        variants={item}
+        src={Wlogo}
+        alt="WhatsApp Logo"
+        className="w-[120px] h-[120px]"
+      />
+    </motion.div>
+
 
       {/* Right: Content */}
       <div className="flex flex-col justify-center items-center lg:items-start w-full lg:w-1/2 h-auto gap-4">

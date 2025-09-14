@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Overlay from "../../components/Home/eaoverlay";
+import Overlay from "../../components/Website/eaoverlay";
 import DateDisplay from "../../components/Home/DateDisplay";
 import TimeEvents from "../../components/Home/TimeEvents";
 import ScrollingWords from "./ScrollingWords";

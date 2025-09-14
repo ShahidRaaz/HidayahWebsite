@@ -56,9 +56,9 @@ export default function OurWorkSection() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={containerVariants}
-      className="px-[5vw]"
+      className="w-full px-[6vw]"
     >
-      <div className="max-w-screen-xl mx-auto text-center px-4 md:px-8">
+      <div className="w-full text-center">
         <motion.h2
           className="text-[#444444] text-4xl md:text-5xl font-extrabold mb-4 text-center"
           initial={{ opacity: 0, y: -40 }}
@@ -85,7 +85,7 @@ export default function OurWorkSection() {
         >
           {works.map((work, index) => (
             <motion.div
-              className="p-4 sm:p-6 md:p-8 flex flex-col lg:flex-row relative border-2 border-br-color/25 rounded-3xl p-8 bg-white transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10 cursor-pointer gap-6 sm:gap-12"
+              className="p-4 sm:p-6 md:p-8 flex flex-col lg:flex-row relative border-2 border-br-color/25 rounded-3xl bg-white transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10 cursor-pointer gap-4"
               key={index}
               variants={cardVariants}
               whileHover="hover"
@@ -108,6 +108,19 @@ export default function OurWorkSection() {
 ))}
 
         </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, delay: 0.3 }}
+          className="w-full flex flex-col items-center mt-8"
+        >
+          <button className="cursor-cta bg-br-color/10 text-base sm:text-lg relative overflow-hidden px-6 py-3 font-medium text-br-color rounded-full group border-2 border-br-color hover:text-white transition">
+            <span className="relative z-10 transition-colors duration-500 group-hover:text-white">Explore All Works</span>
+            <span className="absolute left-0 bottom-0 w-full h-0 bg-br-color transition-all duration-500 group-hover:h-full" aria-hidden="true"></span>
+          </button>
+        </motion.div>
+         
       </div>
     </motion.section>
   );

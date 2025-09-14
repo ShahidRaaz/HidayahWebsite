@@ -69,11 +69,11 @@ export default function TargetAudience() {
 
   return (
     <motion.section
-    className="items-center px-[5vw]" initial="hidden"
+    className="w-full items-center justify-center px-[6vw]" initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={containerVariants} >
-      <div className="max-w-screen-xl mx-auto text-center px-4 md:px-8">
+      <div className="w-full text-center">
         {/* Section Heading */}
         <motion.h2
           initial="hidden"
@@ -91,7 +91,7 @@ export default function TargetAudience() {
           whileInView="visible"
           variants={fadeScaleIn}
           viewport={{ once: true }}
-          className="text-xl md:text-2xl lg:text-3xl text-[#444444] font-medium mb-10 "
+          className="px-12 text-xl md:text-2xl lg:text-3xl text-[#444444] font-medium mb-6 leading-6"
         >
           We’re designing with purpose for a diverse Muslim community,
           empowering individuals and organizations with meaningful digital experiences.
@@ -99,7 +99,7 @@ export default function TargetAudience() {
 
         {/* Cards Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 mb-12"
+          className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 md:gap-6 mb-12"
           variants={containerVariants}
         >
           {audienceData.map((item, index) => (
@@ -110,10 +110,10 @@ export default function TargetAudience() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.45 }}
-              className="relative border-2 border-br-color/25 rounded-3xl p-8 bg-white transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10 cursor-pointer"
+              className="relative w-full border-2 border-br-color/25 rounded-3xl p-5 bg-white transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10 cursor-pointer"
             >
-              <h3 className="text-2xl md:text-3xl font-bold mb-3 text-br-color">{item.title}</h3>
-              <p className="text-lg md:text-xl text-[#444444]">{item.description}</p>
+              <h3 className="text-2xl md:text-3xl font-bold text-br-color leading-7 mb-2 px-12">{item.title}</h3>
+              <p className="text-lg md:text-xl text-[#444444] leading-6 w-full">{item.description}</p>
             </motion.div>
           ))}
         </motion.div>

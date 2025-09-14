@@ -10,8 +10,8 @@ const fadeScaleIn = {
 
 export default function AboutHidayah() {
   return (
-    <motion.div {...fadeScaleIn} className="h-auto flex flex-col items-center px-4 gap-6 pb-12">
-        <section className="bg-white rounded-3xl px-4 lg:px-16 xl:px-16 max-full mx-2 md:mx-12 my-8 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 h-auto py-8 lg:py-16">
+    <motion.div {...fadeScaleIn} className="h-auto flex flex-col w-full px-[6vw] items-center gap-6 pb-12">
+        <section className="bg-white rounded-3xl px-4 lg:px-16 xl:px-16 w-full mx-2 md:mx-12 my-8 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 h-auto py-8 lg:py-16">
       {/* Left: Visual/Logo */}
       <div className="flex flex-col items-center justify-center w-[70vw] lg:w-1/2 h-full">
         <VideoOnceOnView src="/videos/hidayahsa.mp4" alt="Hidayah animated logo" className="h-100 w-auto mb-5 lg:mb-0"/>
@@ -31,7 +31,7 @@ export default function AboutHidayah() {
         </motion.h2>
 
         <motion.p
-          className="text-lg md:text-xl text-gray-600 max-w-xl font-light text-center lg:text-left"
+          className="text-lg md:text-xl text-gray-600 max-w-xl font-normal text-center lg:text-left"
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

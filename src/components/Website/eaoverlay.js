@@ -91,8 +91,8 @@ const Overlay = ({ onClose }) => {
 
         <form
           onSubmit={handleSubmit}
-          className={`w-[55vw] md:w-[400px] rounded-full mb-2 justify-between focus-within:ring-2 focus-within:ring-br-color flex items-center p-1 ${
-            email ? "border-2 border-br-color" : "border border-br-color/50"
+          className={`w-[55vw] md:w-[400px] rounded-full mb-2 justify-between focus-within:ring-1 focus-within:ring-br-color flex items-center p-1 ${
+            email ? "border-1 border-br-color" : "border border-br-color/50 hover:border-br-color/90 transition"
           }`}
         >
           <input
