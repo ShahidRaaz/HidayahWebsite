@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import HLogo from "../assets/hlogo.png";
+import HLogo from "../../assets/hlogo.png";
 import MenuOverlay from "./MenuOverlay";
 import Cursor from "./cursor.js";
 

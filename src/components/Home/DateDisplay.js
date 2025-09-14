@@ -1,6 +1,6 @@
 // DateDisplay.js
 import { useMemo } from "react";
-import { useGeoSource } from "../useGeoL";
+import { useGeoSource } from "./useGeoL";
 
 const DateDisplay = () => {
   const { status, timezone } = useGeoSource();

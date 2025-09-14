@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import HLogo from "../../assets/hlogo.png";
 // import { NavLink } from "react-router-dom";
-import HLogo from "../assets/hlogo.png";
+
 
 // const links = [
 //   { name: "Home", to: "/" },
