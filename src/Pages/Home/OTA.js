@@ -110,9 +110,9 @@ export default function TargetAudience() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.45 }}
-              className="relative w-full border-2 border-br-color/25 rounded-3xl p-5 bg-white transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10 cursor-pointer"
+              className="relative w-full border-2 border-br-color/25 rounded-3xl p-4 bg-white transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10 cursor-pointer"
             >
-              <h3 className="text-2xl md:text-3xl font-bold text-br-color leading-7 mb-2 px-12">{item.title}</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-br-color leading-7 mb-2 line-clamp-2">{item.title}</h3>
               <p className="text-lg md:text-xl text-[#444444] leading-6 w-full">{item.description}</p>
             </motion.div>
           ))}

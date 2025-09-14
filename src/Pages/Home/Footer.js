@@ -4,7 +4,7 @@ import PLogo from "../../assets/plogo.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 22 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
 };
 const container = {
   hidden: {},
@@ -12,27 +12,49 @@ const container = {
 }; // staggered reveal on scroll [web:39][web:46][web:4]
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
-  const [ok, setOk] = useState(false);
+    const [email, setEmail] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
 
-  const submit = async (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
-    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    if (!valid) return setError("Enter a valid email");
+    setError("");
+    setSuccess("");
+
+    if (!email || !email.includes("@")) {
+      setError("Please enter a valid email");
+      return;
+    }
+
+    setLoading(true);
     try {
-      await new Promise((r) => setTimeout(r, 500));
-      setOk(true);
-      setError("");
+      const response = await fetch("https://formspree.io/f/mnnbwvlr", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit email");
+      }
+
+      setSuccess("Thank you! We'll reach out soon.");
       setEmail("");
-    } catch {
-      setOk(false);
-      setError("Something went wrong");
+      // Optionally close overlay automatically after a delay:
+      // setTimeout(() => onClose(), 2000);
+    } catch (e) {
+      setError("Submission failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <footer className=" w-full px-[6vw] rounded-xl">
+    <footer className=" w-full px-[6vw] rounded-xl py-12">
       <motion.div
         variants={container}
         initial="hidden"
@@ -41,116 +63,120 @@ export default function Footer() {
         className="w-full px-6 lg:px-10 py-8 bg-white text-gray-700 rounded-3xl"
       >
         {/* Grid: 3 link columns + newsletter */}
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 xl:grid-cols-4">
+
           {/* Column 1 */}
-<motion.div variants={fadeUp}>
-  <h4 className="text-br-color text-[20px] font-semibold leading-none mb-5">
-    Company
-  </h4>
-  <ul className="space-y-4 text-[18px]">
-    {[
-      "Home",
-      "About",
-      "Works",
-      "Products",
-      "Creative Hub",
-      "Blog",
-      "Contacts",
-      "Careers",
-    ].map((label) => (
-      <li key={label}>
-        <a href="#" className="group inline-block text-[#444444] hover:text-br-color transition-colors">
-          {label}
-          <span className="block max-w-0 bg-br-color transition-all duration-300 ease-out group-hover:max-w-full h-[1.5px] origin-bottom [transform:scaleY(0.75)]"></span>
-        </a>
-      </li>
-    ))}
-  </ul>
-</motion.div>
+          <motion.div variants={fadeUp}>
+            <h4 className="text-br-color text-[20px] font-semibold leading-none mb-5">
+              Company
+            </h4>
+            <ul className="space-y-4 text-[18px]">
+              {[
+                "Home",
+                "About",
+                "Works",
+                "Products",
+                "Creative Hub",
+                "Blog",
+                "Contacts",
+                "Careers",
+              ].map((label) => (
+                <li key={label}>
+                  <a href="#" className="group inline-block text-[#444444] hover:text-br-color transition-colors">
+                    {label}
+                    <span className="block max-w-0 bg-br-color transition-all duration-500 ease-out group-hover:max-w-full h-[1.5px] origin-bottom [transform:scaleY(0.75)]"></span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
 
-{/* Column 2 */}
-<motion.div variants={fadeUp}>
-  <h4 className="text-br-color text-[20px] font-semibold leading-none mb-5">
-    Works
-  </h4>
-  <ul className="space-y-4 text-[18px]">
-    {[
-      "Wallpaper & Themes",
-      "Social Media Design",
-      "Logo Design",
-      "Motion Design",
-      "UI Design",
-      "Web Design",
-      "Widgets",
-      "Mobile Apps",
-    ].map((label) => (
-      <li key={label}>
-        <a href="#" className="group inline-block text-[#444444] hover:text-br-color transition-colors">
-          {label}
-          <span className="block max-w-0 bg-br-color transition-all duration-300 ease-out group-hover:max-w-full h-[1.5px] origin-bottom [transform:scaleY(0.75)]"></span>
-        </a>
-      </li>
-    ))}
-  </ul>
-</motion.div>
+          {/* Column 2 */}
+          <motion.div variants={fadeUp}>
+            <h4 className="text-br-color text-[20px] font-semibold leading-none mb-5">
+              Works
+            </h4>
+            <ul className="space-y-4 text-[18px]">
+              {[
+                "Wallpaper & Themes",
+                "Social Media Design",
+                "Logo Design",
+                "Motion Design",
+                "UI Design",
+                "Web Design",
+                "Widgets",
+                "Mobile Apps",
+              ].map((label) => (
+                <li key={label}>
+                  <a href="#" className="group inline-block text-[#444444] hover:text-br-color transition-colors">
+                    {label}
+                    <span className="block max-w-0 bg-br-color transition-all duration-500 ease-out group-hover:max-w-full h-[1.5px] origin-bottom [transform:scaleY(0.75)]"></span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
 
-{/* Column 3 */}
-<motion.div variants={fadeUp}>
-  <h4 className="text-br-color text-[20px] font-semibold leading-none mb-5">
-    Industries
-  </h4>
-  <ul className="space-y-4 text-[18px]">
-    {[
-      "Digital Design",
-      "Print Design",
-      "Software & Apps",
-      "Artificial Intelligence",
-    ].map((label) => (
-      <li key={label}>
-        <a href="#" className="group inline-block text-[#444444] hover:text-br-color transition-colors">
-          {label}
-          <span className="block max-w-0 bg-br-color transition-all duration-300 ease-out group-hover:max-w-full h-[1.5px] origin-bottom [transform:scaleY(0.75)]"></span>
-        </a>
-      </li>
-    ))}
-  </ul>
-</motion.div>
+          {/* Column 3 */}
+          <motion.div variants={fadeUp}>
+            <h4 className="text-br-color text-[20px] font-semibold leading-none mb-5">
+              Industries
+            </h4>
+            <ul className="space-y-4 text-[18px]">
+              {[
+                "Digital Design",
+                "Print Design",
+                "Software & Apps",
+                "Artificial Intelligence",
+              ].map((label) => (
+                <li key={label}>
+                  <a href="#" className="group inline-block text-[#444444] hover:text-br-color transition-colors">
+                    {label}
+                    <span className="block max-w-0 bg-br-color transition-all duration-500 ease-out group-hover:max-w-full h-[1.5px] origin-bottom [transform:scaleY(0.75)]"></span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
 
 
           {/* Column 4: Newsletter + socials */}
-          <motion.div variants={fadeUp}>
-            <h4 className="text-br-color text-[20px] font-semibold leading-none mb-5">
-              Subscribe to our news and updates
-            </h4>
+          <motion.div variants={fadeUp} className="pr-0 lg:pr-24 xl:pr-0">
+                  <h4 className="text-br-color text-[20px] font-medium leading-none mb-5">
+                    Subscribe to our newsletter
+                  </h4>
 
-            <form
-          onSubmit={submit}
-          className={`w-full rounded-full mb-2 justify-between focus-within:ring-1 focus-within:ring-br-color flex items-center p-1 ${
-            email ? "border-1 border-br-color" : "border border-br-color/50 hover:border-br-color/90 transition"
-          }`}
-        >
-          <input
-            type="email"
-                value={email}
-                onChange={(e) => { setEmail(e.target.value); setError(""); setOk(false); }}
-                placeholder="Your email here"
-                aria-invalid={!!error}
-                aria-describedby={error ? "news-error" : undefined}
-            className="w-[75%] bg-transparent outline-none px-4 py-2 rounded-l-full border-0"
-          />
+                    <form
+                  onSubmit={handleSubmit}
+                  className={`
+                      w-full rounded-full mb-2 justify-between flex items-center p-1
+                      border ${email ? 'border-1 border-br-color' : 'border border-br-color/50 hover:border-br-color/90'}
+                      focus-within:ring-1 focus-within:ring-br-color focus-within:border-br-color
+                      transition
+                    `}
 
-          <button
-                type="submit"
-                className="cursor-cta inline-flex h-[44px] w-[44px] items-center justify-center rounded-full bg-br-color text-white shadow-sm transition hover:brightness-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-br-color/40"
-                aria-label="Submit email"
-                title="Subscribe"
-              >
-                {/* Arrow icon */}
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12h12M13 5l7 7-7 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-        </form>
+                >
+                  <input
+                    type="email"
+                        value={email}
+                        onChange={(e) => { setEmail(e.target.value); setError(""); }}
+                        placeholder="Your email here"
+                        aria-invalid={!!error}
+                        aria-describedby={error ? "news-error" : undefined}
+                    className="w-[75%] bg-transparent outline-none px-4 py-2 rounded-l-full border-0"
+                  />
+
+
+                <button
+                  type="submit"
+                  className="cursor-cta group w-[44px] h-[44px] flex items-center justify-center border-2 border-br-color backdrop-blur-md rounded-full bg-custom-teal hover:bg-br-color transition duration-300"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="stroke-current text-br-color group-hover:text-white transition duration-300">
+                    <path d="M5 12h12M13 5l7 7-7 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+
+                </form>
 
 
 
@@ -158,49 +184,60 @@ export default function Footer() {
             <p className="text-[14px] text-gray-500">
               By signing up, you agree to our <a className="underline decoration-gray-300 underline-offset-2 hover:text-gray-800" href="#">Privacy Policy</a>. We respect your data. Unsubscribe anytime.
             </p>
-            {error && <div id="news-error" role="alert" className="mt-2 text-[13px] text-rose-600">{error}</div>}
-            {ok && <div role="status" className="mt-2 text-[13px] text-emerald-600">Subscribed successfully!</div>}
+            {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+        {success && <p className="text-br-color text-sm mt-2">{success}</p>}  
 
             <div className="mt-8">
-              <div className="text-[18px] mb-4 font-medium text-gray-900">Follow us on:</div>
-              <div className="flex gap-4">
-                {[
-                  { label: "Dribbble", icon: (
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 6.5a8.2 8.2 0 0 1-4.7 1.1c-.3-.6-.7-1.2-1.1-1.8 3.2-1.3 5.2.7 5.8.7ZM12 3.8a8.2 8.2 0 0 1 4.3 1.2c-2.2.9-3.9 1.5-5 1.9-1-1.4-1.9-2.3-2.7-2.9A8.1 8.1 0 0 1 12 3.8Zm-3.5 1.1c.7.6 1.7 1.6 2.8 3-3 .9-6.8 1.1-7.7 1.1a8.2 8.2 0 0 1 4.9-4.1ZM3.8 12.1c1.4 0 5.8-.2 9-.9.3.5.6 1.1.9 1.7-3.6 1.1-5.8 3.8-6.9 5.5A8.2 8.2 0 0 1 3.8 12.1Zm3.6 6.3c1-1.6 3.1-4 6.5-5 .8 1.9 1.4 4.1 1.8 6.6a8.2 8.2 0 0 1-8.3-1.6Zm9.9.8c-.4-2.3-1-4.4-1.7-6.2 1.6-.1 3.3.1 4.8.5a8.2 8.2 0 0 1-3.1 5.7Z"/></svg>
-                  )},
-                  { label: "Behance", icon: (
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor"><path d="M14.5 7H19v1.2h-4.5V7ZM8.8 11.9c.8-.2 1.3-.8 1.3-1.7 0-1.6-1.2-2.3-3.2-2.3H3v7.8h3.9c2.2 0 3.6-.8 3.6-2.6 0-1.2-.7-1.9-1.7-2.2Zm-2.7-2h1.6c.9 0 1.4.3 1.4 1s-.5 1-1.4 1H6.1v-2ZM17.8 13.7c-1 0-1.6-.6-1.7-1.6h5.1c0-2.2-1.2-3.7-3.5-3.7-2.1 0-3.7 1.5-3.7 3.9s1.5 3.8 3.8 3.8c1.7 0 2.7-.6 3.4-1.6l-1.3-.7c-.3.6-.9.9-2.1.9Zm-.2-4.1c.9 0 1.5.6 1.6 1.6h-3.4c.1-.9.8-1.6 1.8-1.6Z"/></svg>
-                  )},
-                  { label: "Instagram", icon: (
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm6.5-.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"/></svg>
-                  )},
-                  { label: "LinkedIn", icon: (
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.1c.7-1.3 2.3-2.7 4.7-2.7 5 0 5.9 3.3 5.9 7.6V24h-5v-7.9c0-1.9 0-4.4-2.7-4.4s-3.1 2.1-3.1 4.3V24h-5V8Z"/></svg>
-                  )},
-                  { label: "X", icon: (
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor"><path d="M18.1 2H21l-6.4 7.3L22 22h-6.6l-4.1-5.8L6.5 22H3.6l6.9-7.9L2 2h6.7l3.7 5.2L18.1 2Zm-2.3 18h1.4L8.3 4H6.8l9 16Z"/></svg>
-                  )},
-                ].map((s, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    aria-label={s.label}
-                    className="group inline-flex h-14 w-14 items-center justify-center rounded-full border border-gray-300 text-gray-700 hover:text-gray-900 hover:border-gray-400 transition" /* circular outline buttons on white [web:238][web:241] */
-                    title={s.label}
-                  >
-                    <span className="sr-only">{s.label}</span>
-                    {s.icon}
+              <div className="text-[20px] mb-4 font-medium text-br-color">Follow us on:</div>
+
+                <div className="flex gap-4">
+                  {/* Behance */}
+                  <a href="https://www.behance.net/hidayahdesign2025"  target="_blank" aria-label="Behance" title="Behance" className="cursor-cta group inline-flex h-14 w-14 items-center justify-center rounded-full border border-br-color text-br-color bg-custom-teal hover:text-white hover:bg-br-color transition-colors">
+                    <span className="sr-only">Behance</span>
+                      <svg width="20" height="14" viewBox="0 0 20 14" className="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M5.803 0.731018C6.392 0.731018 6.922 0.782018 7.408 0.886018C7.89 0.989352 8.30433 1.15868 8.651 1.39402C8.99433 1.62868 9.26233 1.94168 9.455 2.33302C9.642 2.72002 9.735 3.20402 9.735 3.77602C9.735 4.39602 9.59467 4.91302 9.314 5.32702C9.032 5.74168 8.61333 6.08002 8.058 6.34202C8.814 6.56202 9.37733 6.94402 9.748 7.48802C10.122 8.03702 10.305 8.69402 10.305 9.46402C10.305 10.0887 10.1857 10.6264 9.947 11.077C9.71702 11.5215 9.38283 11.9038 8.973 12.191C8.54893 12.4867 8.07502 12.7035 7.574 12.831C7.04879 12.9687 6.50797 13.038 5.965 13.037H0V0.731018H5.803ZM5.452 5.70302C5.932 5.70302 6.32933 5.58802 6.644 5.35802C6.956 5.13002 7.107 4.75402 7.107 4.23902C7.107 3.95235 7.05667 3.71668 6.956 3.53202C6.85916 3.35361 6.71483 3.20547 6.539 3.10402C6.35526 2.99552 6.15273 2.92258 5.942 2.88902C5.7122 2.8461 5.47876 2.82567 5.245 2.82802H2.71V5.70302H5.452ZM5.603 10.942C5.87 10.942 6.124 10.919 6.363 10.865C6.604 10.813 6.818 10.729 7 10.604C7.182 10.484 7.332 10.321 7.44 10.113C7.549 9.90702 7.602 9.63802 7.602 9.31502C7.60133 8.68168 7.42367 8.22902 7.069 7.95702C6.714 7.68702 6.238 7.55302 5.655 7.55302H2.71V10.943L5.603 10.942ZM14.168 10.901C14.5353 11.2597 15.0633 11.439 15.752 11.439C16.2453 11.439 16.6713 11.3147 17.03 11.066C17.384 10.817 17.6 10.551 17.683 10.276H19.838C19.492 11.348 18.967 12.114 18.249 12.575C17.54 13.038 16.677 13.268 15.669 13.268C14.9677 13.268 14.3343 13.1557 13.769 12.931C13.2252 12.7204 12.7341 12.3934 12.33 11.973C11.9325 11.5432 11.6249 11.0383 11.425 10.488C11.2054 9.8793 11.097 9.23608 11.105 8.58902C11.1057 7.92235 11.2153 7.30102 11.434 6.72502C11.6415 6.1695 11.9592 5.66166 12.368 5.23202C12.772 4.81202 13.2533 4.48068 13.812 4.23802C14.3995 3.98985 15.0323 3.86657 15.67 3.87602C16.4233 3.87602 17.083 4.02268 17.649 4.31602C18.1972 4.59767 18.6729 5.00219 19.039 5.49802C19.401 5.99135 19.662 6.55502 19.822 7.18902C19.982 7.82035 20.039 8.48135 19.993 9.17202H13.562C13.563 9.87602 13.8 10.543 14.168 10.901ZM16.98 6.22002C16.689 5.89802 16.197 5.72402 15.595 5.72402C15.205 5.72335 14.8803 5.78969 14.621 5.92302C14.3837 6.04378 14.1729 6.21071 14.001 6.41402C13.8511 6.59955 13.7396 6.81302 13.673 7.04202C13.6166 7.2335 13.5794 7.43015 13.562 7.62902H17.544C17.486 7.00502 17.272 6.54402 16.98 6.22002ZM13.062 1.55702H18.051V2.77202H13.062V1.55702Z" fill="currentColor"/>
+                      </svg>
                   </a>
-                ))}
+
+                  {/* Instagram */}
+                  <a
+                    href="https://www.instagram.com/hidayah.muslims" target="_blank"
+                    aria-label="Instagram"
+                    title="Instagram"
+                    className="cursor-cta group inline-flex h-14 w-14 items-center justify-center rounded-full border border-br-color text-br-color bg-custom-teal hover:text-white hover:bg-br-color transition-colors"
+                  >
+                    <span className="sr-only">Instagram</span>
+                    <svg width="14" height="14" viewBox="0 0 14 14" className="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 4.67C5.71 4.67 4.67 5.72 4.67 7C4.67 8.28 5.72 9.33 7 9.33C8.28 9.33 9.33 8.28 9.33 7C9.33 5.72 8.28 4.67 7 4.67ZM14 7C14 6.03 14 5.08 13.95 4.11C13.9 2.99 13.64 1.99 12.82 1.18C12 0.36 11.01 0.1 9.89 0.05C8.92 -4.84288e-08 7.97 0 7 0C6.03 0 5.08 -4.84288e-08 4.11 0.05C2.99 0.1 1.99 0.36 1.18 1.18C0.36 2 0.1 2.99 0.05 4.11C-4.84288e-08 5.08 0 6.03 0 7C0 7.97 -4.84288e-08 8.92 0.05 9.89C0.1 11.01 0.36 12.01 1.18 12.82C2 13.64 2.99 13.9 4.11 13.95C5.08 14 6.03 14 7 14C7.97 14 8.92 14 9.89 13.95C11.01 13.9 12.01 13.64 12.82 12.82C13.64 12 13.9 11.01 13.95 9.89C14.01 8.93 14 7.97 14 7ZM7 10.59C5.01 10.59 3.41 8.99 3.41 7C3.41 5.01 5.01 3.41 7 3.41C8.99 3.41 10.59 5.01 10.59 7C10.59 8.99 8.99 10.59 7 10.59ZM10.74 4.1C10.28 4.1 9.9 3.73 9.9 3.26C9.9 2.79 10.27 2.42 10.74 2.42C11.21 2.42 11.58 2.79 11.58 3.26C11.5825 3.36954 11.5625 3.47842 11.5212 3.57992C11.48 3.68141 11.4183 3.77333 11.34 3.85C11.2633 3.92827 11.1714 3.98997 11.0699 4.03125C10.9684 4.07253 10.8595 4.09253 10.75 4.09L10.74 4.1Z" fill="currentColor"/>
+                      </svg>
+
+                  </a>
+
+                  {/* LinkedIn */}
+                  <a
+                    href="https://www.linkedin.com/company/hidayah-muslims" target="_blank"
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
+                    className="cursor-cta group inline-flex h-14 w-14 items-center justify-center rounded-full border border-br-color text-br-color bg-custom-teal hover:text-white hover:bg-br-color transition-colors"
+                  >
+                    <span className="sr-only">LinkedIn</span>
+                    <svg width="21" height="20" viewBox="0 0 21 20" className="h-5 w-5 fill-current" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path fillRule="evenodd" clipRule="evenodd" d="M20.037 20H15.885V13.504C15.885 11.954 15.859 9.96202 13.728 9.96202C11.568 9.96202 11.238 11.65 11.238 13.392V20H7.09V6.64002H11.07V8.46702H11.128C11.681 7.41702 13.036 6.30902 15.056 6.30902C19.26 6.30902 20.036 9.07502 20.036 12.673L20.037 20ZM2.409 4.81602C2.09257 4.81629 1.7792 4.75416 1.48681 4.63319C1.19441 4.51221 0.928743 4.33478 0.704994 4.11103C0.481245 3.88728 0.30381 3.62161 0.182839 3.32922C0.0618689 3.03683 -0.000262201 2.72345 8.31678e-07 2.40702C9.95919e-07 1.93085 0.141178 1.46537 0.405684 1.06942C0.67019 0.673469 1.04615 0.364828 1.48604 0.182514C1.92593 0.000199318 2.40999 -0.0476038 2.87704 0.0451475C3.34409 0.137899 3.77316 0.36704 4.11001 0.703605C4.44685 1.04017 4.67635 1.46905 4.76949 1.93602C4.86263 2.403 4.81523 2.8871 4.63328 3.32714C4.45133 3.76718 4.143 4.1434 3.74727 4.40823C3.35154 4.67307 2.88617 4.81463 2.41 4.81502M4.486 20H0.330001V6.64002H4.486V20Z" fill="currentColor"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
-            </div>
+
           </motion.div>
         </div>
 
         {/* Bottom bar */}
-        <motion.div variants={fadeUp} className="mt-16 flex flex-col items-center justify-between gap-4 pt-6 md:flex-row">
+        <motion.div variants={fadeUp} className="mt-8 flex flex-col items-center justify-between gap-4 pt-6 md:flex-row">
+          
             <img src={PLogo} alt="Hidayah Logo" className="h-10 w-auto mb-4 md:mb-0" />
+
             <span>© {new Date().getFullYear()} Hidayah. All rights reserved</span>
+
           <div className="flex items-center gap-2 text-[14px] text-gray-600">
             <a className="text-[#444444] hover:text-br-color" href="#">
               Privacy Policy
@@ -210,16 +247,21 @@ export default function Footer() {
               Cookies Settings
             </a>
           </div>
+
           <button
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-300 text-br-color hover:border-br-color transition"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            aria-label="Back to top"
-            title="Back to top"
+            className="cursor-cta group w-[44px] h-[44px] flex items-center justify-center border-2 border-br-color backdrop-blur-md rounded-full bg-custom-teal hover:bg-br-color transition duration-300 animate-float"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <svg
+              width="24" height="24" viewBox="0 0 24 24" fill="none"
+              className="stroke-current text-br-color group-hover:text-white transition duration-300"
+            >
               <path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
+
+
+
         </motion.div>
       </motion.div>
     </footer>

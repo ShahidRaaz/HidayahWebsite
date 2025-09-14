@@ -38,7 +38,7 @@ function App() {
             variants={mainPageVariants}
             initial="initial"
             animate="animate"
-            className="bg-[#F0F7F7] py-20 min-h-screen"
+            className="bg-[#F0F7F7] pt-20 min-h-screen"
           >
             <Navbar />
             <Routes>

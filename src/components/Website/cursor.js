@@ -42,16 +42,15 @@ const Cursor = forwardRef((props, ref) => {
 
   return (
     <>
-      <style>{`* { cursor: none !important; }`} </style>
       <div
         className={`fixed pointer-events-none rounded-full w-10 h-10 transform -translate-x-1/2 -translate-y-1/2 transition-colors duration-300 ease-out ${
-          isActive ? 'bg-white/10 backdrop-blur-sm' : 'bg-br-color/10 backdrop-blur-sm'
+          isActive ? 'bg-white/25' : ''
         }`}
         style={{ left: position.x, top: position.y, position: 'fixed', zIndex: 9999 }}
       >
         <div
           className={`w-4 h-4 rounded-full m-auto mt-3 transition-colors duration-300 ease-out ${
-            isActive ? 'bg-white' : 'bg-br-color'
+            isActive ? '' : 'bg-br-color'
           }`}
         />
       </div>

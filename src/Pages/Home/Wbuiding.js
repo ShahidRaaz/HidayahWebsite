@@ -107,90 +107,127 @@ export default function IslamicEcosystem() {
         </p>
       </div>
 
-      {/* Top Section - Two Cards Slide In Left & Right */}
-       <motion.div variants={cardVariants}
-              whileHover="hover"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.45 }}
-    className="w-full p-3 border-2 border-br-color/25 rounded-3xl flex flex-col lg:flex-row justify-start items-start gap-3 mt-3 transition-all duration-100 hover:border-br-color">
-      
-        <motion.div {...slideInLeft} className="w-full p-6 bg-white rounded-3xl flex-1 flex-col justify-start items-center ">
-          <h2 className="text-3xl font-semibold text-[#444444] mb-4 text-center">
-            Creative <span className="text-br-color">Designs</span>
-          </h2>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={containerVariants}
-            viewport={{ once: true, amount: 0.4 }}
-            className="flex flex-wrap gap-3 items-center justify-center "
-          >
-            {creativeDesigns.map((item) => (
-              <motion.span key={item} variants={childVariants} className="px-3 py-1 text-br-color rounded-full bg-custom-teal text-lg font-medium text-center border-2 border-br-color/25 hover:border-br-color">
-                {item} 
-              </motion.span>
-            ))}
-          </motion.div>
-        </motion.div>
+<motion.div
+  variants={cardVariants}
+  whileHover="hover"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.45 }}
+  className="w-full p-3 border-2 border-br-color/25 rounded-3xl grid grid-cols-1 lg:grid-cols-2 gap-3 mt-3 transition-all duration-100 hover:border-br-color"
+>
+  <motion.div {...slideInLeft} className="w-full h-full p-6 bg-white rounded-3xl flex flex-col items-center">
+    <h2 className="text-3xl font-semibold text-[#444444] mb-4 text-center">
+      Creative <span className="text-br-color">Designs</span>
+    </h2>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      variants={containerVariants}
+      viewport={{ once: true, amount: 0.4 }}
+      className="flex flex-wrap gap-3 items-center justify-center"
+    >
+      {creativeDesigns.map((item) => (
+        <motion.span key={item} variants={childVariants} className="px-3 py-1 text-br-color rounded-full bg-custom-teal text-lg font-medium text-center border-2 border-br-color/25 hover:border-br-color">
+          {item}
+        </motion.span>
+      ))}
+    </motion.div>
+  </motion.div>
 
-        <motion.div {...slideInRight} className="w-full h-auto p-6 bg-white rounded-3xl flex-1 flex-col justify-start items-center">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-4 text-center">
-            Innovative <span className="text-br-color">Softwares</span>
-          </h2>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={containerVariants}
-            viewport={{ once: true, amount: 0.4 }}
-            className="flex flex-wrap gap-3 items-center justify-center"
-          >
-            {innovativeSoftwares.map((item) => (
-              <motion.span key={item} variants={childVariants} className="px-3 py-1 text-br-color rounded-full bg-custom-teal text-lg font-medium text-center border-2 border-br-color/25 hover:border-br-color">
-                {item}
-              </motion.span>
-            ))}
-          </motion.div>
-        </motion.div>
-      </motion.div>
+  <motion.div {...slideInRight} className="w-full h-full p-6 bg-white rounded-3xl flex flex-col items-center">
+    <h2 className="text-3xl font-semibold text-gray-800 mb-4 text-center">
+      Innovative <span className="text-br-color">Softwares</span>
+    </h2>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      variants={containerVariants}
+      viewport={{ once: true, amount: 0.4 }}
+      className="flex flex-wrap gap-3 items-center justify-center"
+    >
+      {innovativeSoftwares.map((item) => (
+        <motion.span key={item} variants={childVariants} className="px-3 py-1 text-br-color rounded-full bg-custom-teal text-lg font-medium text-center border-2 border-br-color/25 hover:border-br-color">
+          {item}
+        </motion.span>
+      ))}
+    </motion.div>
+  </motion.div>
+</motion.div>
+
 
       {/* Bottom Section - Parallax with animated paragraphs */}
-      <motion.div variants={cardVariants}
-              whileHover="hover"
+        <motion.div
+          variants={cardVariants}
+          whileHover="hover"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.45 }}
+          className="w-full p-3 border-2 border-br-color/25 rounded-3xl grid grid-cols-1 lg:grid-cols-2 items-stretch gap-3 mt-3 transition-all duration-100 hover:border-br-color auto-rows-auto"
+        >
+          {/* Card 1 */}
+          <motion.div
+            {...parallaxVariants}
+            className="w-full h-full p-6 bg-white rounded-3xl flex flex-col justify-start items-center"
+          >
+            <h2 className="text-3xl font-semibold text-br-color text-center">
+              Creative <span className="text-[#444444]">Hub</span>
+            </h2>
+
+            <motion.div
+              variants={paragraphVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.45 }}
-    className="w-full p-3 border-2 border-br-color/25 rounded-3xl flex flex-col lg:flex-row justify-start items-start gap-3 mt-3 transition-all duration-100 hover:border-br-color">
+              viewport={{ once: true, amount: 0.4 }}
+              className="font-normal text-[#444444] mb-2 text-xl text-center"
+            >
+              First Islamic Creative marketplace
+            </motion.div>
 
-        <motion.div {...parallaxVariants} className="w-full p-6 bg-white rounded-3xl flex-1 flex-col justify-start items-center">
-          <h2 className="text-3xl font-semibold text-br-color text-center">
-            Creative <span className="text-[#444444]">Hub</span>
-          </h2>
+            <motion.p
+              variants={paragraphVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.4 }}
+              className="text-center text-[#444444] text-xl"
+            >
+              A global destination for Muslim-focused design resources — combining faith, creativity, and technology to empower meaningful design engagement.
+            </motion.p>
 
-          <motion.div variants={paragraphVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} className="font-normal text-[#444444] mb-2 text-xl text-center">
-            First Islamic Creative marketplace
+            {/* Optional sticky footer area */}
+            {/* <div className="mt-auto" /> */}
           </motion.div>
 
-          <motion.p variants={paragraphVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} className="text-center text-[#444444] text-xl">
-            A global destination for Muslim-focused design resources — combining faith, creativity, and technology to empower meaningful design engagement.
-          </motion.p>
-        </motion.div>
+          {/* Card 2 */}
+          <motion.div
+            {...parallaxVariants}
+            className="w-full h-full p-6 bg-white rounded-3xl flex flex-col justify-start items-center"
+          >
+            <h2 className="text-3xl font-semibold text-br-color text-center">
+              AI <span className="text-[#444444]">Innovation</span>
+            </h2>
 
-        <motion.div {...parallaxVariants} className="w-full p-6 bg-white rounded-3xl flex-1 flex-col justify-start items-center">
-          <h2 className="text-3xl font-semibold text-br-color text-center">
-            AI <span className="text-[#444444]">Innovation</span>
-          </h2>
+            <motion.div
+              variants={paragraphVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.4 }}
+              className="font-normal text-[#444444] mb-2 text-xl text-center"
+            >
+              AI-powered Tools & Features
+            </motion.div>
 
-          <motion.div variants={paragraphVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} className="font-normal text-[#444444] mb-2 text-xl text-center">
-            AI-powered Tools & Features
+            <motion.p
+              variants={paragraphVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.4 }}
+              className="text-center text-[#444444] text-xl"
+            >
+              We're exploring how artificial intelligence can empower Muslims with smarter, purposeful digital products that enhance productivity, spiritual growth, and intuitive usage.
+            </motion.p>
           </motion.div>
-
-          <motion.p variants={paragraphVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} className="text-center text-[#444444] text-xl">
-            We're exploring how artificial intelligence can empower Muslims with smarter, purposeful digital products that enhance productivity, spiritual growth, and intuitive usage.
-          </motion.p>
         </motion.div>
 
-      </motion.div>
     </motion.div>
   );
 }

@@ -99,7 +99,7 @@ const HeroS = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="w-[200px] bg-white rounded-2xl p-4 border border-white/30"
+              className="w-[200px] bg-white rounded-2xl p-4"
             >
               <TimeEvents lat={lat} lng={lng} />
             </motion.div>
@@ -108,7 +108,7 @@ const HeroS = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.35 }}
-              className="w-[200px] bg-white rounded-2xl p-4 border border-white/30"
+              className="w-[200px] bg-white rounded-2xl p-4"
             >
               <DateDisplay lat={lat} lng={lng} />
             </motion.div>
