@@ -76,10 +76,9 @@ const handleSubmit = async (e) => {
                 "About",
                 "Works",
                 "Products",
-                "Creative Hub",
-                "Blog",
-                "Contacts",
                 "Careers",
+                "Contact",
+                "Blog",
               ].map((label) => (
                 <li key={label}>
                   <a href="#" className="group inline-block text-[#444444] hover:text-br-color transition-colors">

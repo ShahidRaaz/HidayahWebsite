@@ -10,6 +10,7 @@ const links = [
   { name: "About", to: "/about" },
   { name: "Works", to: "/works" },
   { name: "Products", to: "/products" },
+  { name: "Career", to: "/careers" },
   { name: "Contact", to: "/contact" },
   { name: "Blogs", to: "/blogs" },
 ];
@@ -44,15 +45,15 @@ const Navbar = () => {
         </div>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex gap-2 bg-white/25 py-0 px-0.5 rounded-full h-[56px] items-center justify-center backdrop-blur-lg border-2 border-br-color/25">
+        <ul className="hidden lg:flex gap-2 bg-white/25 py-0 px-0.5 rounded-full h-[46px] items-center justify-center backdrop-blur-lg border-2 border-br-color/25">
           {links.map((link) => (
-            <li key={link.to} className="h-[50px] flex">
+            <li key={link.to} className="h-[40px] flex">
               <NavLink
                 onClick={handleNavClick}
                 onMouseLeave={handleNavMouseLeave}
                 to={link.to}
                 className={({ isActive }) =>
-                  `flex items-center justify-center text-lg font-normal px-4 rounded-[50px] h-full ${
+                  `flex items-center justify-center text-lg font-normal px-3 rounded-[50px] h-full ${
                     isActive
                       ? "bg-br-color text-white "
                       : "text-[#444444] hover:bg-custom-teal hover:text-br-color transition"
