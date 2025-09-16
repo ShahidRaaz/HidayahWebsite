@@ -63,7 +63,7 @@ const handleSubmit = async (e) => {
         className="w-full px-6 lg:px-10 py-8 bg-white text-gray-700 rounded-3xl"
       >
         {/* Grid: 3 link columns + newsletter */}
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-4">
 
           {/* Column 1 */}
           <motion.div variants={fadeUp}>
@@ -230,38 +230,53 @@ const handleSubmit = async (e) => {
           </motion.div>
         </div>
 
-        {/* Bottom bar */}
-        <motion.div variants={fadeUp} className="mt-8 flex flex-col items-center justify-between gap-4 pt-6 md:flex-row">
-          
-            <img src={PLogo} alt="Hidayah Logo" className="h-10 w-auto mb-4 md:mb-0" />
+        <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      className="mt-8 pt-6 flex flex-col gap-6 md:flex-row justify-start md:items-center md:justify-between"
+    >
+      {/* Left: logo + copyright */}
+      <div className="flex flex-col gap-2 text-[14px] text-gray-600">
+        <img src={PLogo} alt="Hidayah Logo" className="h-10 w-32 md:mb-0" />
+        <span>© {new Date().getFullYear()} Hidayah. All rights reserved</span>
+      </div>
 
-            <span>© {new Date().getFullYear()} Hidayah. All rights reserved</span>
+      {/* Middle: policy links */}
+      <div className="flex flex-row ml-0 md:ml-12 lg:items-center gap-8 text-[14px] text-gray-600">
+        <a className="text-[#444444] hover:text-br-color" href="#">
+          Privacy Policy
+        </a>
+        <a className="text-[#444444] hover:text-br-color" href="#">
+          Cookies Settings
+        </a>
+      </div>
 
-          <div className="flex items-center gap-2 text-[14px] text-gray-600">
-            <a className="text-[#444444] hover:text-br-color" href="#">
-              Privacy Policy
-            </a>
-            <span className="mx-2 text-gray-400">•</span>
-            <a className="text-[#444444] hover:text-br-color" href="#">
-              Cookies Settings
-            </a>
-          </div>
-
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="cursor-cta group w-[44px] h-[44px] flex items-center justify-center border-2 border-br-color backdrop-blur-md rounded-full bg-custom-teal hover:bg-br-color transition duration-300 animate-float"
-          >
-            <svg
-              width="24" height="24" viewBox="0 0 24 24" fill="none"
-              className="stroke-current text-br-color group-hover:text-white transition duration-300"
-            >
-              <path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-
-
-
+      {/* Right: back to top — always aligned right */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="self-end md:self-auto md:pl-auto cursor-cta w-[44px] h-[44px] flex items-center justify-center border-2 border-br-color backdrop-blur-md rounded-full bg-custom-teal hover:bg-br-color transition duration-300 animate-float"
+        aria-label="Scroll to top"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          className="stroke-current text-br-color hover:text-white transition duration-300"
+        >
+          <path
+            d="M12 19V5M6 11l6-6 6 6"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
         </motion.div>
+
       </motion.div>
     </footer>
   );

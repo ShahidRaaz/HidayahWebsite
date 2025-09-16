@@ -1,14 +1,10 @@
-import React, { useEffect, useState, useImperativeHandle, forwardRef } from 'react';
+import React, { useEffect, useState, forwardRef } from 'react';
 
 const Cursor = forwardRef((props, ref) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [hoverActive, setHoverActive] = useState(false);
-  const [navTapActive, setNavTapActive] = useState(false);
   const [isDesktop, setIsDesktop] = useState(true);
 
-  useImperativeHandle(ref, () => ({
-    setNavTapActive,
-  }));
 
   // Track screen size and set desktop state
   useEffect(() => {
@@ -36,7 +32,7 @@ const Cursor = forwardRef((props, ref) => {
     };
   }, [isDesktop]);
 
-  const isActive = hoverActive || navTapActive;
+  const isActive = hoverActive;
 
   if (!isDesktop) return null;
 

@@ -47,7 +47,7 @@ const Navbar = () => {
         {/* Desktop links */}
         <ul className="hidden lg:flex gap-2 bg-white/25 py-0 px-0.5 rounded-full h-[46px] items-center justify-center backdrop-blur-lg border-2 border-br-color/25">
           {links.map((link) => (
-            <li key={link.to} className="h-[40px] flex">
+            <li key={link.to} className="h-[40px] flex cursor-cta">
               <NavLink
                 onClick={handleNavClick}
                 onMouseLeave={handleNavMouseLeave}
@@ -55,7 +55,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `flex items-center justify-center text-lg font-normal px-3 rounded-[50px] h-full ${
                     isActive
-                      ? "bg-br-color text-white "
+                      ? "bg-br-color text-white cursor-default "
                       : "text-[#444444] hover:bg-custom-teal hover:text-br-color transition"
                   }`
                 }
