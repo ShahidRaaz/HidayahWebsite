@@ -15,7 +15,7 @@ const links = [
   { name: "Blogs", to: "/blogs" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ hidden }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const cursorRef = useRef();
 
@@ -34,7 +34,7 @@ const Navbar = () => {
       {/* Animate whole navbar */}
       <motion.nav
         initial={{ opacity: 0, scale: 0.95, y: -20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
+        animate={hidden ? { y: -80, opacity: 0, pointerEvents: "none" } : { y: 0, opacity: 1, pointerEvents: "auto" }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }}
         className="fixed z-50 flex items-center justify-between py-[25px] top-0 w-full px-[5vw]"
