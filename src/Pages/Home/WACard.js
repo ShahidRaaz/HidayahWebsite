@@ -91,14 +91,22 @@ export default function AboutHidayah() {
             and stay updated with our latest works and resources.
             </p>
             
+
+            <div className="flex flex-col gap-2">
+            {[
+              "Early access to design assets and tools",
+              "Project updates and behind the scenes",
+              "Community Q&A and collaboration",
+            ].map((text, i) => (
+              <div
+                key={i}
+                className="font-semibold text-lg text-br-color text-center lg:text-left leading-5 break-words"
+              >
+                {text}
+              </div>
+            ))}
+          </div>
             
-            <p className="font-bold text-lg text-br-color text-center lg:text-left">
-            Early access to design assets and tools
-            <br/>
-            Project updates and behind‑the‑scenes
-            <br/>
-            Community Q&amp;A and collaboration
-            </p>
             
         </motion.div>
 

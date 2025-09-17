@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route,useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Analytics} from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react";
@@ -38,6 +38,8 @@ function App() {
     rootMargin: "0px 0px 0px 0px",
   }); // observe footer [7][20]
 
+  const location = useLocation();
+
   return (
     <>
       <CircleCursor />
@@ -61,7 +63,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/blogs" element={<Blogs />} />
             </Routes>
-            <Footer ref={footerRef}/>
+            <Footer ref={footerRef} key={location.pathname}/>
           </motion.div>
         )}
       </AnimatePresence>

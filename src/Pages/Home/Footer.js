@@ -1,24 +1,32 @@
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 import { motion } from "framer-motion";
 import PLogo from "../../assets/plogo.png";
-import { forwardRef } from "react";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 22 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-}; // child variant [9]
+const fadeLeft = {
+  hidden: { opacity: 0, x: 22 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 300,  // how fast it snaps
+      damping: 100,     // how much it resists/settles
+      mass: 0.8        // tweak inertia feel
+    }
+  }
+};
 
 const container = {
   hidden: {},
   show: {
     transition: {
-      delayChildren: 0.5,    // start delay before first child [8]
-      staggerChildren: 0.1,  // gap between children [19]
+      delayChildren: 0.3,   // global start delay
+      staggerChildren: 0.04 // gap between each child
     },
   },
-}; // parent orchestrator [19]
+}; // parent orchestrator
 
-const footer = forwardRef (function Footer(props, ref) {
+const Footer = forwardRef(function Footer(props, ref) {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -45,9 +53,7 @@ const footer = forwardRef (function Footer(props, ref) {
         body: JSON.stringify({ email }),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to submit email");
-      }
+      if (!response.ok) throw new Error("Failed to submit email");
 
       setSuccess("Thank you! We'll reach out soon.");
       setEmail("");
@@ -66,7 +72,7 @@ const footer = forwardRef (function Footer(props, ref) {
     "Careers",
     "Contact",
     "Blog",
-  ]; // stagger target items [19]
+  ];
 
   const worksLinks = [
     "Wallpaper & Themes",
@@ -77,18 +83,18 @@ const footer = forwardRef (function Footer(props, ref) {
     "Web Design",
     "Widgets",
     "Mobile Apps",
-  ]; // stagger target items [19]
+  ];
 
   const industryLinks = [
     "Digital Design",
     "Print Design",
     "Software & Apps",
     "Artificial Intelligence",
-  ]; // stagger target items [19]
+  ];
 
   return (
-    <footer className="w-full px-[6vw] rounded-xl py-12" ref={ref} id="site-footer">
-      {/* Global container for the whole footer; this could orchestrate high-level sections */}
+    <footer ref={ref} id="site-footer" className="w-full px-[6vw] rounded-xl py-12">
+      {/* Global orchestrator: all descendants with variants={fadeLeft} will stagger sequentially */}
       <motion.div
         variants={container}
         initial="hidden"
@@ -96,120 +102,70 @@ const footer = forwardRef (function Footer(props, ref) {
         viewport={{ once: true, amount: 0.35 }}
         className="w-full px-6 lg:px-10 py-8 bg-white text-gray-700 rounded-3xl"
       >
-        {/* Grid: 3 link columns + newsletter */}
+        {/* Grid */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-4">
           {/* Column 1: Company */}
           <div>
-            <motion.h4
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.35 }}
-              className="text-br-color text-[20px] font-semibold leading-none mb-5"
-            >
+            <motion.h4 variants={fadeLeft} className="text-br-color text-[20px] font-semibold leading-none mb-5">
               Company
             </motion.h4>
 
-            <motion.ul
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.35 }}
-              className="space-y-4 text-[18px]"
-            >
+            <ul className="space-y-4 text-[18px]">
               {companyLinks.map((label) => (
-                <motion.li key={label} variants={fadeUp}>
-                  <a
-                    href="#"
-                    className="group inline-block text-[#444444] hover:text-br-color transition-colors"
-                  >
+                <motion.li key={label} variants={fadeLeft}>
+                  <a href="#" className="group inline-block text-[#444444] hover:text-br-color transition-colors">
                     {label}
                     <span className="block max-w-0 bg-br-color transition-all duration-500 ease-out group-hover:max-w-full h-[1.5px] origin-bottom [transform:scaleY(0.75)]" />
                   </a>
                 </motion.li>
               ))}
-            </motion.ul>
+            </ul>
           </div>
 
           {/* Column 2: Works */}
           <div>
-            <motion.h4
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.35 }}
-              className="text-br-color text-[20px] font-semibold leading-none mb-5"
-            >
+            <motion.h4 variants={fadeLeft} className="text-br-color text-[20px] font-semibold leading-none mb-5">
               Works
             </motion.h4>
 
-            <motion.ul
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.35 }}
-              className="space-y-4 text-[18px]"
-            >
+            <ul className="space-y-4 text-[18px]">
               {worksLinks.map((label) => (
-                <motion.li key={label} variants={fadeUp}>
-                  <a
-                    href="#"
-                    className="group inline-block text-[#444444] hover:text-br-color transition-colors"
-                  >
+                <motion.li key={label} variants={fadeLeft}>
+                  <a href="#" className="group inline-block text-[#444444] hover:text-br-color transition-colors">
                     {label}
                     <span className="block max-w-0 bg-br-color transition-all duration-500 ease-out group-hover:max-w-full h-[1.5px] origin-bottom [transform:scaleY(0.75)]" />
                   </a>
                 </motion.li>
               ))}
-            </motion.ul>
+            </ul>
           </div>
 
           {/* Column 3: Industries */}
           <div>
-            <motion.h4
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.35 }}
-              className="text-br-color text-[20px] font-semibold leading-none mb-5"
-            >
+            <motion.h4 variants={fadeLeft} className="text-br-color text-[20px] font-semibold leading-none mb-5">
               Industries
             </motion.h4>
 
-            <motion.ul
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.35 }}
-              className="space-y-4 text-[18px]"
-            >
+            <ul className="space-y-4 text-[18px]">
               {industryLinks.map((label) => (
-                <motion.li key={label} variants={fadeUp}>
-                  <a
-                    href="#"
-                    className="group inline-block text-[#444444] hover:text-br-color transition-colors"
-                  >
+                <motion.li key={label} variants={fadeLeft}>
+                  <a href="#" className="group inline-block text-[#444444] hover:text-br-color transition-colors">
                     {label}
                     <span className="block max-w-0 bg-br-color transition-all duration-500 ease-out group-hover:max-w-full h-[1.5px] origin-bottom [transform:scaleY(0.75)]" />
                   </a>
                 </motion.li>
               ))}
-            </motion.ul>
+            </ul>
           </div>
 
           {/* Column 4: Newsletter + socials */}
           <div className="pr-0 lg:pr-24 xl:pr-0">
-            <motion.h4
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.35 }}
-              className="text-br-color text-[20px] font-medium leading-none mb-5"
-            >
+            <motion.h4 variants={fadeLeft} className="text-br-color text-[20px] font-medium leading-none mb-5">
               Subscribe to our newsletter
             </motion.h4>
 
-            <form
+            <motion.form
+              variants={fadeLeft}
               onSubmit={handleSubmit}
               className={`
                 w-full rounded-full mb-2 justify-between flex items-center p-1
@@ -231,38 +187,37 @@ const footer = forwardRef (function Footer(props, ref) {
                 className="w-[75%] bg-transparent outline-none px-4 py-2 rounded-l-full border-0"
               />
 
-              <button
+              <motion.button
+                
                 type="submit"
                 disabled={loading}
                 className="cursor-cta group w-[44px] h-[44px] pl-1 flex items-center justify-center border-2 border-br-color backdrop-blur-md rounded-full bg-custom-teal hover:bg-br-color transition duration-300 disabled:opacity-60"
               >
-              <svg width="19" height="18" viewBox="0 0 19 18" fill="none" className="stroke-current text-br-color group-hover:text-white transition duration-300" xmlns="http://www.w3.org/2000/svg"> <path d="M2 9L1.396 3.563C1.223 2.007 2.825 0.863996 4.24 1.535L16.184 7.193C17.709 7.915 17.709 10.085 16.184 10.807L4.24 16.466C2.825 17.136 1.223 15.994 1.396 14.438L2 9ZM2 9H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>
-              </button>
-            </form>
+                <svg width="19" height="18" viewBox="0 0 19 18" fill="none" className="stroke-current text-br-color group-hover:text-white transition duration-300" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 9L1.396 3.563C1.223 2.007 2.825 0.863996 4.24 1.535L16.184 7.193C17.709 7.915 17.709 10.085 16.184 10.807L4.24 16.466C2.825 17.136 1.223 15.994 1.396 14.438L2 9ZM2 9H9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </motion.button>
+            </motion.form>
 
-            <p className="text-[14px] text-gray-500">
+            <motion.p variants={fadeLeft} className="text-[14px] text-gray-500">
               By signing up, you agree to our{" "}
               <a className="underline decoration-gray-300 underline-offset-2 hover:text-gray-800" href="#">
                 Privacy Policy
               </a>
               . We respect your data. Unsubscribe anytime.
-            </p>
-            {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-            {success && <p className="text-br-color text-sm mt-2">{success}</p>}
+            </motion.p>
+
+            {error && <motion.p variants={fadeLeft} className="text-red-500 text-sm mt-2">{error}</motion.p>}
+            {success && <motion.p variants={fadeLeft} className="text-br-color text-sm mt-2">{success}</motion.p>}
 
             <div className="mt-8">
-              <div className="text-[20px] mb-4 font-medium text-br-color">Follow us on:</div>
+              <motion.div variants={fadeLeft} className="text-[20px] mb-4 font-medium text-br-color">
+                Follow us on:
+              </motion.div>
 
-              {/* Socials stagger */}
-              <motion.div
-                variants={container}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.35 }}
-                className="flex gap-4"
-              >
+              <div className="flex gap-4">
                 <motion.a
-                  variants={fadeUp}
+                  variants={fadeLeft}
                   href="https://www.behance.net/hidayahdesign2025"
                   target="_blank"
                   aria-label="Behance"
@@ -276,7 +231,7 @@ const footer = forwardRef (function Footer(props, ref) {
                 </motion.a>
 
                 <motion.a
-                  variants={fadeUp}
+                  variants={fadeLeft}
                   href="https://www.instagram.com/hidayah.muslims"
                   target="_blank"
                   aria-label="Instagram"
@@ -290,7 +245,7 @@ const footer = forwardRef (function Footer(props, ref) {
                 </motion.a>
 
                 <motion.a
-                  variants={fadeUp}
+                  variants={fadeLeft}
                   href="https://www.linkedin.com/company/hidayah-muslims"
                   target="_blank"
                   aria-label="LinkedIn"
@@ -302,17 +257,14 @@ const footer = forwardRef (function Footer(props, ref) {
                     <path fillRule="evenodd" clipRule="evenodd" d="M20.037 20H15.885V13.504C15.885 11.954 15.859 9.96202 13.728 9.96202C11.568 9.96202 11.238 11.65 11.238 13.392V20H7.09V6.64002H11.07V8.46702H11.128C11.681 7.41702 13.036 6.30902 15.056 6.30902C19.26 6.30902 20.036 9.07502 20.036 12.673L20.037 20ZM2.409 4.81602C2.09257 4.81629 1.7792 4.75416 1.48681 4.63319C1.19441 4.51221 0.928743 4.33478 0.704994 4.11103C0.481245 3.88728 0.30381 3.62161 0.182839 3.32922C0.0618689 3.03683 -0.000262201 2.72345 8.31678e-07 2.40702C9.95919e-07 1.93085 0.141178 1.46537 0.405684 1.06942C0.67019 0.673469 1.04615 0.364828 1.48604 0.182514C1.92593 0.000199318 2.40999 -0.0476038 2.87704 0.0451475C3.34409 0.137899 3.77316 0.36704 4.11001 0.703605C4.44685 1.04017 4.67635 1.46905 4.76949 1.93602C4.86263 2.403 4.81523 2.8871 4.63328 3.32714C4.45133 3.76718 4.143 4.1434 3.74727 4.40823C3.35154 4.67307 2.88617 4.81463 2.41 4.81502M4.486 20H0.330001V6.64002H4.486V20Z" fill="currentColor" />
                   </svg>
                 </motion.a>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
+        {/* Bottom bar — included in the same stagger */}
         <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
+          variants={fadeLeft}
           className="mt-8 pt-6 flex flex-col gap-6 md:flex-row justify-start md:items-center md:justify-between"
         >
           {/* Left: logo + copyright */}
@@ -332,30 +284,20 @@ const footer = forwardRef (function Footer(props, ref) {
           </div>
 
           {/* Right: back to top */}
-          <button
+          <motion.button
+            variants={fadeLeft}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="group self-end md:self-auto md:pl-auto cursor-cta w-[44px] h-[44px] flex items-center justify-center border-2 border-br-color backdrop-blur-md rounded-full bg-custom-teal hover:bg-br-color transition duration-300 animate-float"
             aria-label="Scroll to top"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              className="stroke-current text-br-color group-hover:text-white transition"
-            >
-              <path
-                d="M12 19V5M6 11l6-6 6 6"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="stroke-current text-br-color group-hover:text-white transition">
+              <path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </button>
+          </motion.button>
         </motion.div>
       </motion.div>
     </footer>
   );
-})
-export default footer;
+});
+
+export default Footer;
