@@ -116,9 +116,9 @@ export default function TargetAudience() {
               viewport={{ once: true, amount: 0.45 }}
               className="relative w-full border-2 border-br-color/25 rounded-3xl p-4 bg-white transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10 cursor-pointer"
             >
-              {/* <img src={item.imgsrc} alt={item.title} className="rounded-xl object-cover w-full aspect-[4/3] mb-4" loading="lazy"/> */}
-              <h3 className="text-2xl md:text-3xl font-bold text-br-color leading-7 px-12 mb-2 two-lines">{item.title}</h3>
-              <p className="text-lg md:text-xl text-[#444444] leading-6 w-full">{item.description}</p>
+              <img src={item.imgsrc} alt={item.title} className="rounded-xl object-cover w-full aspect-[4/3] mb-4" loading="lazy"/>
+              <p className="text-xl md:text-2xl font-bold text-br-color leading-6 md:leading-7 px-0 md:px-16 lg:px-12 mb-2 line-clamp-6 md:line-clamp-2">{item.title}</p>
+              <p className="text-md md:text-lg text-[#444444] leading-6 md:leading-6 w-full">{item.description}</p>
             </motion.div>
           ))}
         </motion.div>
