@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
-
+import img1 from "../../assets/otaimg1.png"
+import img2 from "../../assets/otaimg2.png"
+import img3 from "../../assets/otaimg3.png"
+import img4 from "../../assets/otaimg4.png"
 const fadeScaleIn = {
   initial: { opacity: 0, scale: 0.85 },
   whileInView: { opacity: 1, scale: 1 },
@@ -44,26 +47,27 @@ const cardVariants = {
 
 
 export default function TargetAudience() {
+
   const audienceData = [
     {
+      imgsrc: img1,
       title: "Muslim Creatives",
-      description:
-        "Designers, illustrators, and artists seeking authentic Islamic-inspired resources.",
+      description:"Designers, illustrators, and artists seeking authentic Islamic-inspired resources.",
     },
     {
+      imgsrc: img2,
       title: "Developers & Innovators",
-      description:
-        "Tech enthusiasts building apps, websites, and tools aligned with Islamic values.",
+      description:"Tech enthusiasts building apps, websites, and tools aligned with Islamic values.",
     },
     {
+      imgsrc: img3,
       title: "Educators & Communities",
-      description:
-        "Teachers, institutes, and community groups sharing faith-based knowledge digitally.",
+      description:"Teachers, institutes, and community groups sharing faith-based knowledge digitally.",
     },
     {
+      imgsrc: img4,
       title: "Everyday Muslims",
-      description:
-        "Individuals looking for meaningful wallpapers, tools, and apps that bring faith into daily life.",
+      description:"Individuals looking for meaningful muslimcreativess, tools, and apps that bring faith into daily life.",
     },
   ];
 
@@ -112,6 +116,7 @@ export default function TargetAudience() {
               viewport={{ once: true, amount: 0.45 }}
               className="relative w-full border-2 border-br-color/25 rounded-3xl p-4 bg-white transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10 cursor-pointer"
             >
+              {/* <img src={item.imgsrc} alt={item.title} className="rounded-xl object-cover w-full aspect-[4/3] mb-4" loading="lazy"/> */}
               <h3 className="text-2xl md:text-3xl font-bold text-br-color leading-7 px-12 mb-2 two-lines">{item.title}</h3>
               <p className="text-lg md:text-xl text-[#444444] leading-6 w-full">{item.description}</p>
             </motion.div>
