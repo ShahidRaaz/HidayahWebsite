@@ -30,13 +30,14 @@ function App() {
 
   
 
-  const { ref: footerRef, inView: footerInView } = useInView({
-    /* trigger when footer is visible at all; tweak threshold as needed */
-    threshold: 0.6,
-    /* if the page has a sticky header height, set rootMargin to trigger earlier */
-    root: null,
-    rootMargin: "0px 0px 0px 0px",
-  }); // observe footer [7][20]
+const { ref: footerRef, inView: footerInView } = useInView({
+  root: null,                 // viewport
+  threshold: 0.25,            // mobile-friendly trigger
+  rootMargin: "75px 0px 0px 0px", // account for sticky navbar height
+  trackVisibility: true,      // improves stability on mobile
+  delay: 100,                 // small debounce
+});
+
 
   const location = useLocation();
 
