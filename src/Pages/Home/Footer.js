@@ -200,15 +200,12 @@ const Footer = forwardRef(function Footer(props, ref) {
             </motion.form>
 
             <motion.p variants={fadeLeft} className="text-[14px] text-gray-500">
-              By signing up, you agree to our{" "}
-              <a className="underline decoration-gray-300 underline-offset-2 hover:text-gray-800" href="#">
-                Privacy Policy
-              </a>
-              . We respect your data. Unsubscribe anytime.
+              By signing up, you agree to our privacy policy
+              We respect your data. Unsubscribe anytime.
             </motion.p>
 
-            {error && <motion.p variants={fadeLeft} className="text-red-500 text-sm mt-2">{error}</motion.p>}
-            {success && <motion.p variants={fadeLeft} className="text-br-color text-sm mt-2">{success}</motion.p>}
+            {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+        {success && <p className="text-br-color text-sm mt-2">{success}</p>}
 
             <div className="mt-8">
               <motion.div variants={fadeLeft} className="text-[20px] mb-4 font-medium text-br-color">
