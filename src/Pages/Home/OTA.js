@@ -95,7 +95,7 @@ export default function TargetAudience() {
           whileInView="visible"
           variants={fadeScaleIn}
           viewport={{ once: true }}
-          className="px-12 text-xl md:text-2xl lg:text-3xl text-[#444444] font-medium mb-6 leading-6"
+          className="px-4 md:px-12 text-xl md:text-2xl lg:text-3xl text-[#444444] font-medium mb-6 md:mb-12 leading-6"
         >
           We’re designing with purpose for a diverse Muslim community,
           empowering individuals and organizations with meaningful digital experiences.
@@ -103,7 +103,7 @@ export default function TargetAudience() {
 
         {/* Cards Grid */}
         <motion.div
-          className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 md:gap-6 mb-12"
+          className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-8 mb-12"
           variants={containerVariants}
         >
           {audienceData.map((item, index) => (
