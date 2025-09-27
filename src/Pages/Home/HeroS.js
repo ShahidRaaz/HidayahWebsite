@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Overlay from "../../components/Website/eaoverlay";
+import Overlay from "../../components/Home/eaoverlay";
 import DateDisplay from "../../components/Home/DateDisplay";
 import TimeEvents from "../../components/Home/TimeEvents";
 import ScrollingWords from "./ScrollingWords";
@@ -66,7 +66,7 @@ const HeroS = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeInOut" }}
           viewport={{ once: true }}
-          className="flex flex-col items-center h-auto py-12 md:py-4 gap-6 md:gap-8 text-center w-full px-4"
+          className="flex flex-col items-center h-auto py-12 md:py-4 gap-6 md:gap-8 text-center w-full px-8"
         >
           <UserLocation/>
           {/* Headline */}

@@ -93,7 +93,7 @@ const Footer = forwardRef(function Footer(props, ref) {
   ];
 
   return (
-    <footer ref={ref} id="site-footer" className="w-full px-[6vw] rounded-xl py-12">
+    <footer ref={ref} id="site-footer" className="w-full px-[5vw] py-12">
       {/* Global orchestrator: all descendants with variants={fadeLeft} will stagger sequentially */}
       <motion.div
         variants={container}

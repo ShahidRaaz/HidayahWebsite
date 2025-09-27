@@ -37,7 +37,7 @@ const item = {
 
 export default function AboutHidayah() {
       const join = () => {
-    window.open("https://chat.whatsapp.com/LROOO2AFWtN8qxPH5vb1do", "_blank", "noopener,noreferrer");
+    window.open("https://chat.whatsapp.com/JvXL4JNCrZt194e3aBENky", "_blank", "noopener,noreferrer");
   };
   return (
     <motion.div {...fadeScaleIn} className="h-auto w-full flex flex-col items-center px-[6vw] my-12">

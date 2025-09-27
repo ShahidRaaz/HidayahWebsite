@@ -13,7 +13,7 @@ import Works from "./Pages/OWorks";
 import Products from "./Pages/Products"; 
 import Contact from "./Pages/Contact";
 import Blogs from "./Pages/Blogs";
-import Footer from "./Pages/Home/Footer";
+import Footer from "./components/Website/Footer";
 
 const mainPageVariants = {
   initial: { y: 5, opacity: 0 },

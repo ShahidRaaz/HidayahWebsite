@@ -92,7 +92,7 @@ const Overlay = ({ onClose }) => {
         <form
           onSubmit={handleSubmit}
           className={`
-                      w-full rounded-full mb-2 justify-between flex items-center p-1
+                      w-full md:w-[350px] rounded-3xl md:rounded-full mb-2 justify-between flex flex-col md:flex-row items-center p-1
                       border ${email ? 'border-1 border-br-color' : 'border border-br-color/50 hover:border-br-color/90'}
                       focus-within:ring-1 focus-within:ring-br-color focus-within:border-br-color
                       transition
@@ -102,7 +102,7 @@ const Overlay = ({ onClose }) => {
             type="email"
             required
             placeholder="Your email"
-            className="w-[30vw] lg:w-[20vw] bg-transparent outline-none px-4 py-2 rounded-l-full border-0"
+            className="w-full md:w-[15vw] bg-transparent outline-none px-4 py-2 border-0"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={loading}
@@ -111,7 +111,7 @@ const Overlay = ({ onClose }) => {
           <button
             type="submit"
             disabled={loading}
-            className="cursor-cta bg-br-color/10 text-lg relative overflow-hidden px-4 py-2 font-medium text-br-color rounded-full group border-2 border-br-color hover:text-white transition"
+            className="cursor-cta bg-br-color/10 text-lg relative overflow-hidden w-full md:w-auto px-4 py-2 font-medium text-br-color rounded-full group border-2 border-br-color hover:text-white transition"
           >
             <span className="relative z-10 transition-colors duration-500 group-hover:text-white">
               {loading ? "Submitting..." : "Submit"}{" "}

@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import HLogo from "../../assets/hlogo.png";
 import MenuOverlay from "./MenuOverlay";
-import Cursor from "./cursor.js";
 
 const links = [
   { name: "Home", to: "/" },
@@ -28,16 +27,19 @@ const Navbar = ({ hidden }) => {
   };
 
   return (
-    <>
-      <Cursor ref={cursorRef} />
+    <div className="fixed top-0 left-0 right-0 w-full z-50 px-[5vw] py-[25px]">
 
       {/* Animate whole navbar */}
       <motion.nav
-        initial={{ opacity: 0, scale: 0.95, y: -20 }}
-        animate={hidden ? { y: -80, opacity: 0, pointerEvents: "none" } : { y: 0, opacity: 1, pointerEvents: "auto" }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        viewport={{ once: true }}
-        className="fixed z-50 flex items-center justify-between py-[25px] top-0 w-full px-[5vw]"
+        layout="position"
+            initial={{ opacity: 0, scale:0.95,y: -12 }}
+            animate={
+              hidden
+                ? { y: -80, opacity: 0}
+                : { y: 0, opacity: 1, scale:1 }
+            }
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="flex items-center justify-between transform-gpu will-change-transform"
       >
         {/* Logo */}
         <div className="bg-br-color w-[56px] h-[56px] flex items-center justify-center rounded-full">
@@ -93,7 +95,7 @@ const Navbar = ({ hidden }) => {
       {menuOpen && (
         <MenuOverlay links={links} onClose={() => setMenuOpen(false)} />
       )}
-    </>
+    </div>
   );
 };
 
