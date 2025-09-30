@@ -77,7 +77,7 @@ const paragraphVariants = {
 export default function IslamicEcosystem() {
   const creativeDesigns = [
     "Digital Wallpapers & Themes",
-    "Custom Icons & Illustrations",
+    "Icons & Illustrations",
     "Brand Identity Design",
     "UX/UI Design",
     "Motion Graphics",
