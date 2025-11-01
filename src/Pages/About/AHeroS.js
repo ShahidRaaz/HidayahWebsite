@@ -2,6 +2,20 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Overlay from "../../components/Home/eaoverlay";
 
+const fadeLeft = {
+  hidden: { opacity: 0, x: 22 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 300,  // how fast it snaps
+      damping: 100,     // how much it resists/settles
+      mass: 0.8        // tweak inertia feel
+    }
+  }
+};
+
 const AnimatedWords = ({ text, className }) => {
   const words = text.split(" ");
   const container = {
@@ -53,7 +67,7 @@ const HeroS = () => {
 
   return (
     <>
-      <div className="w-full h-auto">
+      <div className="w-full h-[400px] items-center justify-center relative overflow-hidden flex flex-col">
         {/* Hero Content */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -70,15 +84,20 @@ const HeroS = () => {
             <AnimatedWords text="design & tech hub" />
           </h1>
 
-          {/* Subheadline */}
-          <p className="text-2xl md:text-2xl lg:text-3xl xl:text-4xl text-[#444444] font-medium w-full">
-            <AnimatedWords text="We craft designs & build tech products for global Muslim community." />
-          </p>
-
         </motion.div>
+
+        <motion.button
+      variants={fadeLeft}
+      onClick={() => window.scrollBy({ top: 600, behavior: 'smooth' })}
+      className="group self-end md:self-auto md:pl-auto cursor-cta w-[44px] h-[44px] mt-24 flex items-center justify-center border-2 border-br-color backdrop-blur-md rounded-full bg-custom-teal hover:bg-br-color transition duration-300 animate-float"
+      aria-label="Scroll down 100px"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="stroke-current text-br-color group-hover:text-white transition">
+        <path d="M12 5v14m6-6l-6 6-6-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </motion.button>
         
       </div>
-      
 
       {isOverlayOpen && <Overlay onClose={closeOverlay} />}
     </>
