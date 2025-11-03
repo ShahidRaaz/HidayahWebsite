@@ -81,11 +81,11 @@ const HeroS = () => {
 
           {/* CTA Button */}
           <button
-            onClick={openOverlay}
+            
             className="cursor-cta bg-br-color/10 text-lg relative overflow-hidden px-6 py-3 font-medium text-br-color rounded-full group border-2 border-br-color hover:text-white transition max-w-xs mt-2"
           >
             <span className="relative z-10 transition-colors duration-500 group-hover:text-white">
-              Get Early Access
+              Request a Project
             </span>
             <span
               className="absolute left-0 bottom-0 w-full h-0 bg-br-color transition-all duration-500 group-hover:h-full"

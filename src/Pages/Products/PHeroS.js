@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Sparkles } from "lucide-react";
+import { useState } from "react";
+import { Sparkles, Bell } from "lucide-react";
 import Overlay from "../../components/Home/eaoverlay";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -71,7 +71,8 @@ export function Hero() {
               onClick={openOverlay}
               className="cursor-cta bg-br-color/10 text-lg relative overflow-hidden px-6 py-3 font-medium text-br-color rounded-full group border-2 border-br-color hover:text-white transition max-w-xs"
             >
-              <span className="relative z-10 transition-colors duration-500 group-hover:text-white">
+              <span className="relative z-10 transition-colors duration-500 flex items-center gap-2 group-hover:text-white">
+                <Bell size={20} />
                 Get Early Access
               </span>
               <span
