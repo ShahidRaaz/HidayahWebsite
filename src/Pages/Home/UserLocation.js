@@ -90,6 +90,7 @@ const Location = () => {
   } else if (hasLabel) {
     content = (
       <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-lg text-br-color bg-white border border-br-color">
+        
         {effectiveCity
           ? `${effectiveCity}${effectiveCountry ? `, ${effectiveCountry}` : ""}`
           : effectiveCountry}

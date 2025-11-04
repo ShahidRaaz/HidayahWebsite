@@ -31,7 +31,7 @@ export default function SplashScreen() {
       exit="exit"
       className="fixed inset-0 flex flex-col items-center justify-center bg-white z-50"
     >
-      <h1 className="text-3xl font-medium text-br-color mb-4">Salaam 'Alaikum</h1>
+      <h1 className="text-3xl font-medium text-br-color mb-4">As-Salaam 'Alaikum</h1>
       
       <VideoOnceOnView src="/videos/hidayahsa.mp4" alt="Hidayah animated logo" className="h-48 w-auto mb-4"/>
 

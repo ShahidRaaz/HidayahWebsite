@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion } from 'motion/react';
+import { Handshake, Sparkles, Brain, Users, Globe } from 'lucide-react';
 import VideoOnceOnView from "../../components/Website/vanim";
 
 const fadeScaleIn = {
@@ -9,6 +10,44 @@ const fadeScaleIn = {
 };
 
 export default function AboutHidayah() {
+  const purposes = [
+    {
+      icon: Handshake,
+      title: 'Design & Tech Services',
+      description: 'Providing comprehensive design and technology services to Islamic brands and Muslim businesses worldwide.',
+      color: '#008080',
+    },
+    {
+      icon: Sparkles,
+      title: 'Product Development',
+      description: 'Buidling innovative digital platform, tools and softwares for global muslim worldwide.',
+      color: '#008080',
+    },
+  ];
+  
+  const highlights = [
+    {
+      icon: Sparkles,
+      title: 'AI-Powered',
+      description: 'First Islamic tech hub leveraging artificial intelligence',
+    },
+    {
+      icon: Brain,
+      title: 'Innovation',
+      description: 'Cutting-edge solutions for modern Muslim community',
+    },
+    {
+      icon: Users,
+      title: 'Community',
+      description: 'Built by Muslims, for Muslims worldwide',
+    },
+    {
+      icon: Globe,
+      title: 'Global Impact',
+      description: 'Serving Islamic brands across the world',
+    },
+  ];
+
   return (
     <motion.div {...fadeScaleIn} className="h-auto flex flex-col w-full px-[6vw] items-center gap-6 pb-12">
         <section className="bg-white rounded-3xl px-4 lg:px-16 xl:px-16 w-full mx-2 md:mx-12 my-8 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 h-auto py-8 lg:py-16">
@@ -54,6 +93,81 @@ export default function AboutHidayah() {
         </motion.div>
       </div>
     </section>
+
+    {/* Two Main Purposes */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {purposes.map((purpose, index) => {
+              const Icon = purpose.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  className="bg-white rounded-3xl p-8 border-2 transition-all hover:shadow-sm group"
+                  style={{ borderColor: '#E8F4F4' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#008080';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = '#E8F4F4';
+                  }}
+                >
+                  <div
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110"
+                    style={{ backgroundColor: 'rgba(0, 128, 128, 0.1)' }}
+                  >
+                    <Icon className="w-8 h-8" style={{ color: purpose.color }} />
+                  </div>
+                  <h3 style={{ fontSize: '1.75rem', fontWeight: '700', color: '#3D3D3D' }} className="mb-4">
+                    {purpose.title}
+                  </h3>
+                  <p style={{ fontSize: '1.25rem', color: '#6B6B6B', lineHeight: '1.6' }}>
+                    {purpose.description}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
+
+    {/* Highlights Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 ">
+            {highlights.map((highlight, index) => {
+              const Icon = highlight.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-white rounded-2xl p-6 border-2 transition-all"
+                  
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#008080';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'transparent';
+                  }}
+                >
+                  <div
+                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-105"
+                    style={{ backgroundColor: 'rgba(0, 128, 128, 0.1)' }}
+                  >
+                    <Icon className="w-7 h-7" style={{ color: '#008080' }} />
+                  </div>
+                  <h3 style={{ fontSize: '1.3rem', fontWeight: '600', color: '#3D3D3D' }} className="mb-2">
+                    {highlight.title}
+                  </h3>
+                  <p style={{ fontSize: '1rem', color: '#6B6B6B', lineHeight: '1.6' }}>
+                    {highlight.description}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
+          
     </motion.div>
     
   );

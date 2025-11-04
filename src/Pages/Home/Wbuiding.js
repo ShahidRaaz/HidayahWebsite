@@ -75,21 +75,20 @@ const paragraphVariants = {
 };
 
 export default function IslamicEcosystem() {
-  const creativeDesigns = [
+  const creativeAssets = [
+    "Stock Photos, Audios & Videos",
     "Digital Wallpapers & Themes",
     "Icons & Illustrations",
-    "Brand Identity Design",
-    "UX/UI Design",
-    "Motion Graphics",
-    "3D Design",
-    "Print & Packaging Design",
+    "Social Media Kits",
+    "UI Design Kits",
+    "Fonts & Typography",
+    "Print & Digital Calligraphy"
   ];
 
   const innovativeSoftwares = [
     "Cross-Device Widgets",
     "Browser Extensions",
     "Cross-Platform Mobile Apps",
-    "Responsive Web Dev",
     "Desktop Applications",
     "AI-Powered Applications",
   ];
@@ -117,7 +116,7 @@ export default function IslamicEcosystem() {
 >
   <motion.div {...slideInLeft} className="w-full h-full p-6 bg-white rounded-3xl flex flex-col items-center">
     <h2 className="text-3xl font-semibold text-[#444444] mb-4 text-center">
-      Creative <span className="text-br-color">Designs</span>
+      Creative <span className="text-br-color">Assets</span>
     </h2>
     <motion.div
       initial="hidden"
@@ -126,7 +125,7 @@ export default function IslamicEcosystem() {
       viewport={{ once: true, amount: 0.4 }}
       className="flex flex-wrap gap-3 items-center justify-center"
     >
-      {creativeDesigns.map((item) => (
+      {creativeAssets.map((item) => (
         <motion.span key={item} variants={childVariants} className="px-3 py-1 text-br-color rounded-full bg-custom-teal text-lg font-medium text-center border-2 border-br-color/25 hover:border-br-color">
           {item}
         </motion.span>

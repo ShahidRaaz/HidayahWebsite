@@ -79,17 +79,17 @@ export function Features() {
 
               {/* Title */}
               <div className="mb-2 text-sm text-gray-500 tracking-wide uppercase">{feature.title}</div>
-              <h3 className="text-2xl mb-4">{feature.subtitle}</h3>
+              <h3 className="text-xl mb-4">{feature.subtitle}</h3>
               
               {/* Description */}
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed text-[16px]">
                 {feature.description}
               </p>
 
               {/* Benefits List */}
               <ul className="space-y-3 mb-8">
                 {feature.benefits.map((benefit, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm">
+                  <li key={idx} className="flex items-start gap-3 text-[16px]">
                     <div className="w-5 h-5 bg-[#008080]/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <div className="w-2 h-2 bg-[#008080] rounded-full"></div>
                     </div>
