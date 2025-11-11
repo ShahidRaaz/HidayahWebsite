@@ -53,7 +53,6 @@ const AnimatedWords = ({ text, className }) => {
 
 const HeroS = () => {
   const [isOverlayOpen, setOverlayOpen] = useState(false);
-  const openOverlay = () => setOverlayOpen(true);
   const closeOverlay = () => setOverlayOpen(false);
   const { lat, lng } = useGeoSource();
 
