@@ -1,5 +1,6 @@
 import { useState, forwardRef } from "react";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 import PLogo from "../../assets/plogo.png";
 
 const fadeLeft = {
@@ -9,9 +10,9 @@ const fadeLeft = {
     x: 0,
     transition: {
       type: "spring",
-      stiffness: 300,  // how fast it snaps
-      damping: 100,     // how much it resists/settles
-      mass: 0.8        // tweak inertia feel
+      stiffness: 300,
+      damping: 100,
+      mass: 0.8
     }
   }
 };
@@ -20,11 +21,11 @@ const container = {
   hidden: {},
   show: {
     transition: {
-      delayChildren: 0.3,   // global start delay
-      staggerChildren: 0.04 // gap between each child
+      delayChildren: 0.3,
+      staggerChildren: 0.04
     },
   },
-}; // parent orchestrator
+};
 
 const Footer = forwardRef(function Footer(props, ref) {
   const [email, setEmail] = useState("");
@@ -64,14 +65,14 @@ const Footer = forwardRef(function Footer(props, ref) {
     }
   };
 
-  const companyLinks = [
-    "Home",
-    "About",
-    "Works",
-    "Products",
-    "Careers",
-    "Contact",
-    "Blog",
+  const links = [
+    { name: 'Home', to: '/' },
+    { name: 'About', to: '/about' },
+    { name: 'Works', to: '/works' },
+    { name: 'Products', to: '/products' },
+    { name: 'Careers', to: '/careers' },
+    { name: 'Contact', to: '/contact' },
+    { name: 'Blogs', to: '/blogs' },
   ];
 
   const worksLinks = [
@@ -94,7 +95,6 @@ const Footer = forwardRef(function Footer(props, ref) {
 
   return (
     <footer ref={ref} id="site-footer" className="w-full px-[5vw] py-12">
-      {/* Global orchestrator: all descendants with variants={fadeLeft} will stagger sequentially */}
       <motion.div
         variants={container}
         initial="hidden"
@@ -102,7 +102,6 @@ const Footer = forwardRef(function Footer(props, ref) {
         viewport={{ once: true, amount: 0.35 }}
         className="w-full px-6 lg:px-10 py-8 bg-white text-gray-700 rounded-3xl"
       >
-        {/* Grid */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-4">
           {/* Column 1: Company */}
           <div>
@@ -111,12 +110,21 @@ const Footer = forwardRef(function Footer(props, ref) {
             </motion.h4>
 
             <ul className="space-y-4 text-[18px]">
-              {companyLinks.map((label) => (
-                <motion.li key={label} variants={fadeLeft}>
-                  <a href="#" className="group inline-block text-[#444444] hover:text-br-color transition-colors">
-                    {label}
+              {links.map((link) => (
+                <motion.li key={link.to} variants={fadeLeft}>
+                  <NavLink
+                    to={link.to}
+                    className={({ isActive }) =>
+                      `group inline-block transition-colors ${
+                        isActive
+                          ? "text-br-color font-semibold"
+                          : "text-[#444444] hover:text-br-color"
+                      }`
+                    }
+                  >
+                    {link.name}
                     <span className="block max-w-0 bg-br-color transition-all duration-500 ease-out group-hover:max-w-full h-[1.5px] origin-bottom [transform:scaleY(0.75)]" />
-                  </a>
+                  </NavLink>
                 </motion.li>
               ))}
             </ul>
@@ -188,7 +196,6 @@ const Footer = forwardRef(function Footer(props, ref) {
               />
 
               <motion.button
-                
                 type="submit"
                 disabled={loading}
                 className="cursor-cta group w-[44px] h-[44px] pl-1 flex items-center justify-center border-2 border-br-color backdrop-blur-md rounded-full bg-custom-teal hover:bg-br-color transition duration-300 disabled:opacity-60"
@@ -200,12 +207,11 @@ const Footer = forwardRef(function Footer(props, ref) {
             </motion.form>
 
             <motion.p variants={fadeLeft} className="text-[14px] text-gray-500">
-              By signing up, you agree to our privacy policy
-              We respect your data. Unsubscribe anytime.
+              By signing up, you agree to our privacy policy. We respect your data. Unsubscribe anytime.
             </motion.p>
 
             {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-        {success && <p className="text-br-color text-sm mt-2">{success}</p>}
+            {success && <p className="text-br-color text-sm mt-2">{success}</p>}
 
             <div className="mt-8">
               <motion.div variants={fadeLeft} className="text-[20px] mb-4 font-medium text-br-color">
@@ -217,6 +223,7 @@ const Footer = forwardRef(function Footer(props, ref) {
                   variants={fadeLeft}
                   href="https://www.behance.net/hidayahdesign2025"
                   target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Behance"
                   title="Behance"
                   className="cursor-cta group inline-flex h-14 w-14 items-center justify-center rounded-full border border-br-color text-br-color bg-custom-teal hover:text-white hover:bg-br-color transition-colors"
@@ -231,6 +238,7 @@ const Footer = forwardRef(function Footer(props, ref) {
                   variants={fadeLeft}
                   href="https://www.instagram.com/hidayah.muslims"
                   target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Instagram"
                   title="Instagram"
                   className="cursor-cta group inline-flex h-14 w-14 items-center justify-center rounded-full border border-br-color text-br-color bg-custom-teal hover:text-white hover:bg-br-color transition-colors"
@@ -245,6 +253,7 @@ const Footer = forwardRef(function Footer(props, ref) {
                   variants={fadeLeft}
                   href="https://www.linkedin.com/company/hidayah-muslims"
                   target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="LinkedIn"
                   title="LinkedIn"
                   className="cursor-cta group inline-flex h-14 w-14 items-center justify-center rounded-full border border-br-color text-br-color bg-custom-teal hover:text-white hover:bg-br-color transition-colors"
@@ -259,28 +268,35 @@ const Footer = forwardRef(function Footer(props, ref) {
           </div>
         </div>
 
-        {/* Bottom bar — included in the same stagger */}
+        {/* Bottom bar */}
         <motion.div
           variants={fadeLeft}
           className="mt-8 pt-6 flex flex-col gap-6 md:flex-row justify-start md:items-center md:justify-between"
         >
-          {/* Left: logo + copyright */}
           <div className="flex flex-col gap-2 text-[14px] text-gray-600">
             <img src={PLogo} alt="Hidayah Logo" className="h-10 w-32 md:mb-0" />
             <span>© {new Date().getFullYear()} Hidayah. All rights reserved</span>
           </div>
 
-          {/* Middle: policy links */}
           <div className="flex flex-row ml-0 md:ml-12 lg:items-center gap-8 text-[14px] text-gray-600">
-            <a className="text-[#444444] hover:text-br-color" href="#">
+            <NavLink 
+              to="/privacy-policy"
+              className={({ isActive }) =>
+                `transition-colors ${isActive ? "text-br-color font-semibold" : "text-[#444444] hover:text-br-color"}`
+              }
+            >
               Privacy Policy
-            </a>
-            <a className="text-[#444444] hover:text-br-color" href="#">
+            </NavLink>
+            <NavLink 
+              to="/cookies"
+              className={({ isActive }) =>
+                `transition-colors ${isActive ? "text-br-color font-semibold" : "text-[#444444] hover:text-br-color"}`
+              }
+            >
               Cookies Settings
-            </a>
+            </NavLink>
           </div>
 
-          {/* Right: back to top */}
           <motion.button
             variants={fadeLeft}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
