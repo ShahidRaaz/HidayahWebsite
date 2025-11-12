@@ -139,7 +139,7 @@ const Footer = forwardRef(function Footer(props, ref) {
             <ul className="space-y-4 text-[18px]">
               {worksLinks.map((label) => (
                 <motion.li key={label} variants={fadeLeft}>
-                  <a href="#" className="group inline-block text-[#444444] hover:text-br-color transition-colors">
+                  <a href="#works" className="group inline-block text-[#444444] hover:text-br-color transition-colors">
                     {label}
                     <span className="block max-w-0 bg-br-color transition-all duration-500 ease-out group-hover:max-w-full h-[1.5px] origin-bottom [transform:scaleY(0.75)]" />
                   </a>
@@ -157,7 +157,7 @@ const Footer = forwardRef(function Footer(props, ref) {
             <ul className="space-y-4 text-[18px]">
               {industryLinks.map((label) => (
                 <motion.li key={label} variants={fadeLeft}>
-                  <a href="#" className="group inline-block text-[#444444] hover:text-br-color transition-colors">
+                  <a href="#home" className="group inline-block text-[#444444] hover:text-br-color transition-colors">
                     {label}
                     <span className="block max-w-0 bg-br-color transition-all duration-500 ease-out group-hover:max-w-full h-[1.5px] origin-bottom [transform:scaleY(0.75)]" />
                   </a>
