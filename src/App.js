@@ -7,6 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 import SplashScreen from "./components/Website/SplashScreen";
 import CircleCursor from "./components/Website/cursor";
 import Navbar from "./components/Website/Navbar";
+import ScrollToTop from "./components/Website/stt";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Works from "./Pages/OWorks";
@@ -14,6 +15,7 @@ import Products from "./Pages/Products";
 import Contact from "./Pages/Contact";
 import Blogs from "./Pages/Blogs";
 import Footer from "./components/Website/Footer";
+import { Scroll } from "lucide-react";
 
 const mainPageVariants = {
   initial: { y: 5, opacity: 0 },
@@ -56,6 +58,7 @@ const { ref: footerRef, inView: footerInView } = useInView({
             className="bg-[#F0F7F7] pt-20 min-h-screen"
           >
             <Navbar hidden={footerInView} />
+            <ScrollToTop />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
