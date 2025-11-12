@@ -55,7 +55,7 @@ const { ref: footerRef, inView: footerInView } = useInView({
             variants={mainPageVariants}
             initial="initial"
             animate="animate"
-            className="bg-[#F0F7F7] pt-20 min-h-screen"
+            className="bg-[#f0f7f7] pt-20 min-h-screen"
           >
             <Navbar hidden={footerInView} />
             <ScrollToTop />

@@ -37,7 +37,7 @@ const MenuOverlay = ({ onClose }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 bg-white transform transition-transform duration-500 ${
+      className={`fixed inset-0 z-50 bg-white transform transition-transform duration-500${
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
@@ -57,7 +57,7 @@ const MenuOverlay = ({ onClose }) => {
           </button>
         </div>
       
-        <div className="grid lg:grid-cols-2 gap-16 pb-12 overflow-y-auto" style={{ maxHeight: '80vh' }}>
+        <div className="grid lg:grid-cols-2 gap-16 pb-12 overflow-y-auto no-scrollbar" style={{ maxHeight: '80vh' }}>
           {/* Quick Links Section */}
           <div className="space-y-8">
             <div>
@@ -242,13 +242,13 @@ const MenuOverlay = ({ onClose }) => {
               <div className="grid grid-cols-2 gap-4 mt-8">
                 <div className="p-6 rounded-2xl border-2" style={{ borderColor: '#E8F4F4', backgroundColor: '#FFFFFF' }}>
                   <p style={{ fontSize: '2.5rem', fontWeight: '700', color: '#008080' }}>
-                    50+
+                    5+
                   </p>
                   <p style={{ fontSize: '0.9375rem', color: '#6B6B6B' }}>Projects Delivered</p>
                 </div>
                 <div className="p-6 rounded-2xl border-2" style={{ borderColor: '#E8F4F4', backgroundColor: '#FFFFFF' }}>
                   <p style={{ fontSize: '2.5rem', fontWeight: '700', color: '#008080' }}>
-                    10+
+                    1+
                   </p>
                   <p style={{ fontSize: '0.9375rem', color: '#6B6B6B' }}>Years Experience</p>
                 </div>

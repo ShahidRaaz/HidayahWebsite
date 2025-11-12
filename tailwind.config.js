@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Product Sans', 'sans-serif'],
+        amiri: ['Amiri', 'serif'],
       },
       colors: {
         'custom-teal': 'rgba(0, 128, 128, 0.1)',
