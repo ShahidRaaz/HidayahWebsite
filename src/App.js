@@ -14,6 +14,7 @@ import Works from "./Pages/OWorks";
 import Products from "./Pages/Products"; 
 import Contact from "./Pages/Contact";
 import Blogs from "./Pages/Blogs";
+import Careers from "./Pages/Careers";
 import Footer from "./components/Website/Footer";
 import { Scroll } from "lucide-react";
 
@@ -66,6 +67,7 @@ const { ref: footerRef, inView: footerInView } = useInView({
               <Route path="/products" element={<Products />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blogs" element={<Blogs />} />
+              <Route path="/careers" element={<Careers />} />
             </Routes>
             <Footer ref={footerRef} key={location.pathname}/>
           </motion.div>
