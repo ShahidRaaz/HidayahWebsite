@@ -1,232 +1,152 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Sparkles, Image, Film, Music, Smartphone, Globe, Cpu, Palette, Download, ArrowRight } from "lucide-react";
 
-const fadeScaleIn = {
-  initial: { opacity: 0, scale: 0.85 },
-  whileInView: { opacity: 1, scale: 1 },
-  transition: { duration: 0.5, delay: 0.1, ease: [0.17, 0.67, 0.83, 0.67] },
-  viewport: { once: true, amount: 0.2 },
-};
+const creativeAssets = [
+  { icon: Image, label: "Stock Photos & Videos" },
+  { icon: Palette, label: "Wallpapers & Themes" },
+  { icon: Film, label: "Motion Graphics" },
+  { icon: Music, label: "Audio & Nasheeds" },
+  { icon: Download, label: "Design Templates" },
+];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.85 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    scale: 1,
-    transition: {
-      type: "spring",
-      stiffness: 70,
-      damping: 25,
-      duration: 1,
-      ease: [0.6, 0.05, -0.01, 0.9]
-    }
-  },
-  hover: {
-    scale: 1.05,
-    y: 6,
-    transition: {
-      type: "spring",
-      stiffness: 300,
-      damping: 20
-    }
-  }
-};
-
-const slideInLeft = {
-  initial: { opacity: 0, x: -100 },
-  whileInView: { opacity: 1, x: 0 },
-  transition: { duration: 0.6, ease: "easeOut" },
-  viewport: { once: true, amount: 0.3 },
-};
-
-const slideInRight = {
-  initial: { opacity: 0, x: 100 },
-  whileInView: { opacity: 1, x: 0 },
-  transition: { duration: 0.6, ease: "easeOut" },
-  viewport: { once: true, amount: 0.3 },
-};
-
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.24,
-      delayChildren: 0.35,
-    }
-  }
-};
-
-const childVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
-};
-
-const parallaxVariants = {
-  initial: { y: 50, opacity: 0 },
-  whileInView: { y: 0, opacity: 1 },
-  transition: { duration: 0.7, ease: "easeOut" },
-  viewport: { once: true, amount: 0.5 },
-};
-
-const paragraphVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
+const innovativeSoftwares = [
+  { icon: Smartphone, label: "Mobile Apps" },
+  { icon: Globe, label: "Web Applications" },
+  { icon: Cpu, label: "AI Tools" },
+];
 
 export default function IslamicEcosystem() {
-  const creativeAssets = [
-    "Stock Photos, Audios & Videos",
-    "Digital Wallpapers & Themes",
-    "Icons & Illustrations",
-    "Social Media Kits",
-    "UI Design Kits",
-    "Fonts & Typography",
-    "Print & Digital Calligraphy"
-  ];
-
-  const innovativeSoftwares = [
-    "Cross-Device Widgets",
-    "Browser Extensions",
-    "Cross-Platform Mobile Apps",
-    "Desktop Applications",
-    "AI-Powered Applications",
-  ];
-
   return (
-    <motion.div {...fadeScaleIn} className="h-auto flex flex-col w-full items-center gap-6 pb-12 px-[6vw]">
-
-      {/* Heading Section */}
-      <div className="w-full text-center flex flex-col items-center gap-1 md:gap-2 lg:gap-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-[#444444] mb-2 text-center">
-          What we are <span className="text-br-color">building</span>
-        </h1>
-        <p className="text-xl lg:text-3xl text-[#444444] font-medium">
-          We're creating a complete ecosystem of Islamic-inspired designs and softwares.
-        </p>
-      </div>
-
-<motion.div
-  variants={cardVariants}
-  whileHover="hover"
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true, amount: 0.45 }}
-  className="w-full p-3 border-2 border-br-color/25 rounded-3xl grid grid-cols-1 lg:grid-cols-2 gap-3 mt-3 transition-all duration-100 hover:border-br-color"
->
-  <motion.div {...slideInLeft} className="w-full h-full p-6 bg-white rounded-3xl flex flex-col items-center">
-    <h2 className="text-3xl font-semibold text-[#444444] mb-4 text-center">
-      Creative <span className="text-br-color">Assets</span>
-    </h2>
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      variants={containerVariants}
-      viewport={{ once: true, amount: 0.4 }}
-      className="flex flex-wrap gap-3 items-center justify-center"
-    >
-      {creativeAssets.map((item) => (
-        <motion.span key={item} variants={childVariants} className="px-3 py-1 text-br-color rounded-full bg-custom-teal text-lg font-medium text-center border-2 border-br-color/25 hover:border-br-color">
-          {item}
-        </motion.span>
-      ))}
-    </motion.div>
-  </motion.div>
-
-  <motion.div {...slideInRight} className="w-full h-full p-6 bg-white rounded-3xl flex flex-col items-center">
-    <h2 className="text-3xl font-semibold text-gray-800 mb-4 text-center">
-      Innovative <span className="text-br-color">Softwares</span>
-    </h2>
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      variants={containerVariants}
-      viewport={{ once: true, amount: 0.4 }}
-      className="flex flex-wrap gap-3 items-center justify-center"
-    >
-      {innovativeSoftwares.map((item) => (
-        <motion.span key={item} variants={childVariants} className="px-3 py-1 text-br-color rounded-full bg-custom-teal text-lg font-medium text-center border-2 border-br-color/25 hover:border-br-color">
-          {item}
-        </motion.span>
-      ))}
-    </motion.div>
-  </motion.div>
-</motion.div>
-
-
-      {/* Bottom Section - Parallax with animated paragraphs */}
+    <section className="w-full px-[6vw] py-8">
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-10"
+      >
         <motion.div
-          variants={cardVariants}
-          whileHover="hover"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.45 }}
-          className="w-full p-3 border-2 border-br-color/25 rounded-3xl grid grid-cols-1 lg:grid-cols-2 items-stretch gap-3 mt-3 transition-all duration-100 hover:border-br-color auto-rows-auto"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 bg-br-color/10 text-br-color px-4 py-2 rounded-full text-sm font-semibold mb-6"
         >
-          {/* Card 1 */}
-          <motion.div
-            {...parallaxVariants}
-            className="w-full h-full p-6 bg-white rounded-3xl flex flex-col justify-start items-center"
-          >
-            <h2 className="text-3xl font-semibold text-br-color text-center">
-              Creative <span className="text-[#444444]">Hub</span>
-            </h2>
+          <Sparkles className="w-4 h-4" />
+          Our Ecosystem
+        </motion.div>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#333333] mb-4">
+          What We're <span className="text-br-color">Building</span>
+        </h2>
+        <p className="text-xl md:text-2xl text-[#555555] max-w-3xl mx-auto">
+          A complete ecosystem of Islamic-inspired designs and innovative software.
+        </p>
+      </motion.div>
 
-            <motion.div
-              variants={paragraphVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.4 }}
-              className="font-normal text-[#444444] mb-2 text-xl text-center"
-            >
-              First Islamic Creative marketplace
-            </motion.div>
-
-            <motion.p
-              variants={paragraphVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.4 }}
-              className="text-center text-[#444444] text-xl"
-            >
-              A global destination for Muslim-focused design resources — combining faith, creativity, and technology to empower meaningful design engagement.
-            </motion.p>
-
-            {/* Optional sticky footer area */}
-            {/* <div className="mt-auto" /> */}
-          </motion.div>
-
-          {/* Card 2 */}
-          <motion.div
-            {...parallaxVariants}
-            className="w-full h-full p-6 bg-white rounded-3xl flex flex-col justify-start items-center"
-          >
-            <h2 className="text-3xl font-semibold text-br-color text-center">
-              AI <span className="text-[#444444]">Innovation</span>
-            </h2>
-
-            <motion.div
-              variants={paragraphVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.4 }}
-              className="font-normal text-[#444444] mb-2 text-xl text-center"
-            >
-              AI-powered Tools & Features
-            </motion.div>
-
-            <motion.p
-              variants={paragraphVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.4 }}
-              className="text-center text-[#444444] text-xl"
-            >
-              We're exploring how artificial intelligence can empower Muslims with smarter, purposeful digital products that enhance productivity, spiritual growth, and intuitive usage.
-            </motion.p>
-          </motion.div>
+      {/* Two Cards */}
+      <div className="grid md:grid-cols-2 gap-6 mb-8">
+        {/* Creative Assets */}
+        <motion.div
+          initial={{ opacity: 0, x: -25 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative overflow-hidden bg-gradient-to-br from-br-color via-teal-600 to-teal-700 rounded-3xl p-8 md:p-10"
+        >
+          <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-3xl" />
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                <Palette className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-white">Creative Assets</h3>
+            </div>
+            <p className="text-white/85 text-lg mb-6">
+              Premium Islamic design resources for creators worldwide.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {creativeAssets.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div key={idx} className="flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
+                    <Icon className="w-4 h-4" />
+                    {item.label}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </motion.div>
 
-    </motion.div>
+        {/* Innovative Software */}
+        <motion.div
+          initial={{ opacity: 0, x: 25 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-white rounded-3xl p-8 md:p-10 border border-gray-100"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-12 h-12 bg-br-color/10 rounded-xl flex items-center justify-center">
+              <Cpu className="w-6 h-6 text-br-color" />
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-[#333333]">Innovative Software</h3>
+          </div>
+          <p className="text-[#666666] text-lg mb-6">
+            Purpose-built digital tools for the Muslim community.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {innovativeSoftwares.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div key={idx} className="flex items-center gap-2 bg-br-color/10 text-br-color px-4 py-2 rounded-full text-sm font-medium">
+                  <Icon className="w-4 h-4" />
+                  {item.label}
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Bottom Feature Cards */}
+      <div className="grid md:grid-cols-2 gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="bg-gradient-to-br from-purple-50 to-purple-100/50 rounded-3xl p-8 border border-purple-200/50"
+        >
+          <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-5 shadow-lg">
+            <Palette className="w-7 h-7 text-white" />
+          </div>
+          <h3 className="text-2xl font-bold text-[#333333] mb-2">Creative Hub</h3>
+          <p className="text-sm text-purple-600 font-semibold mb-3">Coming Soon</p>
+          <p className="text-[#666666] leading-relaxed">
+            The first Islamic creative marketplace—combining faith, creativity, and technology for meaningful design engagement.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-3xl p-8 border border-blue-200/50"
+        >
+          <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-5 shadow-lg">
+            <Cpu className="w-7 h-7 text-white" />
+          </div>
+          <h3 className="text-2xl font-bold text-[#333333] mb-2">AI Innovation</h3>
+          <p className="text-sm text-blue-600 font-semibold mb-3">In Development</p>
+          <p className="text-[#666666] leading-relaxed">
+            AI-powered tools to empower Muslims with smarter, purposeful digital products enhancing productivity and spiritual growth.
+          </p>
+        </motion.div>
+      </div>
+    </section>
   );
 }

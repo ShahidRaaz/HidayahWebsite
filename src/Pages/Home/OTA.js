@@ -1,128 +1,114 @@
 import { motion } from "framer-motion";
+import { Sparkles, Palette, Code, GraduationCap, Users } from "lucide-react";
 import img1 from "../../assets/otaimg1.png"
 import img2 from "../../assets/otaimg2.png"
 import img3 from "../../assets/otaimg3.png"
 import img4 from "../../assets/otaimg4.png"
-const fadeScaleIn = {
-  initial: { opacity: 0, scale: 0.85 },
-  whileInView: { opacity: 1, scale: 1 },
-  transition: { duration: 0.5, delay: 0.1, ease: [0.17, 0.67, 0.83, 0.67] },
-  viewport: { once: true, amount: 0.2 },
-};
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.24,
-      delayChildren: 0.35,
-    }
-  }
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.85 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    scale: 1,
-    transition: {
-      type: "spring",
-      stiffness: 70,
-      damping: 25,
-      duration: 1,
-      ease: [0.6, 0.05, -0.01, 0.9]
-    }
+const audienceData = [
+  {
+    imgsrc: img1,
+    icon: Palette,
+    title: "Muslim Creatives",
+    description: "Designers and artists seeking authentic Islamic-inspired resources.",
+    color: "from-pink-500 to-rose-500",
   },
-  hover: {
-    scale: 1.05,
-    y: 6,
-    transition: {
-      type: "spring",
-      stiffness: 300,
-      damping: 20
-    }
-  }
-};
-
+  {
+    imgsrc: img2,
+    icon: Code,
+    title: "Tech Innovators",
+    description: "Developers building apps aligned with Islamic values.",
+    color: "from-blue-500 to-indigo-500",
+  },
+  {
+    imgsrc: img3,
+    icon: GraduationCap,
+    title: "Educators",
+    description: "Teachers sharing faith-based knowledge digitally.",
+    color: "from-green-500 to-emerald-500",
+  },
+  {
+    imgsrc: img4,
+    icon: Users,
+    title: "Muslim Community",
+    description: "Individuals looking for meaningful faith-based tools.",
+    color: "from-orange-500 to-amber-500",
+  },
+];
 
 export default function TargetAudience() {
-
-  const audienceData = [
-    {
-      imgsrc: img1,
-      title: "Muslim Creatives",
-      description:"Designers, illustrators, and artists seeking authentic Islamic-inspired resources.",
-    },
-    {
-      imgsrc: img2,
-      title: "Developers & Innovators",
-      description:"Tech enthusiasts building apps, websites, and tools aligned with Islamic values.",
-    },
-    {
-      imgsrc: img3,
-      title: "Educators & Communities",
-      description:"Teachers, institutes, and community groups sharing faith-based knowledge digitally.",
-    },
-    {
-      imgsrc: img4,
-      title: "Everyday Muslims",
-      description:"Individuals looking for meaningful muslimcreativess, tools, and apps that bring faith into daily life.",
-    },
-  ];
-
   return (
-    <motion.section
-    className="w-full items-center justify-center px-[6vw]" initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={containerVariants} >
-      <div className="w-full text-center">
-        {/* Section Heading */}
-        <motion.h2
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeScaleIn}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-extrabold mb-6 text-[#444444]"
-        >
-          Our <span className="text-br-color">Target Audience</span>
-        </motion.h2>
-
-        {/* Section Subtitle */}
-        <motion.p
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeScaleIn}
-          viewport={{ once: true }}
-          className="px-4 md:px-12 text-xl md:text-2xl lg:text-3xl text-[#444444] font-medium mb-6 md:mb-12 leading-6"
-        >
-          We’re designing with purpose for a diverse Muslim community,
-          empowering individuals and organizations with meaningful digital experiences.
-        </motion.p>
-
-        {/* Cards Grid */}
+    <section className="w-full px-[6vw] py-8">
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-10"
+      >
         <motion.div
-          className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-8 mb-12"
-          variants={containerVariants}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 bg-br-color/10 text-br-color px-4 py-2 rounded-full text-sm font-semibold mb-6"
         >
-          {audienceData.map((item, index) => (
+          <Sparkles className="w-4 h-4" />
+          Who We Serve
+        </motion.div>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#333333] mb-4">
+          Our <span className="text-br-color">Audience</span>
+        </h2>
+        <p className="text-xl md:text-2xl text-[#555555] max-w-3xl mx-auto">
+          Empowering the diverse Muslim community with meaningful digital experiences.
+        </p>
+      </motion.div>
+
+      {/* Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {audienceData.map((item, index) => {
+          const Icon = item.icon;
+          return (
             <motion.div
               key={index}
-              variants={cardVariants}
-              whileHover="hover"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.45 }}
-              className="relative w-full border-2 border-br-color/25 rounded-3xl p-4 bg-white transition-all duration-100 hover:border-br-color hover:shadow-md hover:shadow-br-color/10 cursor-pointer"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group bg-white rounded-3xl overflow-hidden border border-gray-100 hover:border-br-color/30 hover:shadow-2xl hover:shadow-br-color/10 transition-all duration-500"
             >
-              <img src={item.imgsrc} alt={item.title} className="rounded-xl object-cover w-full aspect-[4/3] mb-4" loading="lazy"/>
-              <p className="text-xl md:text-2xl font-bold text-br-color leading-6 md:leading-7 px-0 md:px-16 lg:px-12 mb-2 line-clamp-6 md:line-clamp-2">{item.title}</p>
-              <p className="text-md md:text-lg text-[#444444] leading-6 md:leading-6 w-full">{item.description}</p>
+              {/* Image */}
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={item.imgsrc} 
+                  alt={item.title} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                
+                {/* Icon Badge */}
+                <div className="absolute bottom-4 left-4">
+                  <div className={`w-12 h-12 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-6 h-6 text-white" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-5">
+                <h3 className="text-xl font-bold text-[#333333] mb-2 group-hover:text-br-color transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-[#666666] leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
             </motion.div>
-          ))}
-        </motion.div>
+          );
+        })}
       </div>
-    </motion.section>
+    </section>
   );
 }

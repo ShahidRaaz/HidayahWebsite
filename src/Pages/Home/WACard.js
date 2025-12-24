@@ -1,130 +1,97 @@
 import { motion } from "framer-motion";
+import { ArrowRight, Users, Gift, MessageCircle, CheckCircle } from "lucide-react";
 import Wlogo from "../../assets/Wlogo.png";
 import HLogo from "../../assets/hlogo.png";
 
-
-const fadeScaleIn = {
-  initial: { opacity: 0, scale: 0.85 },
-  whileInView: { opacity: 1, scale: 1 },
-  transition: { duration: 0.5, delay: 0.1, ease: [0.17, 0.67, 0.83, 0.67] },
-  viewport: { once: true, amount: 0.2 },
-};
-
-const container = {
-  hidden: { opacity: 1 }, // keep container visible; children handle fade/scale
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.28,     // second starts after first
-      delayChildren: 0.02        // tiny lead-in for the first
-    }
-  }
-};
-
-const item = {
-  hidden: { scale: 0.75, opacity: 0 },
-  show: {
-    scale: 1,
-    opacity: 1,
-    transition: {
-      duration: 1.15,
-      ease: "easeInOut"
-      // For spring alternative:
-      // type: "spring", stiffness: 60, damping: 18, mass: 1.1
-    }
-  }
-};
-
-export default function AboutHidayah() {
-      const join = () => {
+export default function WhatsAppCTA() {
+  const join = () => {
     window.open("https://chat.whatsapp.com/JvXL4JNCrZt194e3aBENky", "_blank", "noopener,noreferrer");
   };
+
+  const benefits = [
+    { icon: Gift, text: "Early access to design assets" },
+    { icon: MessageCircle, text: "Direct support & collaboration" },
+    { icon: Users, text: "Network with Muslim creatives" },
+  ];
+
   return (
-    <motion.div {...fadeScaleIn} className="h-auto w-full flex flex-col items-center px-[6vw] my-12">
-        <section className="bg-white rounded-3xl w-full px-4 lg:px-16 xl:px-16 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 h-auto py-8 lg:py-16">
-      
-      {/* Left: Visual/Logo */}
+    <section className="w-full px-[6vw] py-12">
       <motion.div
-      className="flex flex-row items-center justify-center w-[70vw] lg:w-1/2 h-full"
-      variants={container}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.5 }}
-    >
-      <motion.div
-        variants={item}
-        className="bg-br-color w-[100px] h-[100px] flex items-center justify-center rounded-full"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="relative overflow-hidden bg-gradient-to-br from-green-500 via-green-600 to-green-700 rounded-[2.5rem] p-8 md:p-12 lg:p-16"
       >
-        <img src={HLogo} alt="Logo" className="h-14" />
-      </motion.div>
+        {/* Decorative Elements */}
+        <div className="absolute top-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl" />
 
-      <motion.img
-        variants={item}
-        src={Wlogo}
-        alt="WhatsApp Logo"
-        className="w-[120px] h-[120px]"
-      />
-    </motion.div>
+        <div className="relative z-10 flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+          {/* Left: Logos */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex items-center gap-4"
+          >
+            <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-2xl flex items-center justify-center shadow-xl">
+              <img src={HLogo} alt="Hidayah Logo" className="w-12 md:w-14" />
+            </div>
+            <div className="text-white text-4xl md:text-5xl font-bold">×</div>
+            <img src={Wlogo} alt="WhatsApp Logo" className="w-20 h-20 md:w-24 md:h-24 drop-shadow-xl" />
+          </motion.div>
 
+          {/* Right: Content */}
+          <div className="flex-1 text-center lg:text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                Join Our WhatsApp Community
+              </h2>
+              <p className="text-xl text-white/90 mb-6 max-w-2xl">
+                Connect with 500+ Muslim creatives, get early access to resources, and be part of the Hidayah family.
+              </p>
+            </motion.div>
 
-      {/* Right: Content */}
-      <div className="flex flex-col justify-center items-center lg:items-start w-full lg:w-1/2 h-auto gap-4">
-        <motion.h2
-          className="text-xl md:text-2xl lg:text-3xl font-extrabold text-[#444444] text-center lg:text-left"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9 }}
-        >
-          Join Our WhatsApp Community
-        </motion.h2>
+            {/* Benefits */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8"
+            >
+              {benefits.map((benefit, idx) => {
+                const Icon = benefit.icon;
+                return (
+                  <div key={idx} className="flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
+                    <Icon className="w-4 h-4" />
+                    {benefit.text}
+                  </div>
+                );
+              })}
+            </motion.div>
 
-        <motion.div
-          className="max-w-xl gap-2 flex flex-col"
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, delay: 0.15 }}
-        >
-            <p className="text-lg md:text-xl text-gray-600 text-center lg:text-left">
-            Be a part of the Hidayah family—connect with like‑minded creatives, get early product drops,
-            and stay updated with our latest works and resources.
-            </p>
-            
-
-            <div className="flex flex-col gap-2">
-            {[
-              "Early access to design assets and tools",
-              "Project updates and behind the scenes",
-              "Community Q&A and collaboration",
-            ].map((text, i) => (
-              <div
-                key={i}
-                className="font-semibold text-lg text-br-color text-center lg:text-left leading-5 break-words"
-              >
-                {text}
-              </div>
-            ))}
+            {/* CTA */}
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              onClick={join}
+              className="cursor-cta bg-white text-green-600 px-10 py-4 rounded-full font-bold text-lg flex items-center gap-3 mx-auto lg:mx-0 hover:bg-gray-100 hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            >
+              Join Now — It's Free <ArrowRight className="w-5 h-5" />
+            </motion.button>
           </div>
-            
-            
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, delay: 0.3 }}
-          className="w-full flex flex-col items-center lg:items-start"
-        >
-          <button onClick={join} className="cursor-cta bg-br-color/10 text-base sm:text-lg relative overflow-hidden px-6 py-3 font-medium text-br-color rounded-full group border-2 border-br-color hover:text-white transition">
-            <span className="relative z-10 transition-colors duration-500 group-hover:text-white">Join Now</span>
-            <span className="absolute left-0 bottom-0 w-full h-0 bg-br-color transition-all duration-500 group-hover:h-full" aria-hidden="true"></span>
-          </button>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </section>
-    </motion.div>
-    
   );
 }
