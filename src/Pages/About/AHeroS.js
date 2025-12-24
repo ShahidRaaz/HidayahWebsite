@@ -1,106 +1,61 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import Overlay from "../../components/Home/eaoverlay";
-
-const fadeLeft = {
-  hidden: { opacity: 0, x: 22 },
-  show: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      type: "spring",
-      stiffness: 300,  // how fast it snaps
-      damping: 100,     // how much it resists/settles
-      mass: 0.8        // tweak inertia feel
-    }
-  }
-};
-
-const AnimatedWords = ({ text, className }) => {
-  const words = text.split(" ");
-  const container = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
-  };
-  const child = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring", stiffness: 100, damping: 20 },
-    },
-  };
-  return (
-    <motion.div
-      aria-label={text}
-      role="heading"
-      aria-level={1}
-      variants={container}
-      initial="hidden"
-      animate="visible"
-      className={className}
-      style={{ display: "inline", whiteSpace: "pre-wrap" }}
-    >
-      {words.map((word, index) => (
-        <motion.span
-          key={index}
-          variants={child}
-          style={{
-            display: "inline-block",
-            marginRight: index !== words.length - 1 ? "0.25em" : 0,
-          }}
-        >
-          {word}
-        </motion.span>
-      ))}
-    </motion.div>
-  );
-};
+import { Sparkles, ChevronDown } from "lucide-react";
 
 const HeroS = () => {
-  const [isOverlayOpen, setOverlayOpen] = useState(false);
-  const openOverlay = () => setOverlayOpen(true);
-  const closeOverlay = () => setOverlayOpen(false);
-
   return (
-    <>
-      <div className="w-full h-[400px] items-center justify-center relative overflow-hidden flex flex-col">
-        {/* Hero Content */}
+    <div className="w-full relative overflow-hidden">
+      {/* Background Decoration */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-gradient-to-br from-br-color/5 to-teal-100/20 rounded-full blur-3xl pointer-events-none" />
+      
+      {/* Hero Content */}
+      <motion.div
+        initial={{ opacity: 0, y: 25 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="relative z-10 flex flex-col items-center py-16 md:py-20 gap-6 text-center w-full px-[6vw]"
+      >
+        {/* Badge */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-          viewport={{ once: true }}
-          className="flex flex-col items-center h-auto py-12 md:py-4 gap-6 md:gap-8 text-center w-full px-8"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="inline-flex items-center gap-2 bg-gradient-to-r from-br-color/10 to-teal-100 text-br-color px-5 py-2 rounded-full text-sm font-semibold border border-br-color/20"
         >
-          
-          {/* Headline */}
-          <h1 className="text-6xl md:text-7xl lg:text-6xl xl:text-8xl font-bold xl:font-extrabold text-[#444444]">
-            <AnimatedWords text="We are faith first" />
-            <br/>
-            <AnimatedWords text="design & tech hub" />
-          </h1>
-
+          <Sparkles className="w-4 h-4" />
+          Our Story
         </motion.div>
 
-        <motion.button
-      variants={fadeLeft}
-      onClick={() => window.scrollBy({ top: 600, behavior: 'smooth' })}
-      className="group self-end md:self-auto md:pl-auto cursor-cta w-[44px] h-[44px] mt-24 flex items-center justify-center border-2 border-br-color backdrop-blur-md rounded-full bg-custom-teal hover:bg-br-color transition duration-300 animate-float"
-      aria-label="Scroll down 100px"
-    >
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="stroke-current text-br-color group-hover:text-white transition">
-        <path d="M12 5v14m6-6l-6 6-6-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </motion.button>
-        
-      </div>
+        {/* Headline */}
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-bold leading-tight max-w-5xl">
+          <span className="text-[#333333]">We are a</span>
+          <br className="hidden md:block" />
+          <span className="text-br-color bg-gradient-to-r from-br-color to-teal-600 bg-clip-text text-transparent"> Faith-First </span>
+          <span className="text-[#333333]">Studio</span>
+        </h1>
 
-      {isOverlayOpen && <Overlay onClose={closeOverlay} />}
-    </>
+        {/* Subheadline */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-xl md:text-2xl lg:text-3xl text-[#555555] font-medium max-w-3xl leading-relaxed"
+        >
+          Crafting meaningful design & technology for the global Muslim community since 2019.
+        </motion.p>
+
+        {/* Scroll Indicator */}
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          onClick={() => window.scrollBy({ top: 500, behavior: 'smooth' })}
+          className="mt-8 w-12 h-12 flex items-center justify-center border-2 border-br-color/30 rounded-full text-br-color hover:bg-br-color hover:text-white transition-all duration-300 animate-bounce"
+        >
+          <ChevronDown className="w-6 h-6" />
+        </motion.button>
+      </motion.div>
+    </div>
   );
 };
 

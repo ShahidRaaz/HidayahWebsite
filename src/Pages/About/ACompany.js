@@ -1,138 +1,261 @@
 import { motion } from "framer-motion";
+import { Target, Eye, Heart, Zap, Users, Award, Globe, Sparkles } from "lucide-react";
 
-const fadeUp = {
-  initial: { opacity: 0, y: 16 },
-  whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.5, ease: [0.2, 0.8, 0.2, 1] },
-  viewport: { once: true, amount: 0.3 },
-};
+const values = [
+  { icon: Heart, title: "Faith-Driven", description: "Our work is an act of worship. We approach every project with sincerity (Ikhlas) and pursue excellence (Ihsan)." },
+  { icon: Target, title: "Purpose First", description: "We only take on projects that align with Islamic values and benefit the Muslim community." },
+  { icon: Zap, title: "Excellence", description: "Beauty and function go hand-in-hand. We craft experiences that are both aesthetically stunning and highly usable." },
+  { icon: Users, title: "Community", description: "We're building more than products—we're nurturing a global community of Muslim creatives and technologists." },
+];
+
+const stats = [
+  { value: "150+", label: "Projects Completed" },
+  { value: "80+", label: "Happy Clients" },
+  { value: "25+", label: "Countries Served" },
+  { value: "5+", label: "Years Experience" },
+];
+
+const team = [
+  {
+    name: "Founder & Creative Director",
+    role: "Design & Strategy",
+    description: "Leads creative direction, brand systems, and visual language across all projects. Specializes in Islamic art and modern design fusion.",
+    gradient: "from-br-color to-teal-600",
+  },
+  {
+    name: "Co-Founder & Tech Lead",
+    role: "Engineering & Development",
+    description: "Heads engineering, architecture, and delivery. Expert in React, Flutter, and scalable cloud systems.",
+    gradient: "from-teal-600 to-teal-700",
+  },
+];
 
 export default function AboutCompany() {
   return (
-    <section id="about-company" className="w-full px-[5vw] py-16 md:py-20">
-      <div className="max-w-8xl mx-auto">
-        {/* Who we are */}
-        <motion.section
-          {...fadeUp}
-          transition={{ ...fadeUp.transition, delay: 0.04 }}
-          className="mt-6 flex flex-row"
+    <div className="w-full">
+      {/* Story Section */}
+      <section className="px-[6vw] py-16 bg-white">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-6xl mx-auto"
         >
-          <h3 className="text-xl md:text-2xl font-medium text-[#333333] w-full ">Who we are</h3>
-          <p className="mt-3 text-2xl md:text-3xl font-semibold text-[#444444] leading-relaxed">
-            Hidayah is a faith‑first design and technology studio crafting designs, and digital products for the global Muslim community and values‑aligned organizations.
-          </p>
-
-          {/* <p className="mt-3 text-lg md:text-xl text-[#555] leading-relaxed">
-            Hidayah is a faith‑first design and technology studio crafting designs, and digital products for the global Muslim community and values‑aligned organizations. Our practice blends Islamic design principles with modern engineering to deliver clarity, performance, and Barakah‑driven outcomes.
-          </p> */}
-        </motion.section>
-
-        {/* Founder & Co‑founder */}
-        <motion.section
-          {...fadeUp}
-          transition={{ ...fadeUp.transition, delay: 0.08 }}
-          className="mt-10"
-        >
-          <h3 className="text-xl md:text-2xl font-medium text-[#333333]">Founder & Co‑founder</h3>
-          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            <div className="rounded-xl border border-black/5 bg-white p-5 shadow-sm">
-              <div className="text-xl font-semibold text-[#333]">Founder</div>
-              <p className="mt-2 text-[#555]">
-                Leads creative direction and product strategy—defining brand systems, visual language, and experience vision across web and apps.
-              </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Content */}
+            <div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#333333] mb-6 leading-tight">
+                Designing for the <span className="text-br-color">Ummah</span>
+              </h2>
+              <div className="space-y-4 text-lg text-[#555555] leading-relaxed">
+                <p>
+                  Hidayah was born from a simple observation: the Muslim community deserves world-class digital experiences that reflect our values and heritage.
+                </p>
+                <p>
+                  We blend traditional Islamic art principles with modern design thinking to create websites, apps, and brands that inspire faith while driving results.
+                </p>
+                <p>
+                  Our team combines deep Islamic knowledge with cutting-edge technical skills, ensuring every pixel and every line of code serves a purpose greater than itself.
+                </p>
+              </div>
             </div>
-            <div className="rounded-xl border border-black/5 bg-white p-5 shadow-sm">
-              <div className="text-xl font-semibold text-[#333]">Co‑founder</div>
-              <p className="mt-2 text-[#555]">
-                Heads engineering and delivery—owning architecture, performance budgets, and reliable front‑end systems with React, Tailwind, and Framer Motion.
-              </p>
+
+            {/* Right: Visual */}
+            <div className="relative">
+              <div className="bg-gradient-to-br from-br-color/10 to-teal-100/30 rounded-3xl p-8 md:p-12">
+                <div className="grid grid-cols-2 gap-6">
+                  {stats.map((stat, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="text-center"
+                    >
+                      <div className="text-4xl md:text-5xl font-bold text-br-color mb-1">{stat.value}</div>
+                      <div className="text-sm text-[#666666]">{stat.label}</div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+              {/* Decorative Element */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-br-color/10 rounded-full blur-xl" />
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-teal-100 rounded-full blur-lg" />
             </div>
           </div>
-        </motion.section>
+        </motion.div>
+      </section>
 
-        {/* Our vision */}
-        {/* <motion.section
-          {...fadeUp}
-          transition={{ ...fadeUp.transition, delay: 0.12 }}
-          className="mt-10"
+      {/* Vision & Mission */}
+      <section className="px-[6vw] py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-6xl mx-auto"
         >
-          <h3 className="text-2xl md:text-3xl font-semibold text-[#333]">Our vision</h3>
-          <p className="mt-3 text-lg md:text-xl text-[#555] leading-relaxed">
-            To be the trusted design‑and‑tech partner for Islamic creators, institutions, and purposeful brands—raising the standard for beauty, usefulness, and spiritual alignment in digital experiences.
-          </p>
-        </motion.section> */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Vision */}
+            <div className="bg-gradient-to-br from-br-color to-teal-600 rounded-3xl p-8 md:p-10 text-white relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
+              <div className="relative z-10">
+                <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                  <Eye className="w-7 h-7" />
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">Our Vision</h3>
+                <p className="text-white/90 text-lg leading-relaxed">
+                  To be the global standard for Islamic-inspired design and technology—raising the bar for beauty, usability, and spiritual alignment in digital experiences.
+                </p>
+              </div>
+            </div>
 
-        {/* Mission */}
-        {/* <motion.section
-          {...fadeUp}
-          transition={{ ...fadeUp.transition, delay: 0.16 }}
-          className="mt-10"
-        >
-          <h3 className="text-2xl md:text-3xl font-semibold text-[#333]">Mission</h3>
-          <ul className="mt-3 space-y-2 text-lg md:text-xl text-[#555] leading-relaxed list-disc pl-5">
-            <li>Design clear, accessible interfaces that honor Islamic values.</li>
-            <li>Build fast, reliable front‑ends that scale, convert, and endure.</li>
-            <li>Ship consistently with strong systems, documented components, and measurable outcomes.</li>
-          </ul>
-        </motion.section> */}
+            {/* Mission */}
+            <div className="bg-white rounded-3xl p-8 md:p-10 border border-gray-100">
+              <div className="w-14 h-14 bg-br-color/10 rounded-2xl flex items-center justify-center mb-6">
+                <Target className="w-7 h-7 text-br-color" />
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-[#333333] mb-4">Our Mission</h3>
+              <ul className="space-y-3 text-[#555555]">
+                {[
+                  "Design accessible, beautiful interfaces rooted in Islamic values",
+                  "Build reliable, performant digital products that scale",
+                  "Nurture Muslim creative talent and technical excellence",
+                  "Serve the Ummah with integrity and purpose",
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-br-color rounded-full mt-2 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+      </section>
 
-        {/* Our belief */}
-        {/* <motion.section
-          {...fadeUp}
-          transition={{ ...fadeUp.transition, delay: 0.20 }}
-          className="mt-10"
+      {/* Values */}
+      <section className="px-[6vw] py-16 bg-white">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-6xl mx-auto"
         >
-          <h3 className="text-2xl md:text-3xl font-semibold text-[#333]">Our belief</h3>
-          <p className="mt-3 text-lg md:text-xl text-[#555] leading-relaxed">
-            Excellence (Ihsan) is the baseline. Good work serves people, respects time, and reflects sincerity. Design is stewardship—every detail communicates values and intent.
-          </p>
-        </motion.section> */}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#333333] mb-4">
+              Our <span className="text-br-color">Values</span>
+            </h2>
+            <p className="text-lg text-[#666666] max-w-2xl mx-auto">
+              The principles that guide everything we do at Hidayah.
+            </p>
+          </div>
 
-        {/* Our approach */}
-        {/* <motion.section
-          {...fadeUp}
-          transition={{ ...fadeUp.transition, delay: 0.24 }}
-          className="mt-10"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value, index) => {
+              const Icon = value.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-gradient-to-br from-br-color/5 to-teal-50 rounded-2xl p-6 border border-br-color/10 hover:border-br-color/30 hover:shadow-lg transition-all duration-300 group"
+                >
+                  <div className="w-14 h-14 bg-br-color/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-br-color group-hover:scale-110 transition-all duration-300">
+                    <Icon className="w-7 h-7 text-br-color group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#333333] mb-2">{value.title}</h3>
+                  <p className="text-[#666666] leading-relaxed text-sm">{value.description}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Leadership */}
+      <section className="px-[6vw] py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-5xl mx-auto"
         >
-          <h3 className="text-2xl md:text-3xl font-semibold text-[#333]">Our approach</h3>
-          <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            {[
-              { k: "Systems first", v: "Tokens, components, and docs for repeatable quality and speed." },
-              { k: "Build what matters", v: "Prioritize impact—reduce noise, ship essentials, then delight." },
-              { k: "Performance by default", v: "Lean UIs, smooth motion, and measurable improvements." },
-            ].map((item, i) => (
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#333333] mb-4">
+              Meet the <span className="text-br-color">Team</span>
+            </h2>
+            <p className="text-lg text-[#666666] max-w-2xl mx-auto">
+              The people behind Hidayah's mission.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {team.map((member, index) => (
               <motion.div
-                key={item.k}
-                {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: 0.26 + i * 0.04 }}
-                className="rounded-xl border border-black/5 bg-white p-5 shadow-sm"
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-3xl p-8 border border-gray-100 hover:border-br-color/30 hover:shadow-xl transition-all duration-300"
               >
-                <div className="text-xl font-semibold text-[#333]">{item.k}</div>
-                <div className="text-[#555]">{item.v}</div>
+                <div className={`w-16 h-16 bg-gradient-to-br ${member.gradient} rounded-2xl flex items-center justify-center mb-6 text-white font-bold text-2xl`}>
+                  {index === 0 ? "F" : "C"}
+                </div>
+                <h3 className="text-xl font-bold text-[#333333] mb-1">{member.name}</h3>
+                <p className="text-br-color font-semibold mb-4">{member.role}</p>
+                <p className="text-[#666666] leading-relaxed">{member.description}</p>
               </motion.div>
             ))}
           </div>
-        </motion.section> */}
+        </motion.div>
+      </section>
 
-        {/* Metrics */}
-        {/* <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-          {[
-            { k: "10+ years", v: "combined experience" },
-            { k: "Design → Dev", v: "end‑to‑end capability" },
-            { k: "Global", v: "remote-first workflow" },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              {...fadeUp}
-              transition={{ ...fadeUp.transition, delay: 0.36 + i * 0.05 }}
-              className="rounded-xl border border-black/5 bg-white p-5 shadow-sm"
-            >
-              <div className="text-2xl font-semibold text-br-color">{item.k}</div>
-              <div className="text-[#555]">{item.v}</div>
-            </motion.div>
-          ))}
-        </div> */}
-      </div>
-    </section>
+      {/* CTA */}
+      <section className="px-[6vw] py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative overflow-hidden bg-gradient-to-br from-br-color via-teal-600 to-teal-700 rounded-[2.5rem] p-10 md:p-16 text-center"
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl" />
+
+          <div className="relative z-10 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Sparkles className="w-4 h-4" />
+              Join Our Journey
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+              Ready to Build Something Meaningful?
+            </h2>
+            <p className="text-lg md:text-xl text-white/90 mb-10">
+              Let's create digital experiences that serve the Ummah and bring barakah to your mission.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/contact">
+                <button className="cursor-cta bg-white text-br-color px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  Start a Project
+                </button>
+              </a>
+              <a href="/careers">
+                <button className="cursor-cta bg-transparent text-white px-8 py-4 rounded-full font-semibold text-lg border-2 border-white/50 hover:bg-white/10 transition-all duration-300">
+                  Join Our Team
+                </button>
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+    </div>
   );
 }
