@@ -15,6 +15,7 @@ import Products from "./Pages/Products";
 import Contact from "./Pages/Contact";
 import Blogs from "./Pages/Blogs";
 import Careers from "./Pages/Careers";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import Footer from "./components/Website/Footer";
 import { Scroll } from "lucide-react";
 
@@ -96,6 +97,7 @@ const { ref: footerRef, inView: footerInView } = useInView({
                 <Route path="/contact" element={<AnimatedPage><Contact /></AnimatedPage>} />
                 <Route path="/blogs" element={<AnimatedPage><Blogs /></AnimatedPage>} />
                 <Route path="/careers" element={<AnimatedPage><Careers /></AnimatedPage>} />
+                <Route path="/privacy-policy" element={<AnimatedPage><PrivacyPolicy /></AnimatedPage>} />
               </Routes>
             </AnimatePresence>
             <Footer ref={footerRef} key={location.pathname}/>
