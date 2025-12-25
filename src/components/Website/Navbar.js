@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import HLogo from "../../assets/hlogo.png";
 import MenuOverlay from "./MenuOverlay";
@@ -17,6 +17,15 @@ const links = [
 const Navbar = ({ hidden }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const cursorRef = useRef();
+  const location = useLocation();
+
+  // Handle logo click - scroll to top if already on home page
+  const handleLogoClick = (e) => {
+    if (location.pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   const handleNavClick = () => {
     if (cursorRef.current) cursorRef.current.setNavTapActive(true);
@@ -42,8 +51,20 @@ const Navbar = ({ hidden }) => {
             className="flex items-center justify-between transform-gpu will-change-transform"
       >
         {/* Logo */}
-        <NavLink to="/" className="bg-br-color w-[56px] h-[56px] flex items-center justify-center rounded-full cursor-pointer">
-          <img src={HLogo} alt="Logo" className="h-8" />
+        <NavLink 
+          to="/" 
+          onClick={handleLogoClick}
+          aria-label="Hidayah - Go to homepage"
+          className="bg-br-color w-[56px] h-[56px] flex items-center justify-center rounded-full cursor-pointer"
+        >
+          <motion.img 
+            src={HLogo} 
+            alt="Hidayah Logo" 
+            className="h-8"
+            whileHover={{ scale: 1.15, rotate: 5 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 15 }}
+          />
         </NavLink>
 
         {/* Desktop links */}
