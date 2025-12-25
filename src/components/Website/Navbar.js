@@ -42,9 +42,9 @@ const Navbar = ({ hidden }) => {
             className="flex items-center justify-between transform-gpu will-change-transform"
       >
         {/* Logo */}
-        <div className="bg-br-color w-[56px] h-[56px] flex items-center justify-center rounded-full">
+        <NavLink to="/" className="bg-br-color w-[56px] h-[56px] flex items-center justify-center rounded-full cursor-pointer">
           <img src={HLogo} alt="Logo" className="h-8" />
-        </div>
+        </NavLink>
 
         {/* Desktop links */}
         <ul className="hidden lg:flex gap-2 bg-white/25 py-0 px-0.5 rounded-full h-[46px] items-center justify-center backdrop-blur-lg border-2 border-br-color/25">
