@@ -23,6 +23,33 @@ const mainPageVariants = {
   animate: { y: 0, opacity: 1, transition: { duration: 1.2, ease: "easeInOut", delay: 0.1 } },
 };
 
+// Page transition variants for smooth navigation
+const pageTransitionVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.4, ease: "easeOut" } 
+  },
+  exit: { 
+    opacity: 0, 
+    y: -10, 
+    transition: { duration: 0.25, ease: "easeIn" } 
+  },
+};
+
+// Animated page wrapper component
+const AnimatedPage = ({ children }) => (
+  <motion.div
+    variants={pageTransitionVariants}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+  >
+    {children}
+  </motion.div>
+);
+
 function App() {
   const [showSplash, setShowSplash] = useState(true);
 
@@ -60,15 +87,17 @@ const { ref: footerRef, inView: footerInView } = useInView({
           >
             <Navbar hidden={footerInView} />
             <ScrollToTop />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/works" element={<Works />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/blogs" element={<Blogs />} />
-              <Route path="/careers" element={<Careers />} />
-            </Routes>
+            <AnimatePresence mode="wait">
+              <Routes location={location} key={location.pathname}>
+                <Route path="/" element={<AnimatedPage><Home /></AnimatedPage>} />
+                <Route path="/about" element={<AnimatedPage><About /></AnimatedPage>} />
+                <Route path="/works" element={<AnimatedPage><Works /></AnimatedPage>} />
+                <Route path="/products" element={<AnimatedPage><Products /></AnimatedPage>} />
+                <Route path="/contact" element={<AnimatedPage><Contact /></AnimatedPage>} />
+                <Route path="/blogs" element={<AnimatedPage><Blogs /></AnimatedPage>} />
+                <Route path="/careers" element={<AnimatedPage><Careers /></AnimatedPage>} />
+              </Routes>
+            </AnimatePresence>
             <Footer ref={footerRef} key={location.pathname}/>
           </motion.div>
         )}

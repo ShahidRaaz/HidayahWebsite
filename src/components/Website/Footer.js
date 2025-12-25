@@ -1,5 +1,6 @@
 import { useState, forwardRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 import PLogo from "../../assets/plogo.png";
 
 const Footer = forwardRef(function Footer(props, ref) {
@@ -7,6 +8,15 @@ const Footer = forwardRef(function Footer(props, ref) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const location = useLocation();
+
+  // Handle logo click - scroll to top if already on home page
+  const handleLogoClick = (e) => {
+    if (location.pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -236,7 +246,20 @@ const Footer = forwardRef(function Footer(props, ref) {
         {/* Bottom bar */}
         <div className="mt-8 pt-6 flex flex-col gap-6 md:flex-row justify-start md:items-center md:justify-between">
           <div className="flex flex-col gap-2 text-[14px] text-gray-600">
-            <img src={PLogo} alt="Hidayah Logo" className="h-10 w-32 md:mb-0" />
+            <NavLink 
+              to="/" 
+              onClick={handleLogoClick}
+              aria-label="Hidayah - Go to homepage"
+              className="inline-block hover:opacity-80 transition-opacity duration-300"
+            >
+              <motion.img 
+                src={PLogo} 
+                alt="Hidayah Logo" 
+                className="h-10 w-32 md:mb-0 cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              />
+            </NavLink>
             <span>© {new Date().getFullYear()} Hidayah. All rights reserved</span>
           </div>
 
@@ -259,15 +282,19 @@ const Footer = forwardRef(function Footer(props, ref) {
             </NavLink>
           </div>
 
-          <button
+          <motion.button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="group self-end md:self-auto md:pl-auto cursor-cta w-[44px] h-[44px] flex items-center justify-center border-2 border-br-color backdrop-blur-md rounded-full bg-custom-teal hover:bg-br-color transition duration-300"
             aria-label="Scroll to top"
+            animate={{ y: [0, -6, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="stroke-current text-br-color group-hover:text-white transition">
               <path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </button>
+          </motion.button>
         </div>
       </div>
     </footer>
